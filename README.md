@@ -14,33 +14,35 @@ Weekly meeting for project:
 Fridays @ 2PM MST
 
 ## Vision statement:
-A centralized location for event announcement, management, and engagement.
-Users can view upcoming events in their local scene and filter results by categories such as genre, and subscribe to artists/event hosts.
-Event planners will be able to see who has indicated interest in their events.
+<EXPAND>
+A service for creating a centralized location for music event announcement, management, and engagement, for promoters/organizers of local music scenes.
+Example features for event planners:
+- Event planners will be able to see who has indicated interest in their events.
+- ...
+Example features for attendees:
+- Users can view upcoming events in their local scene and filter results by categories such as genre, and subscribe to artists/event hosts.
+- ...
 
 ## Motivation:
-
+<EXPAND>
 Many of us are involved in local music scenes, which often have events organized on various social media websites.
 These are often spread out across platforms and disorganized, relying on communication between individuals.  
 
 ## Risks to project completion:
-
 - Unfamiliar with webapp development, little HTML/CSS/Javascript experience among the team
 - No prior experience with team members
 - Time constraint to implement all features and potential for scope creep
 
 ## Mitigation Strategy for above risks:
 - Devoting time to learning, focusing on functionality above aesthetic design.
-- Adhering to Agile methodologies, flexible communication apart from weekly meetings in Discord chat.
-- Limiting scope to music events, contained to a local scene (city/region). Focus early on identifying key/necessary features.
+- Assessing team member strengths and organizing work accordingly, aided by adherence to Agile methodologies. Using weekly meetings to adjust strategy and flexible/dynamic organization of work apart from weekly meetings in Discord chat.
+- Limiting scope of app to music events (rather than events in general), contained to a local scene within a single city/region. Focus early on identifying key/necessary features.
 
 # Development method:
-
+<EXPAND>
 - Weekly Scrum meetings
   - Discuss progress
 - User Stories
 - kanban via Trello
 
-Project Tracking Software link (Trello is most common)
-Trello 
-[Make sure to add access for the instructor(s)]
+[Trello](https://trello.com/invite/b/66ee14f2ebb2bed462a868ac/ATTI55abcb1be45640ce0b7573874bbff32f36463F4F/wizardteam)
