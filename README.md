@@ -13,18 +13,18 @@ Mohammed Alsailani | Alsailani | moal5633@colorado.edu
 Weekly meeting for project: 
 Fridays @ 2PM MST
 
-## Vision statement:
-<EXPAND>
+## Vision statement EXPAND:
 A service for creating a centralized location for music event announcement, management, and engagement, for promoters/organizers of local music scenes.
 Example features for event planners:
 - Event planners will be able to see who has indicated interest in their events.
 - ...
+
+
 Example features for attendees:
 - Users can view upcoming events in their local scene and filter results by categories such as genre, and subscribe to artists/event hosts.
 - ...
 
-## Motivation:
-<EXPAND>
+## Motivation EXPAND:
 Many of us are involved in local music scenes, which often have events organized on various social media websites.
 These are often spread out across platforms and disorganized, relying on communication between individuals.  
 
@@ -38,10 +38,8 @@ These are often spread out across platforms and disorganized, relying on communi
 - Assessing team member strengths and organizing work accordingly, aided by adherence to Agile methodologies. Using weekly meetings to adjust strategy and flexible/dynamic organization of work apart from weekly meetings in Discord chat.
 - Limiting scope of app to music events (rather than events in general), contained to a local scene within a single city/region. Focus early on identifying key/necessary features.
 
-# Development method:
-<EXPAND>
+# Development method EXPAND:
 - Weekly Scrum meetings
-  - Discuss progress
 - User Stories
 - kanban via Trello
 
