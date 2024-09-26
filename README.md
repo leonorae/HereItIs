@@ -14,15 +14,20 @@ Weekly meeting for project:
 Fridays @ 2PM MST
 
 ## Vision statement EXPAND:
-A service for creating a centralized location for music event announcement, management, and engagement, for promoters/organizers of local music scenes.
-Example features for event planners:
-- Event planners will be able to see who has indicated interest in their events.
-- ...
+HereItIs is the goto place _online_ to connect with your local music scene _offline_. We are a centralized location for music event announcement, management, and engagement, bringing together fans, artists, event planners, and more.
 
+Potential benefits for all users:
+- Keep tabs on other artists, promoters, venues, and superfans by following what they're up to.
 
-Example features for attendees:
-- Users can view upcoming events in their local scene and filter results by categories such as genre, and subscribe to artists/event hosts.
-- ...
+Potential benefits for fans:
+- You've got taste! Filter search results to find exactly what you're looking for. It could be an artist's genre or a venue's vibe.
+- Soundcheck! Preview artists before you step out the door so you get
+
+Potential benefits for artists:
+- Encore! See moments captured by your fans at the show to engage with your loyal fans and grow your audience.
+
+Potential benefits for event planners:
+- Pump Up the Jam! Build hype for upcoming concerts, shows, and more.
 
 ## Motivation EXPAND:
 Many of us are involved in local music scenes, which often have events organized on various social media websites.
