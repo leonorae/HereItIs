@@ -33,7 +33,7 @@ HereItIs is the goto place _online_ to connect with your local music scene _offl
 - Pump Up the Jam! Build hype for upcoming concerts, shows, and more.
 - Be prepared! See who has indicated interest in your events before they happen.
 
-## Motivation EXPAND:
+## Motivation:
 Many of us are involved in local music scenes, which often have events organized on various social media websites. These are spread out across platforms and disorganized, relying on communication between individuals. Present solutions like Resident Advisor or Dice only capture a small slice of local scenes, and in the case of Resident Advisor, do not allow users to filter by music genre. Furthermore, Resident Advisor offers limited features to assist in organizing and managing events. We want to fill-in the gaps where we can to help our local scenes grow! 
 
 ## Risks to project completion:
