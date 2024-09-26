@@ -25,8 +25,7 @@ Example features for attendees:
 - ...
 
 ## Motivation EXPAND:
-Many of us are involved in local music scenes, which often have events organized on various social media websites.
-These are often spread out across platforms and disorganized, relying on communication between individuals.  
+Many of us are involved in local music scenes, which often have events organized on various social media websites. These are spread out across platforms and disorganized, relying on communication between individuals. Present solutions like Resident Advisor or Dice only capture a small slice of local scenes, and in the case of Resident Advisor, do not allow users to filter by music genre. Furthermore, Resident Advisor offers limited features to assist in organizing and managing events. We want to fill-in the gaps where we can to help our local scenes grow! 
 
 ## Risks to project completion:
 - Unfamiliar with webapp development, little HTML/CSS/Javascript experience among the team
@@ -42,5 +41,7 @@ These are often spread out across platforms and disorganized, relying on communi
 - Weekly Scrum meetings
 - User Stories
 - kanban via Trello
+- Ad-hoc tasks discussed via Discord 
 
 [Trello](https://trello.com/invite/b/66ee14f2ebb2bed462a868ac/ATTI55abcb1be45640ce0b7573874bbff32f36463F4F/wizardteam)
+
