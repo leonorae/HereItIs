@@ -51,9 +51,9 @@ Many of us are involved in local music scenes, which often have events organized
 # Development method:
 - Weekly Scrum meetings and assigning scrum master
 - User Stories
-- kanban via Trello
+- kanban via [Trello](https://trello.com/invite/b/66ee14f2ebb2bed462a868ac/ATTI55abcb1be45640ce0b7573874bbff32f36463F4F/wizardteam)
 - Burnup/burndown chart
 - Ad-hoc tasks discussed via Discord 
 
-[Trello](https://trello.com/invite/b/66ee14f2ebb2bed462a868ac/ATTI55abcb1be45640ce0b7573874bbff32f36463F4F/wizardteam)
+
 
