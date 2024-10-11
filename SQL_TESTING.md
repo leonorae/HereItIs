@@ -156,6 +156,4 @@ Location: Planner Page
 ### GetAllUpcomingEvents:
 Location: Home page
 
-### AddVenue(.....):
-### GetVenue(......):
 
