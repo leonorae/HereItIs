@@ -4,23 +4,47 @@
 ### Table: User
 
 #### Table Description
-TBD
+The User table stores information about all users of the system, including fans, artists, and event planners.
+
 
 #### Attributes and Description
-- idUser (Integer, Primary Key, Auto Increment)
-- UserName (String, Not Null, Unique)
-- Name (String, Not Null)
+- idUser (Integer, Primary Key, Auto Increment): Unique identifier for each user
+- UserName (String, Not Null, Unique): User's chosen username for login
+- Name (String, Not Null): User's full name
 - Role (String, Not Null): Must be one of the predefined roles ('Fan', 'Artist', 'Planner').
-- Location (String, Nullable)
+- Location (String, Nullable): User's location
 
 #### Tests
-TBD
+1. Test: Insert Valid User
+   - Description: Verify that a new user can be successfully inserted with all required fields
+   - Test steps:
+     1. Insert a new user with valid data for all fields
+     2. Retrieve the inserted user
+   - Expected result: User is successfully inserted and can be retrieved
+   - Actual result: New user is present in the User table with correct information
+   - Status: Pass/Fail
+
+2. Test: Enforce Unique UserName
+   - Description: Verify that the UserName must be unique
+   - Test steps:
+     1. Insert a user with a UserName
+     2. Attempt to insert another user with the same UserName
+   - Expected result: Second insert operation fails due to unique constraint violation
+   - Actual result: Database returns an error indicating unique constraint violation
+   - Status: Pass/Fail
+
+3. Test: Enforce Valid Role
+   - Description: Verify that the Role must be one of the predefined roles
+   - Test steps:
+     1. Attempt to insert a user with an invalid Role
+   - Expected result: Insert operation fails due to check constraint violation
+   - Actual result: Database returns an error indicating check constraint violation
+   - Status: Pass/Fail
 
 
 ### Table: Venue
 
 #### Table Description
-TBD
 
 #### Attributes and Description
 - idVenue (Integer, Primary Key, Auto Increment)
@@ -33,19 +57,37 @@ TBD
 
 ### Table: Event
 #### Table Description
-TBD
+The Event table stores information about music events, including their name, date and time, description, and associated venue and planner.
+
 
 #### Attributes and Description
-- idEvent (Integer, Primary Key, Auto Increment)
-- Name (String, Not Null)
-- DateTime (DateTime, Not Null)
-- Description (Text, Nullable)
-- Artist (String or Foreign Key)
-- VenueID (Integer, Foreign Key to Venue.idVenue, Not Null)
-- Planner (Integer, Foreign Key to User.idUser, Not Null)
+- idEvent (Integer, Primary Key, Auto Increment): Unique identifier for each event
+- Name (String, Not Null): The name of the event
+- DateTime (DateTime, Not Null): The date and time when the event takes place
+- Description (Text, Nullable): A detailed description of the event
+- Artist (String or Foreign Key): The artist performing at the event
+- VenueID (Integer, Foreign Key to Venue.idVenue, Not Null): The venue where the event takes place
+- Planner (Integer, Foreign Key to User.idUser, Not Null): The user who planned the event
 
 #### Tests
-TBD
+1. Test: Insert Valid Event
+   - Description: Verify that a new event can be successfully inserted with all required fields
+   - Pre-conditions: Venue and User (Planner) exist in their respective tables
+   - Test steps:
+     1. Insert a new event with valid data for all fields
+     2. Retrieve the inserted event
+   - Expected result: Event is successfully inserted and can be retrieved
+   - Actual result: New event is present in the Event table with correct information
+   - Status: Pass/Fail
+
+2. Test: Enforce Foreign Key Constraints
+   - Description: Verify that foreign key constraints are enforced for VenueID and Planner
+   - Test steps:
+     1. Attempt to insert an event with non-existent VenueID
+     2. Attempt to insert an event with non-existent Planner
+   - Expected result: Insert operations fail due to foreign key constraint violations
+   - Actual result: Database returns errors indicating foreign key constraint violations
+   - Status: Pass/Fail
 
 
 
@@ -114,6 +156,4 @@ Location: Planner Page
 ### GetAllUpcomingEvents:
 Location: Home page
 
-### AddVenue(.....):
-### GetVenue(......):
 
