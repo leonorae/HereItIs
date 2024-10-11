@@ -8,9 +8,9 @@ It will be updated every week after the conclusion of the team's weekly meeting 
 Following feedback from Professor Knox, the group decided to scale back functionality and focus on a minimal product that ties together the database, Python code, and frontend. Team specified which pages would be described for Milestone 4 and which SQL tables would be necessary for implementing for their functionality and Milestone 5. User functionality was discarded for now (ie. for now, any user of the app will be able to add events/artists), as it would add significant complexity and could potentially be a barrier to basic functionality testing.
 
 ## Status of Web Pages
-![image](https://github.com/user-attachments/assets/fb97e9c8-7ccf-4fff-9736-c51a34b36a4f)
 - Video: mockup of potential design/layout by William https://github.com/user-attachments/assets/b7f92c2e-970a-4674-929f-fb8424351ac7
-- Updated (scaled back) list of required pages: ![image](https://github.com/user-attachments/assets/39740886-d1e3-43da-8921-1c724775553b)
+- Updated (scaled back) list of required pages: ![image](https://github.com/user-attachments/assets/8eb50e44-3da4-4ff8-91d3-4d3c35b87cdf)
+
 
 ## Status of Database
 - Began preliminary designing of tests for SQL Testing Milestone.
