@@ -131,9 +131,18 @@ This page allows the user to create a new event and will prompt for event detail
 
 [Insert mockup or hand-drawn image here]
 
+### Parameters Needed for the Page
+- None
 
 ### Data needed to render the page
-- User details (username, name, email, location)
+- Form field for the event details:
+   - Event name
+   - Venue
+   - Location
+   - Date and Time
+   - Genre
+   - Artist
+   - Description   
 
 
 ### Link destinations for the page
@@ -142,22 +151,34 @@ This page allows the user to create a new event and will prompt for event detail
   
 
 ### List of tests for verifying the rendering of the page
-1. Test: 
+1. Form display correct fields:
+   - User able to add new event with correct form questions
+2. Attempt complete message after new data entry
+   - Successful event creation
+4. Correct link to the destination pages
+5. Verify input type and constraints
+   - make sure no int used in str, etc.
 
 
 ## 5. Add artist:
 ### Page Title
-Add Artist: 
+Add Artist:
 
 ### Page Description
 This page allows the user to create a new artist and will prompt for artist details. 
 
-[Insert mockup or hand-drawn image here]
+[Insert mockup or hand-drawn image here]'
 
 
+### Parameters Needed for the Page
+- None
+
+  
 ### Data needed to render the page
-- Webform requesting artist details
-- Artist details (name, type, etc.)
+- Form field for the event details:
+   - Name 
+   - Genre
+   - Location
 
 
 ### Link destinations for the page
@@ -166,11 +187,42 @@ This page allows the user to create a new artist and will prompt for artist deta
   
 
 ### List of tests for verifying the rendering of the page
-1. Form with correct questions
-   - User able to add new artist with correct form
+1. Form display correct fields:
+   - User able to add new artist with correct form questions
 2. Attempt complete message after new data entry
-3. Correct link to the destination page
+   - Successful event creation
+4. Correct link to the destination pages
+5. Verify input type and constraints
+   - make sure no int used in str, etc.
 
 
 ## 6. List of artist:
+
+### Page Title
+List of artist
+
+### Page Description
+List of all artists available in the application. User can navigate to any artist for more details.
+[Insert mockup or hand-drawn image here]
+
+### Parameters needed for the page
+- List of artists
+
+### Data needed to render the page
+- Artist names
+- Artist genres
+- Total number of artists
+
+### Link destinations for the page
+- Artist Profile pages
+- Home page
+- Add Artist page
+
+
+### List of tests for verifying the rendering of the page
+1. Artist List Display
+- Display artist list with genre
+
+2. Test: Destination Links
+- Correct links to destination pages, artist profile, home page, add artist 
 
