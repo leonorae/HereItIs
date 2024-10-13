@@ -8,6 +8,8 @@ Home
 ### Page Description
 The Home page serves as the main landing page for the application, displaying upcoming events and allowing users to navigate to other sections of the site.
 
+[Insert mockup or hand-drawn image here]
+
 
 ### Parameters needed for the page
 - Current date (for filtering upcoming events)
@@ -15,12 +17,12 @@ The Home page serves as the main landing page for the application, displaying up
 ### Data needed to render the page
 - List of upcoming events (limited to next 10)
 - Featured artists (if any)
-- User's location (for event recommendations)
+- User's location (for event recommendations) <!-- Might be difficult to implement first time MA -->
 
 ### Link destinations for the page
 - Event details pages
 - Artist profile pages
-- Search/Filter events page
+- Search/Filter events page <!-- Might not be needed, MA -->
 - static "about page"
 
 ### List of tests for verifying the rendering of the page
@@ -35,7 +37,7 @@ The Home page serves as the main landing page for the application, displaying up
 3. Test: Navigation functionality
    - Ensure all navigation links are working and lead to correct pages
 
-4. Test: Event recommendations
+4. Test: Event recommendations <!-- Might not be needed, MA -->
    - Verify that event recommendations are displayed based on user's location (if available)
 
 ## 2. Event Page
@@ -58,7 +60,7 @@ This page displays detailed information about a specific event, including the ar
 
 ### Link destinations for the page
 - Artist profile page
-- Venue details page
+- Venue details page <!-- we don't have web pages for venues, so might skip this? MA -->
 - List of Artists
   
 
@@ -87,6 +89,7 @@ Artist Profile: [Artist Name]
 ### Page Description
 This page showcases information about a specific artist, including their bio, upcoming events, and past performances.
 
+[Insert mockup or hand-drawn image here]
 
 ### Parameters needed for the page
 - Artist ID
@@ -111,7 +114,7 @@ This page showcases information about a specific artist, including their bio, up
    - Check that upcoming events are listed and sorted by date
    - Verify links to event details pages are functional
 
-3. Test: Music samples
+3. Test: Music samples <!-- might no be needed? MA -->
    - If available, test the functionality of music sample players or video embeds
 
 4. Test: Dynamic content loading
@@ -121,10 +124,12 @@ This page showcases information about a specific artist, including their bio, up
 
 
 ### Page Title
-Add Event: 
+Add Event 
 
 ### Page Description
 This page allows the user to create a new event and will prompt for event details. 
+
+[Insert mockup or hand-drawn image here]
 
 
 ### Data needed to render the page
@@ -132,7 +137,8 @@ This page allows the user to create a new event and will prompt for event detail
 
 
 ### Link destinations for the page
-- link back to homepage 
+- link back to homepage
+- link to event page 
   
 
 ### List of tests for verifying the rendering of the page
@@ -141,21 +147,29 @@ This page allows the user to create a new event and will prompt for event detail
 
 ## 5. Add artist:
 ### Page Title
-Add Event: 
+Add Artist: 
 
 ### Page Description
-This page allows the user to create a new event and will prompt for event details. 
+This page allows the user to create a new artist and will prompt for artist details. 
+
+[Insert mockup or hand-drawn image here]
 
 
 ### Data needed to render the page
-- User details (username, name, email, location)
+- Webform requesting artist details
+- Artist details (name, type, etc.)
 
 
 ### Link destinations for the page
-- link back to homepage 
+- Link back to homepage
+- List of artist
   
 
 ### List of tests for verifying the rendering of the page
+1. Form with correct questions
+   - User able to add new artist with correct form
+2. Attempt complete message after new data entry
+3. Correct link to the destination page
 
 
 ## 6. List of artist:
