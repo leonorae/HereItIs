@@ -14,7 +14,10 @@ TODO finish and insert mockup
 - Current date (for filtering upcoming events)
 
 ### Data needed to render the page
-- List of upcoming events
+- Names of upcoming events
+- Artists performing at upcoming events
+- Dates and times of upcoming events
+- Images for upcoming events
 - Featured artists (if any) <!--- remove if this space needed for filter dialogs ---!>
 
 ### Link destinations for the page
