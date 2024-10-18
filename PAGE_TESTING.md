@@ -156,6 +156,20 @@ Similarly to the Add Event page, this page allows the user to create a new artis
 
 
 ## 6. List of artist:
+### Page Title
+Artists
+
+### Page Description
+Displays the artists who have created pages on the website in alphabetical order and links to their pages. Allows users to filter the artists by genre.
+
+### Data needed to render the page
+- All artist names, photos, and genres.
+
+### Link destinations for the page
+- Link to each displayed artist's page
+- back to home
+
+### List of tests for verifying the rendering of the page
 
 ## 7. About Page:
 ### Page Title
