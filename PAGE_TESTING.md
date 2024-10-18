@@ -173,12 +173,15 @@ Displays the artists who have created pages on the website in alphabetical order
 
 ## 7. About Page:
 ### Page Title
-About
+About HereItIs
 
 ### Page Description
-A simple about page, with a description of what the app is and how to use 
+A simple about page, with a description of what the app is and how to use it.
 
 ### Data needed to render the page
-- User details (username, name, email, location)
+- Description of application
 
 ### Link destinations for the page
+- back to home
+
+### List of tests for verifying the rendering of the page
