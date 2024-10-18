@@ -1,27 +1,27 @@
 # Page Testing Documentation
 
-## 1. Home Page
+## 1. Home Page (Events)
 
 ### Page Title
-Home
+HereItIs (Upcoming Events)
 
 ### Page Description
-The Home page serves as the main landing page for the application, displaying upcoming events and allowing users to navigate to other sections of the site.
+The Home page serves as the main landing page for the application, displaying upcoming events and allowing users to navigate to other sections of the site. Shows the next 10 upcoming events, each with a name, venue location, time, price, and list of artists performing.
 
+TODO finish and insert mockup
 
 ### Parameters needed for the page
 - Current date (for filtering upcoming events)
 
 ### Data needed to render the page
-- List of upcoming events (limited to next 10)
-- Featured artists (if any)
-- User's location (for event recommendations)
+- List of upcoming events
+- Featured artists (if any) <!--- remove if this space needed for filter dialogs ---!>
 
 ### Link destinations for the page
-- Event details pages
-- Artist profile pages
-- Search/Filter events page
-- static "about page"
+- About Page
+- Event details pages (per displayed event)
+- Artist profile pages (per displayed event) <!--- maybe not enough space? ---!>
+- All Artists page
 
 ### List of tests for verifying the rendering of the page
 1. Test: Verify upcoming events display
@@ -41,33 +41,33 @@ The Home page serves as the main landing page for the application, displaying up
 ## 2. Event Page
 
 ### Page Title
-Event Details: [Event Name]
+[Event Name] @ [Venue Name]
 
 ### Page Description
-This page displays detailed information about a specific event, including the artist, venue, date, time, and ticket information.
+This page displays detailed information about a specific event, including the artists performing, venue location, date, time, ticket information, and a description.
 
-[Insert mockup or hand-drawn image here]
+TODO finish and insert mockup
 
 ### Parameters needed for the page
 - Event ID
 
 ### Data needed to render the page
-- Event details (name, date, time, description)
-- List of Artists
-- Artist information
+- Event details (name, venue, date, time, price, description)
+- Event name
+- Venue name and address
+- Date and time
+- List of Artists performing
+- Pricing
+- Description
 
 ### Link destinations for the page
-- Artist profile page
-- Venue details page
-- List of Artists
-  
-
-
+- Artist pages
+- Back to home
 
 ### List of tests for verifying the rendering of the page
 1. Test: Event information display
    - Verify all event details are correctly displayed
-   - Ensure the page title includes the event name
+   - Ensure the page title includes the correct event and venue name
 
 2. Test: Artist and venue links
    - Check that links to artist and venue pages are present and functional
@@ -85,22 +85,26 @@ This page displays detailed information about a specific event, including the ar
 Artist Profile: [Artist Name]
 
 ### Page Description
-This page showcases information about a specific artist, including their bio, upcoming events, and past performances.
+This page showcases information about a specific artist, including their image, bio, social media links, an embedded example of their work (video or audio), upcoming events, and past performances.
 
+TODO add mockup
 
 ### Parameters needed for the page
-- Artist ID
+- Artist Name
 
 ### Data needed to render the page
-- Artist details (name, bio, image)
-- List of upcoming events for the artist
-- Past performances
-- Social media links
+- Artist Name
+- Artist Image (cropped to specific size)
+- Artist Bio (plaintext)
+- Social media links (Instagram, Facebook, Soundcloud, Bandcamp)
+- Embeddable media link (youtube/soundcloud/bandcamp)
+- Next 3 upcoming events for the artist
+- Past 3 performances by the artist
 
 ### Link destinations for the page
 - Event details pages for upcoming events
+- Event details pages for previous events
 - Social media profiles
-- Music samples or videos (if available)
 
 ### List of tests for verifying the rendering of the page
 1. Test: Artist information display
@@ -119,21 +123,17 @@ This page showcases information about a specific artist, including their bio, up
 
 ## 4. Add Event:
 
-
 ### Page Title
 Add Event: 
 
 ### Page Description
-This page allows the user to create a new event and will prompt for event details. 
-
+This page allows the user to create a new event page and will prompt for event details. Will have relevant text-boxes and selectors for adding values to each required field.
 
 ### Data needed to render the page
-- User details (username, name, email, location)
-
+- Current date/time (for checking that new event will be after current date)
 
 ### Link destinations for the page
-- link back to homepage 
-  
+- links back to homepage (either submitting or cancelling)
 
 ### List of tests for verifying the rendering of the page
 1. Test: 
@@ -141,22 +141,30 @@ This page allows the user to create a new event and will prompt for event detail
 
 ## 5. Add artist:
 ### Page Title
-Add Event: 
+Add New Artist: 
 
 ### Page Description
-This page allows the user to create a new event and will prompt for event details. 
-
+Similarly to the Add Event page, this page allows the user to create a new artist page and will includes text-boxes and selectors for each required field.
 
 ### Data needed to render the page
 - User details (username, name, email, location)
 
-
 ### Link destinations for the page
-- link back to homepage 
-  
+- links back to homepage (either submitting or cancelling)
 
 ### List of tests for verifying the rendering of the page
 
 
 ## 6. List of artist:
 
+## 7. About Page:
+### Page Title
+About
+
+### Page Description
+A simple about page, with a description of what the app is and how to use 
+
+### Data needed to render the page
+- User details (username, name, email, location)
+
+### Link destinations for the page
