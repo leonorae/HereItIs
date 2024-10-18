@@ -8,7 +8,7 @@ Home
 ### Page Description
 The Home page serves as the main landing page for the application, displaying upcoming events and allowing users to navigate to other sections of the site.
 
-[Insert mockup or hand-drawn image here]
+[Insert mockup here]
 
 
 ### Parameters needed for the page
@@ -48,7 +48,7 @@ Event Details: [Event Name]
 ### Page Description
 This page displays detailed information about a specific event, including the artist, venue, date, time, and ticket information.
 
-[Insert mockup or hand-drawn image here]
+[Insert mockup here]
 
 ### Parameters needed for the page
 - Event ID
@@ -60,11 +60,9 @@ This page displays detailed information about a specific event, including the ar
 
 ### Link destinations for the page
 - Artist profile page
-- Venue details page <!-- we don't have web pages for venues, so might skip this? MA -->
+- Venue details page <!-- we don't have web pages for venues, so might skip this? MA --> <--agreed! MP-->
 - List of Artists
   
-
-
 
 ### List of tests for verifying the rendering of the page
 1. Test: Event information display
@@ -75,7 +73,7 @@ This page displays detailed information about a specific event, including the ar
    - Check that links to artist and venue pages are present and functional
 
 3. Test: Ticket information
-   - Confirm ticket availability and pricing information is accurate
+   - Confirm ticket availability and pricing information is accurate <will we implement ticket info? MP -->
    - Test the link to ticket purchase page
 
 4. Test: Dynamic content loading
@@ -114,7 +112,7 @@ This page showcases information about a specific artist, including their bio, up
    - Check that upcoming events are listed and sorted by date
    - Verify links to event details pages are functional
 
-3. Test: Music samples <!-- might no be needed? MA -->
+3. Test: Music samples <!-- might no be needed? MA --> <--not needed. MP-->
    - If available, test the functionality of music sample players or video embeds
 
 4. Test: Dynamic content loading
@@ -167,8 +165,7 @@ Add Artist:
 ### Page Description
 This page allows the user to create a new artist and will prompt for artist details. 
 
-[Insert mockup or hand-drawn image here]'
-
+[Insert mockup here]'
 
 ### Parameters Needed for the Page
 - None
@@ -199,10 +196,10 @@ This page allows the user to create a new artist and will prompt for artist deta
 ## 6. List of artist:
 
 ### Page Title
-List of artist
+List of artists
 
 ### Page Description
-List of all artists available in the application. User can navigate to any artist for more details.
+List of all artists available in the application. User can navigate to any artist for more details. <-- should we organize list by genre? MP --> 
 [Insert mockup or hand-drawn image here]
 
 ### Parameters needed for the page
@@ -220,7 +217,7 @@ List of all artists available in the application. User can navigate to any artis
 
 
 ### List of tests for verifying the rendering of the page
-1. Artist List Display
+1. Test: Artist List Display
 - Display artist list with genre
 
 2. Test: Destination Links
