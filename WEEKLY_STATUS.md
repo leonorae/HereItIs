@@ -2,10 +2,10 @@
 This file contains the weekly status of the Team #2 (Wizard Team) "HereItIs" project. 
 It will be updated every week after the conclusion of the team's weekly meeting On Fridays at 2:00 PM MST, so the file should be updated by around 3:00 PM MST.
 
-# Week 7 (10/11/2024)
+# Week 8 (10/118/2024)
 ## Snapshot of [Trello](https://trello.com/b/EVZ16txS/wizardteam)
 ![image](https://github.com/user-attachments/assets/bc9b5cf4-25e1-42b5-9b0b-5c32a48591ea)
-Following feedback from Professor Knox, the group decided to scale back functionality and focus on a minimal product that ties together the database, Python code, and frontend. Team specified which pages would be described for Milestone 4 and which SQL tables would be necessary for implementing for their functionality and Milestone 5. User functionality was discarded for now (ie. for now, any user of the app will be able to add events/artists), as it would add significant complexity and could potentially be a barrier to basic functionality testing.
+The focus of this week was the completion of the Web Page design for milestone #4 which has almost been completed. The specifications of each page has been completed and agreed upon by the team, and the descriptions of the tests will be completed and the mockup images finalized to complete the milestone, after which the focus will move to implementation of the Flask backend, HTML/CSS code itself, and Database design.
 
 ## Status of Web Pages
 - Video: mockup of potential design/layout by William https://github.com/user-attachments/assets/b7f92c2e-970a-4674-929f-fb8424351ac7
