@@ -6,7 +6,7 @@
 HereItIs (Upcoming Events)
 
 ### Page Description
-The Home page serves as the main landing page for the application, displaying upcoming events and allowing users to navigate to other sections of the site. Shows links to the upcoming events in chronological order, each with a poster image, name, and list of artists performing (further details are included in the event's details page). Also contains a mechanism for filtering events by a genre.
+The Home page serves as the main landing page for the application, displaying upcoming events and allowing users to navigate to other sections of the site. It shows links to the upcoming events in chronological order, each with a poster image, name, and list of artists performing (further details are included in the event's details page). Also contains a mechanism for filtering events by a genre.
 
 TODO finish and insert mockup
 
@@ -138,10 +138,10 @@ Add Event:
 This page allows the user to create a new event page and will prompt for event details. Will have relevant text-boxes and selectors for adding values to each required field. Will link to the newly created event when user inputs correct data into all fields and confirms input.
 
 ### Data needed to render the page
-- Current date/time (for checking that new event will be after current date)
+- Current date/time (for checking that the new event will be after the current date)
 
 ### Link destinations for the page
-- links back to homepage (either submitting or cancelling)
+- links back to homepage (either submitting or canceling)
 
 ### List of tests for verifying the rendering of the page
 1. Test: Forms display correct fields:
@@ -149,7 +149,7 @@ This page allows the user to create a new event page and will prompt for event d
    - Ensure user is able to enter data of correct type for new event into the correct question forms
 
 2. Test: Attempt complete message after new data entry
-   - If valid data supplied in each required form, display a "successful event creation" message
+   - If valid data is supplied in each required form, display a "successful event creation" message
 
 3. Test: Correct link to the destination pages
    - Ensure link back to home page works correctly
@@ -193,7 +193,7 @@ Similarly to the Add Event page, this page allows the user to create a new artis
    - Check that the page layout adjusts appropriately for various page sizes (desktop, tablet, and mobile views)
 
 
-## 6. List of artist:
+## 6. List of artists:
 ### Page Title
 Artists
 
@@ -212,7 +212,7 @@ Displays the artists who have created pages on the website in alphabetical order
    - Ensure all artists display correctly and are sorted alphabetically
 
 2. Test: Filtering artists by genre
-   - Confirm that filtering events by genre displays only correct artists
+   - Confirm that filtering events by genre displays only the correct artists
 
 3. Test: Destination Links
    - Correct links to destination pages: artist profiles, home page, add new artist page
@@ -232,7 +232,7 @@ A simple about page, with a description of what the app is and how to use it.
 
 ### List of tests for verifying the rendering of the page
 1. Test: Correct information displayed
-   - Ensure correct description is displayed and any images used are rendererd properly
+   - Ensure correct description is displayed and any images used are rendered properly
   
 2. Test: Correct link to the destination pages
    - Ensure link back to home works correctly
