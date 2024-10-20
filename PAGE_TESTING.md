@@ -209,7 +209,7 @@ Displays the artists who have created pages on the website in alphabetical order
 
 ### List of tests for verifying the rendering of the page
 1. Test: Artist List Display
-   - Display artist list with genre
+   - Ensure all artists display correctly and are sorted alphabetically
 
 2. Test: Filtering artists by genre
    - Confirm that filtering events by genre displays only correct artists
