@@ -6,7 +6,7 @@
 HereItIs (Upcoming Events)
 
 ### Page Description
-The Home page serves as the main landing page for the application, displaying upcoming events and allowing users to navigate to other sections of the site. Shows the next 10 upcoming events, each with a name, venue location, time, price, and list of artists performing.
+The Home page serves as the main landing page for the application, displaying upcoming events and allowing users to navigate to other sections of the site. Shows links to the upcoming events in chronological order, each with a poster image, name, and list of artists performing (further details are included in the event's details page). Also contains a mechanism for filtering events by a genre.
 
 TODO finish and insert mockup
 
@@ -32,14 +32,14 @@ TODO finish and insert mockup
    - Check that events are sorted by date
    - Confirm that only future events are displayed
 
-2. Test: Responsive design
-   - Check that the page layout adjusts appropriately for desktop, tablet, and mobile views
+2. Test: Filtering events by genre
+   - Confirm that filtering events by genre displays only correct events
 
-3. Test: Navigation functionality
-   - Ensure all navigation links are working and lead to correct pages
+4. Test: Navigation functionality
+   - Ensure navigation links (about page, event details links, artist profile links, all artists page) are working and lead to correct pages
 
-4. Test: Event recommendations
-   - Verify that event recommendations are displayed based on user's location (if available)
+5. Test: Responsive design
+   - Check that the page layout adjusts appropriately for various page sizes (desktop, tablet, and mobile views)
 
 ## 2. Event Page
 
@@ -55,32 +55,34 @@ TODO finish and insert mockup
 - Event ID
 
 ### Data needed to render the page
-- Event details (name, venue, date, time, price, description)
 - Event name
 - Venue name and address
 - Date and time
 - List of Artists performing
-- Pricing
+- Pricing and availability of tickets
 - Description
+- Poster image
 
 ### Link destinations for the page
-- Artist pages
+- Artist pages (artists performing at event)
 - Back to home
 
 ### List of tests for verifying the rendering of the page
 1. Test: Event information display
-   - Verify all event details are correctly displayed
+   - Verify all event details (name, venue, date/time, artists, pricing/availability, description, poster image) are correctly displayed
    - Ensure the page title includes the correct event and venue name
 
-2. Test: Artist and venue links
-   - Check that links to artist and venue pages are present and functional
+3. Test: Artist and venue links
+   - Check that links to artist pages are present and functional
 
-3. Test: Ticket information
+4. Test: Ticket information
    - Confirm ticket availability and pricing information is accurate
-   - Test the link to ticket purchase page
 
-4. Test: Dynamic content loading
-   - Ensure the page loads correctly with different event IDs
+5. Test: Dynamic content loading
+   - Ensure the page loads correctly with different event IDs, returns an appropriate error page for nonexistent event
+
+6. Test: Responsive design
+   - Check that the page layout adjusts appropriately for various page sizes (desktop, tablet, and mobile views)
 
 ## 3. Artist Profile Page
 
@@ -93,7 +95,7 @@ This page showcases information about a specific artist, including their image, 
 TODO add mockup
 
 ### Parameters needed for the page
-- Artist Name
+- Artist ID
 
 ### Data needed to render the page
 - Artist Name
@@ -111,18 +113,21 @@ TODO add mockup
 
 ### List of tests for verifying the rendering of the page
 1. Test: Artist information display
-   - Verify artist name, bio, and image are correctly displayed
+   - Verify artist name, bio, image, and social links, are correctly displayed
    - Ensure the page title includes the artist name
-
-2. Test: Upcoming events list
-   - Check that upcoming events are listed and sorted by date
-   - Verify links to event details pages are functional
 
 3. Test: Music samples
    - If available, test the functionality of music sample players or video embeds
 
-4. Test: Dynamic content loading
-   - Ensure the page loads correctly with different artist IDs
+4. Test: Upcoming events list
+   - Check that upcoming events are listed and sorted by date
+   - Verify links to event details pages are functional
+
+5. Test: Dynamic content loading
+   - Ensure the page loads correctly with different artist IDs, returns an appropriate error page for nonexistent artist
+  
+6. Test: Responsive design
+   - Check that the page layout adjusts appropriately for various page sizes (desktop, tablet, and mobile views)
 
 ## 4. Add Event:
 
@@ -130,7 +135,7 @@ TODO add mockup
 Add Event: 
 
 ### Page Description
-This page allows the user to create a new event page and will prompt for event details. Will have relevant text-boxes and selectors for adding values to each required field.
+This page allows the user to create a new event page and will prompt for event details. Will have relevant text-boxes and selectors for adding values to each required field. Will link to the newly created event when user inputs correct data into all fields and confirms input.
 
 ### Data needed to render the page
 - Current date/time (for checking that new event will be after current date)
@@ -139,9 +144,23 @@ This page allows the user to create a new event page and will prompt for event d
 - links back to homepage (either submitting or cancelling)
 
 ### List of tests for verifying the rendering of the page
-1. Test: 
+1. Test: Forms display correct fields:
+   - Ensure correct fields for data entry, with required fields appropriately marked
+   - Ensure user is able to enter data of correct type for new event into the correct question forms
 
+2. Test: Attempt complete message after new data entry
+   - If valid data supplied in each required form, display a "successful event creation" message
 
+3. Test: Correct link to the destination pages
+   - Ensure link back to home page works correctly
+   - Ensure a link to the newly created event is displayed after user submits correct information
+
+5. Test: Verify input type and constraints
+   - Ensure input of incorrect data type into an entry form is either impossible or displays an error to the user
+
+6. Test: Responsive design
+   - Check that the page layout adjusts appropriately for various page sizes (desktop, tablet, and mobile views)
+  
 ## 5. Add artist:
 ### Page Title
 Add New Artist: 
@@ -156,6 +175,22 @@ Similarly to the Add Event page, this page allows the user to create a new artis
 - links back to homepage (either submitting or cancelling)
 
 ### List of tests for verifying the rendering of the page
+1. Test: Forms display correct fields:
+   - Ensure correct fields for data entry, with required fields appropriately marked
+   - Ensure user is able to enter data of correct type for new event into the correct question forms
+
+2. Test: Attempt complete message after new data entry
+   - If valid data supplied in each required form, display a "successful artist creation" message
+
+3. Test: Correct link to the destination pages
+   - Ensure link back to list of artists page works correctly
+   - Ensure a link to the newly created artist is displayed after user submits correct information
+
+5. Test: Verify input type and constraints
+   - Ensure input of incorrect data type into an entry form is either impossible or displays an error to the user
+
+6. Test: Responsive design
+   - Check that the page layout adjusts appropriately for various page sizes (desktop, tablet, and mobile views)
 
 
 ## 6. List of artist:
@@ -173,6 +208,14 @@ Displays the artists who have created pages on the website in alphabetical order
 - back to home
 
 ### List of tests for verifying the rendering of the page
+1. Test: Artist List Display
+   - Display artist list with genre
+
+2. Test: Filtering artists by genre
+   - Confirm that filtering events by genre displays only correct artists
+
+3. Test: Destination Links
+   - Correct links to destination pages: artist profiles, home page, add new artist page
 
 ## 7. About Page:
 ### Page Title
@@ -182,9 +225,17 @@ About HereItIs
 A simple about page, with a description of what the app is and how to use it.
 
 ### Data needed to render the page
-- Description of application
+- Description of application, instructions for usage for new users
 
 ### Link destinations for the page
 - back to home
 
 ### List of tests for verifying the rendering of the page
+1. Test: Correct information displayed
+   - Ensure correct description is displayed and any images used are rendererd properly
+  
+2. Test: Correct link to the destination pages
+   - Ensure link back to home works correctly
+
+3. Test: Responsive design
+   - Check that the page layout adjusts appropriately for various page sizes (desktop, tablet, and mobile views)
