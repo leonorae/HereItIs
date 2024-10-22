@@ -8,7 +8,8 @@ HereItIs (Upcoming Events)
 ### Page Description
 The Home page serves as the main landing page for the application, displaying upcoming events and allowing users to navigate to other sections of the site. It shows links to the upcoming events in chronological order, each with a poster image, name, and list of artists performing (further details are included in the event's details page). Also contains a mechanism for filtering events by a genre.
 
-TODO finish and insert mockup
+![HereItIs-Desktop-v3-Home](https://github.com/leonorae/HereItIs/blob/main/Media/mockup/v3/HereItIs-Desktop-v3-Home.jpg?raw=true)
+![HereItIs-Desktop-v3-Home-Filtered](https://github.com/user-attachments/assets/7c9440db-17bc-435a-9ba3-0fd5fa7407c9)
 
 ### Parameters needed for the page
 - Current date (for filtering upcoming events)
@@ -51,7 +52,7 @@ TODO finish and insert mockup
 ### Page Description
 This page displays detailed information about a specific event, including the artists performing, venue location, date, time, ticket information, and a description.
 
-TODO finish and insert mockup
+![HereItIs-Desktop-v3-event-page](https://github.com/user-attachments/assets/f7a75a05-8339-4c4d-be8f-4a4b14ae2757)
 
 ### Parameters needed for the page
 - Event ID
@@ -95,7 +96,7 @@ Artist Profile: [Artist Name]
 ### Page Description
 This page showcases information about a specific artist, including their image, bio, social media links, an embedded example of their work (video or audio), upcoming events, and past performances.
 
-TODO add mockup
+![HereItIs-Desktop-v3-Artist-Profile](https://github.com/user-attachments/assets/3e9ea261-9d66-44f0-8960-0461c61efead)
 
 ### Parameters needed for the page
 - Artist ID
@@ -140,11 +141,13 @@ Add Event:
 ### Page Description
 This page allows the user to create a new event page and will prompt for event details. Will have relevant text-boxes and selectors for adding values to each required field. Will link to the newly created event when user inputs correct data into all fields and confirms input.
 
+![HereItIs-Desktop-v3-List-Event](https://github.com/user-attachments/assets/b123ff25-aabd-472d-9917-d7cf169d14ba)
+
+
 ### Data needed to render the page
 - Current date/time (for checking that the new event will be after the current date)
 
 ### Link destinations for the page
-- links back to homepage (either submitting or canceling)
 - link to add artist page
 
 ### List of tests for verifying the rendering of the page
@@ -172,11 +175,13 @@ Add New Artist:
 ### Page Description
 Similarly to the Add Event page, this page allows the user to create a new artist page and will includes text-boxes and selectors for each required field.
 
+![HereItIs-Desktop-v3-List-Artist](https://github.com/user-attachments/assets/d99fd776-c93a-468d-a200-f9c2817900b1)
+
+
 ### Data needed to render the page
 - User details (username, name, email, location)
 
 ### Link destinations for the page
-- links back to homepage (either submitting or cancelling)
 - link to add event page
 
 ### List of tests for verifying the rendering of the page
@@ -205,8 +210,13 @@ Artists
 ### Page Description
 Displays the artists who have created pages on the website in alphabetical order and links to their pages. Allows users to filter the artists by genre.
 
+![HereItIs-Desktop-v3-Artists-List-Filtered](https://github.com/user-attachments/assets/41c27a76-519d-42c7-be26-9d94c4bd8fa4)
+![HereItIs-Desktop-v3-List-Artists](https://github.com/user-attachments/assets/386a6a7b-37d9-413d-9273-24d092fa67fd)
+
+
 ### Data needed to render the page
 - All artist names, photos, and genres.
+- Featured event
 
 ### Link destinations for the page
 - Link to each displayed artist's page
@@ -228,6 +238,9 @@ About HereItIs
 
 ### Page Description
 A simple about page, with a description of what the app is and how to use it.
+
+![HereItIs-Desktop-v3-About](https://github.com/user-attachments/assets/2090b824-a8a0-4232-83fd-f49d9391b4e0)
+
 
 ### Data needed to render the page
 - Description of application, instructions for usage for new users
