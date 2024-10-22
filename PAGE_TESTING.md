@@ -18,13 +18,15 @@ TODO finish and insert mockup
 - Artists performing at upcoming events
 - Dates and times of upcoming events
 - Images for upcoming events
-- Featured artists (if any) <!--- remove if this space needed for filter dialogs ---!>
+- Featured artists (if any)
 
 ### Link destinations for the page
-- About Page
 - Event details pages (per displayed event)
-- Artist profile pages (per displayed event) <!--- maybe not enough space? ---!>
+- Artist profile pages (per displayed event)
 - All Artists page
+- Get Listed (Add Event, Add Artist)
+- About Page
+- Featured artist
 
 ### List of tests for verifying the rendering of the page
 1. Test: Verify upcoming events display
