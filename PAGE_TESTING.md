@@ -23,7 +23,7 @@ TODO finish and insert mockup
 ### Link destinations for the page
 - Event details pages (per displayed event)
 - Artist profile pages (per displayed event)
-- All Artists page
+- Artists page
 - Get Listed (Add Event, Add Artist)
 - About Page
 - Featured artist
@@ -64,6 +64,7 @@ TODO finish and insert mockup
 - Pricing and availability of tickets
 - Description
 - Poster image
+- Media (soundcloud/bandcamp) to embed
 
 ### Link destinations for the page
 - Artist pages (artists performing at event)
@@ -197,7 +198,7 @@ Similarly to the Add Event page, this page allows the user to create a new artis
    - Check that the page layout adjusts appropriately for various page sizes (desktop, tablet, and mobile views)
 
 
-## 6. List of artists:
+## 6. Artists:
 ### Page Title
 Artists
 
