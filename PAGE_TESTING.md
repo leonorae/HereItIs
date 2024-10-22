@@ -144,6 +144,7 @@ This page allows the user to create a new event page and will prompt for event d
 
 ### Link destinations for the page
 - links back to homepage (either submitting or canceling)
+- link to add artist page
 
 ### List of tests for verifying the rendering of the page
 1. Test: Forms display correct fields:
@@ -175,6 +176,7 @@ Similarly to the Add Event page, this page allows the user to create a new artis
 
 ### Link destinations for the page
 - links back to homepage (either submitting or cancelling)
+- link to add event page
 
 ### List of tests for verifying the rendering of the page
 1. Test: Forms display correct fields:
