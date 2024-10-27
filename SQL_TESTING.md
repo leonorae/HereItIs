@@ -181,7 +181,7 @@ The Event table stores information about music events, including their name, dat
       - Expected Results:
 
 
-### GetEventDetails:
+### GetEventDetails
 - Description: Retrieves detailed information about a specific event, including venue and associated artists.
 - Parameters: EventID
 - Return: Name, DateTime, Description, PosterURL, VenueName, Location, TicketPrice, ArtistIDs
@@ -218,7 +218,7 @@ The Event table stores information about music events, including their name, dat
       - Expected Results:
 
 
-### GetArtistDetails:
+### GetArtistDetails
 - Description: Retrieve information from UserName. Helpful in the user page
 - Parameters: ArtistID
 - Return: Name, Bio, ImageURL, SocialLinks
