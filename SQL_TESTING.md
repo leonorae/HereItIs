@@ -8,9 +8,11 @@ The artist table stores information about all artists in the system.
 
 
 #### Attributes and Description
-- ArtistUserName (String, Primary, Not Null, Unique): User's chosen username for login
+- ArtistID(INT, Primary Key, Auto Increment)
+- ArtistUserName (String, Not Null, Unique): User's chosen username for login
 - Name (String, Not Null): User's full name
-- Role (String, Not Null): Must be one of the predefined roles ('Fan', 'Artist', 'Planner').
+- Bio (TEXT, Nullable)
+- ImageURL (VARCHAR(255), Nullable)
 - Location (String, Nullable): User's location
 
 #### Tests
@@ -35,7 +37,7 @@ The artist table stores information about all artists in the system.
 3. Test: Check all valid attributes are available
    - Description: Verify that the all non-null attributes are inserted
    - Test steps:
-     1. Insert a artist with missing fields
+     1. Insert a artist with missing Name
    - Expected result: Artist will not be added
    - Actual result: An error message is printed, and the artist is not added.
    - Status: Pass/Fail
@@ -46,7 +48,8 @@ The artist table stores information about all artists in the system.
 #### Table Description
 
 #### Attributes and Description
-- Name (String, Primary Key, Not Null)
+- VenueID (INT, Primary Key, Auto Increment)
+- Name (String, Not Null)
 - Location (String, Nullable)
 - Description (String, Nullable)
 
@@ -67,6 +70,24 @@ The artist table stores information about all artists in the system.
    - Expected result: Venue will not be added to the table
    - Actual result: An error message is printed, and the artist is not added.
    - Status: Pass/Fail
+     
+3. Test: Enforce Unique Name
+   - Description: Verify that the venue name is unique to prevent duplicate entries.
+   - Test steps:
+     1. Insert a venue with a specific name.
+     2. Attempt to insert another venue with the same name.
+   - Expected result: Second insert operation fails due to unique constraint violation.
+   - Actual result: Error message is printed
+   - Status: Pass/Fail
+  
+4. Test: Handle Null Location and Description
+   - Description: Verify that a venue can be inserted without a location or description.
+   - Test steps:
+     1. Insert a venue with only the name provided.
+   - Expected result: Insert fails due missing attribute
+   - Actual result: Error message is printed
+   - Status: Pass/Fail
+  
 
 
 ### Table: Event
@@ -79,8 +100,10 @@ The Event table stores information about music events, including their name, dat
 - Name (String, Not Null): The name of the event
 - DateTime (DateTime, Not Null): The date and time when the event takes place
 - Description (Text, Nullable): A detailed description of the event
-- ArtistUserName (String, Foreign Key to Artist.ArtistUserName): The artist performing at the event
-- VenueName (Integer, Foreign Key to Venue.Name, Not Null): The venue where the event takes place
+- ArtistID (String, Foreign Key to Artist.ArtistID): The artist performing at the event
+- PosterURL	(VARCHAR(255), Nullable)
+- VenueID (Integer, Foreign Key to Venue.VenueID, Not Null): The venue where the event takes place
+- TicketPrice (DECIMAL(8,2), Nullable )
 
 #### Tests
 1. Test: Insert Valid Event
@@ -110,61 +133,107 @@ The Event table stores information about music events, including their name, dat
    - Expected result: Insert operations fail due to DateTime constraints
    - Actual result: Database returns errors
    - Status: Pass/Fail
+  
+4. Test: New events cannot be in the past
+   - Description: Verify that the Date and Time of new events are not in the past
+   - Test steps:
+     1. Attempt to insert an event with a date already passed
+   - Expected result: Insert operations fail due to DateTime constraints
+   - Actual result: Database returns errors
+   - Status: Pass/Fail
 
-
-#### Tests
-TBD
 
 ## Use Cases for Data Access Methods
-### AddEvent(Name, DateTime, Description, ArtistID, Venue, PlannerID):
-- Description: Add event to the database
-- Input: Event details
-- Returns: Add event to Event table in the database
-- Tests: make sure ArtistID and PlannerID exist in the database, and all fields are not null.
-- Location: TBD
+### GetAllUpcomingEvents
+- Description: Retrieves all upcoming events (those with a future date) along with their associated venues.
+- Parameters: None
+- Returns: EventID, Name, DateTime, PosterURL, VenueName
+- List of tests for verifying each access method:
+  1. Valid Upcoming Events
+     - Description: Ensure that only events with a future date are returned.
+     - Steps: Insert an event dated today and check if it available next day.
+     - Expected Results: Event should not show
+  2. No Upcoming Events
+      - Description: Verify behavior when no upcoming events exist.
+      - Steps: Delete all events
+      - Expected Results: No events available
+  3. Proper Ordering by Date
+      - Description: Ensure events are sorted in ascending order by date.
+      - Steps: insert multiple events not in data order
+      - Expected Results: Events are ordered by date
 
-### GetEvent(idEvent):
-- Description: Retreive event details
-- Input: idEvent
-- Return: Event Details
-- Tests: idEvent is valid
-- Location: Per event page
+### AddEvent
+- Description: Add event to the database with all relevant details
+- Parameters: Event details, DateTime, Description, PosterURL, VenueID, TicketPrice, ArtistIDs
+- Returns: If success, add to database and Returns the EventID otherwise error message
+- List of tests for verifying each access method:
+  1. Insert Valid Event
+     - Description: Ensure an event is correctly inserted with all valid data.
+     - Steps: Insert an event with all required fields.
+     - Expected Results: Event is successfully inserted and retrievable.
+  2. Insert Event with Missing Data
+      - Description: 
+      - Steps:
+      - Expected Results: 
+  3. Invalid VenueID Handling
+      - Description: 
+      - Steps: 
+      - Expected Results:
 
-### AddUser(UserName, Name, Role, Location):
-- Description: Add a new user to the website
-- Input: User details
-- Returns: Add user to User table in the database
-- Tests: All fields available. UserName is not duplicate
-- Location: Main Users page
 
-### GetUser(UserName):
+### GetEventDetails:
+- Description: Retrieves detailed information about a specific event, including venue and associated artists.
+- Parameters: EventID
+- Return: Name, DateTime, Description, PosterURL, VenueName, Location, TicketPrice, ArtistIDs
+- List of tests for verifying each access method:
+  1. Valid Event ID
+     - Description: 
+     - Steps: 
+     - Expected Results: 
+  2. TBD
+      - Description: 
+      - Steps:
+      - Expected Results: 
+  3. TBD
+      - Description: 
+      - Steps: 
+      - Expected Results:
+        
+### AddArtist
+- Description: Inserts a new artist into the database with relevant information,
+- Parameters: Name, Bio, ImageURL, SocialLinks, Genre
+- Returns: If success, add to database and Returns the ArtistID otherwise error message
+- List of tests for verifying each access method:
+  1. Insert Valid Artist
+     - Description: 
+     - Steps: 
+     - Expected Results: 
+  2. Handle Missing Optional Fields
+      - Description: 
+      - Steps:
+      - Expected Results: 
+  3. Enforce Unique Artist Name
+      - Description: 
+      - Steps: 
+      - Expected Results:
+
+
+### GetArtistDetails:
 - Description: Retrieve information from UserName. Helpful in the user page
-- Input: UserName
-- Return: User details
-- Tests: Username is available
-- Location: per user page
+- Parameters: ArtistID
+- Return: Name, Bio, ImageURL, SocialLinks
+- List of tests for verifying each access method:
+  1. Valid Artist ID
+     - Description: 
+     - Steps: 
+     - Expected Results: 
+  2. TBD
+      - Description: 
+      - Steps:
+      - Expected Results: 
+  3. TBD
+      - Description: 
+      - Steps: 
+      - Expected Results:
 
-### AddAnnoucement(EventID, Title, DateTime, userID, Note):
-- Description: Add announcement
-- Input: User details
-- Returns: Add user to User table in the database
-- Tests: Make sure all fields are not null. Also, EventID and userID are available.
-
-### GetAnnoucementByEvent(EventID):
-- Description: Receive all announcements for a single event
-- Input: EventID
-- Returns: All announcements for this event
-
-### GetUpcomingEventsByArtist:
-Location: Artist Page
-
-### GetUpcomingEventsByPlanner:
-Location: Planner Page
-
-
-### GetAllUpcomingEvents:
-Location: Home page
-
-### AddVenue(.....):
-### GetVenue(......):
 
