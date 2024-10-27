@@ -1,0 +1,174 @@
+/* Define color variables for consistent use throughout the stylesheet */
+:root
+{
+    --cyan-card: #b0ffff;
+    --green-card: #90ff90;
+    --sidebar-bg: #1a1a1a;
+    --header-bg: #1a1a1a;
+}
+
+/* Reset default margins and padding, set base font and ensure full height */
+body, html
+{
+    margin: 0;
+    padding: 0;
+    font-family: "Courier New", Monospace;
+    height: 100%;
+}
+
+/* Main wrapper div that holds sidebar and content area */
+.container
+{
+    display: flex;
+    height: 100%;
+    background-color: #d2d3d3;
+}
+
+/* Left sidebar containing logo, navigation and featured artist */
+aside
+{
+    width: 200px;
+    background-color: var(--sidebar-bg);
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* "HereItIs" logo text in sidebar */
+aside h1
+{
+    margin-top: 0;
+    font-size: 2em;
+}
+
+/* Navigation menu list container - removes default bullet points */
+nav ul
+{
+    border: 2px solid black;
+    background-color: black;
+    list-style-type: none;
+    padding: 10px 10px 10px 10px;
+}
+
+/* Individual navigation menu items */
+nav ul li
+{
+    margin-bottom: 10px;
+}
+
+/* Navigation menu links (Home, Artists, Get Listed, About) */
+/* needs help, get listed is centered weirdly */
+nav ul li a
+{
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.0em;
+}
+
+/* Featured artist section at bottom of sidebar */
+.featured-artist
+{
+    margin-top: auto;  /* Pushes section to bottom of sidebar */
+}
+
+/* "Featured Artist" title bar */
+/* "Featured Artist" needs to be centered */
+.featured-artist h2
+{
+    background-color: black;
+    align-content: center;
+    padding: 10px;
+    margin: 0;
+}
+
+/* Red rectangle placeholder for featured artist image */
+.artist-image
+{
+    height: 150px;
+    background-color: #ff4444;
+}
+
+/* Main content area containing header and event grid */
+main
+{
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top bar containing City/State, Date, and Filter */
+header
+{
+    background-color: var(--header-bg);
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+/* Container for header elements to space them properly */
+.header-content
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Grid container for event cards - creates 3-column layout */
+.events-grid
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0 10px;
+}
+
+/* Base styles for each event card */
+.event-card
+{
+    aspect-ratio: 16/9;  /* Maintains consistent card proportions */
+    border: 1px solid #999;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cyan background for alternating cards */
+.cyan-card
+{
+    background-color: var(--cyan-card);
+}
+
+/* Green background for alternating cards, placeholder */
+.green-card
+{
+    background-color: var(--green-card);
+}
+
+/* Container for text content within each event card, placeholder */
+.event-content
+{
+    padding: 10px;
+    margin-top: auto;  /* Pushes content to bottom of card */
+}
+
+/* Artist names in event cards */
+.artists
+{
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Event, venue, and date information in event cards */
+.event-details
+{
+    margin: 5px 0 0 0;
+    font-size: 0.9em;
+}
+
+/* Filter text in header - adds pointer cursor for interactivity */
+.filter
+{
+    cursor: pointer;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Ensures proper rendering on mobile devices and correct viewport size -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HereItIs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Main container that wraps the entire layout -->
+<div class="container">
+    <!-- Left sidebar containing navigation and featured artist -->
+    <aside>
+        <!-- Website logo/title -->
+        <h1>HereItIs</h1>
+
+        <!-- Main navigation menu -->
+        <nav>
+            <ul>
+                <!-- Navigation links - currently using hashtags as placeholders -->
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#artists">ARTIST</a></li>
+                <li><a href="#get-listed">GET LISTED</a></li>
+                <li><a href="#about">ABOUT</a></li>
+            </ul>
+        </nav>
+
+        <!-- Featured artist section at bottom of sidebar -->
+        <div class="featured-artist">
+            <h2>Featured Artist</h2>
+            <!-- Placeholder for artist image - currently a colored rectangle -->
+            <div class="artist-image"></div>
+            <p>Artist B</p>
+        </div>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+        <!-- Top header bar -->
+        <header>
+            <div class="header-content">
+                <!-- Location, date, and filter options -->
+                <span>City, State</span>
+                <!-- Date is dynamically updated via JavaScript -->
+                <span class="date">MM/DD/YYYY</span>
+                <span class="filter">Filter</span>
+            </div>
+        </header>
+
+        <!-- Grid container for event cards -->
+        <div class="events-grid">
+            <!-- Event cards are dynamically generated and inserted here by app.js -->
+        </div>
+    </main>
+</div>
+
+<!-- Links to external JavaScript file that handles dynamic content -->
+<script src="app.js"></script>
+</body>
+</html>
