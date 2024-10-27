@@ -1,44 +1,43 @@
 # SQL Design
 ## Tables:
 
-### Table: User
+### Table: Artist
 
 #### Table Description
-The User table stores information about all users of the system, including fans, artists, and event planners.
+The artist table stores information about all artists in the system.
 
 
 #### Attributes and Description
-- idUser (Integer, Primary Key, Auto Increment): Unique identifier for each user
-- UserName (String, Not Null, Unique): User's chosen username for login
+- ArtistUserName (String, Primary, Not Null, Unique): User's chosen username for login
 - Name (String, Not Null): User's full name
 - Role (String, Not Null): Must be one of the predefined roles ('Fan', 'Artist', 'Planner').
 - Location (String, Nullable): User's location
 
 #### Tests
-1. Test: Insert Valid User
-   - Description: Verify that a new user can be successfully inserted with all required fields
+1. Test: Insert Valid Artist
+   - Description: Verify that a new artist can be successfully inserted with all required fields
    - Test steps:
-     1. Insert a new user with valid data for all fields
+     1. Insert a new artist with valid data for all fields
      2. Retrieve the inserted user
    - Expected result: User is successfully inserted and can be retrieved
-   - Actual result: New user is present in the User table with correct information
+   - Actual result: New artist is present in the artist table with correct information
    - Status: Pass/Fail
 
-2. Test: Enforce Unique UserName
-   - Description: Verify that the UserName must be unique
+2. Test: Enforce Unique ArtistUserName
+   - Description: Verify that the ArtistUserName must be unique
    - Test steps:
-     1. Insert a user with a UserName
-     2. Attempt to insert another user with the same UserName
+     1. Insert a user with a ArtistUserName
+     2. Attempt to insert another user with the same ArtistUserName
    - Expected result: Second insert operation fails due to unique constraint violation
    - Actual result: Database returns an error indicating unique constraint violation
    - Status: Pass/Fail
-
-3. Test: Enforce Valid Role
-   - Description: Verify that the Role must be one of the predefined roles
+     
+3. Test: Check all valid attributes are available
+   - Description: Verify that the all non-null attributes are inserted
    - Test steps:
-     1. Attempt to insert a user with an invalid Role
-   - Expected result: Insert operation fails due to check constraint violation
-   - Actual result: Database returns an error indicating check constraint violation
+     1. Insert a artist with missing fields
+   - Expected result: Artist will not be added
+   - Actual result: An error message is printed, and the artist is not added.
    - Status: Pass/Fail
 
 
@@ -47,13 +46,28 @@ The User table stores information about all users of the system, including fans,
 #### Table Description
 
 #### Attributes and Description
-- idVenue (Integer, Primary Key, Auto Increment)
-- Name (String, Not Null)
+- Name (String, Primary Key, Not Null)
 - Location (String, Nullable)
 - Description (String, Nullable)
 
 #### Tests
-TBD
+1. Test: Insert Valid Venue
+   - Description: Verify that a new venue can be successfully inserted with all required fields
+   - Test steps:
+     1. Insert a new venue with valid data for all fields
+     2. Retrieve the inserted venue
+   - Expected result: Venue is successfully inserted and can be retrieved
+   - Actual result: New venue is present in the User table with correct information
+   - Status: Pass/Fail
+
+2. Test: Check all valid attributes are available
+   - Description: Verify that the all non-null attributes are inserted
+   - Test steps:
+     1. Insert a venue with missing fields
+   - Expected result: Venue will not be added to the table
+   - Actual result: An error message is printed, and the artist is not added.
+   - Status: Pass/Fail
+
 
 ### Table: Event
 #### Table Description
@@ -65,9 +79,8 @@ The Event table stores information about music events, including their name, dat
 - Name (String, Not Null): The name of the event
 - DateTime (DateTime, Not Null): The date and time when the event takes place
 - Description (Text, Nullable): A detailed description of the event
-- Artist (String or Foreign Key): The artist performing at the event
-- VenueID (Integer, Foreign Key to Venue.idVenue, Not Null): The venue where the event takes place
-- Planner (Integer, Foreign Key to User.idUser, Not Null): The user who planned the event
+- ArtistUserName (String, Foreign Key to Artist.ArtistUserName): The artist performing at the event
+- VenueName (Integer, Foreign Key to Venue.Name, Not Null): The venue where the event takes place
 
 #### Tests
 1. Test: Insert Valid Event
@@ -81,27 +94,23 @@ The Event table stores information about music events, including their name, dat
    - Status: Pass/Fail
 
 2. Test: Enforce Foreign Key Constraints
-   - Description: Verify that foreign key constraints are enforced for VenueID and Planner
+   - Description: Verify that foreign key constraints are enforced for ArtistUserName and VenueName
    - Test steps:
-     1. Attempt to insert an event with non-existent VenueID
-     2. Attempt to insert an event with non-existent Planner
+     1. Attempt to insert an event with non-existent ArtistUserName
+     2. Attempt to insert an event with non-existent VenueName
    - Expected result: Insert operations fail due to foreign key constraint violations
    - Actual result: Database returns errors indicating foreign key constraint violations
    - Status: Pass/Fail
+  
+3. Test: Valid DateTime
+   - Description: Verify Date and Time are valid entries
+   - Test steps:
+     1. Attempt to insert an event with time hour 25:00
+     2. Attempt to insert an event on December 32
+   - Expected result: Insert operations fail due to DateTime constraints
+   - Actual result: Database returns errors
+   - Status: Pass/Fail
 
-
-
-### Table: Announcement
-#### Table Description
-TBD
-
-#### Attributes and Description
-- idAnnouncement (Integer, Primary Key, Auto Increment)
-- EventID (Integer, Foreign Key to Event.idEvent, Not Null):
-- Title (String, Not Null)
-- DateTime (DateTime, Not Null)
-- userID (Integer, Foreign Key to User.idUser, Not Null):
-- Note (Text, Not Null)
 
 #### Tests
 TBD
