@@ -10,7 +10,7 @@ The artist table stores information about all artists in the system.
 #### Attributes and Description
 - ArtistID(INT, Primary Key, Auto Increment)
 - ArtistUserName (String, Not Null, Unique): User's chosen username for login
-- Name (String, Not Null): User's full name
+- Name (String, Not Null): Artist full name
 - Bio (TEXT, Nullable)
 - ImageURL (VARCHAR(255), Nullable)
 - Location (String, Nullable): User's location
@@ -34,7 +34,7 @@ The artist table stores information about all artists in the system.
    - Actual result: Database returns an error indicating unique constraint violation
    - Status: Pass/Fail
      
-3. Test: Check all valid attributes are available
+3. Test: Check all not null attributes are available
    - Description: Verify that the all non-null attributes are inserted
    - Test steps:
      1. Insert a artist with missing Name
@@ -151,34 +151,34 @@ The Event table stores information about music events, including their name, dat
 - List of tests for verifying each access method:
   1. Valid Upcoming Events
      - Description: Ensure that only events with a future date are returned.
-     - Steps: Insert an event dated today and check if it available next day.
-     - Expected Results: Event should not show
+     - Steps: Insert an event dated today and check if it is available the next day.
+     - Expected Results: The event should not show
   2. No Upcoming Events
       - Description: Verify behavior when no upcoming events exist.
       - Steps: Delete all events
       - Expected Results: No events available
   3. Proper Ordering by Date
       - Description: Ensure events are sorted in ascending order by date.
-      - Steps: insert multiple events not in data order
+      - Steps: Add multiple events not in data order
       - Expected Results: Events are ordered by date
 
 ### AddEvent
 - Description: Add event to the database with all relevant details
 - Parameters: Event details, DateTime, Description, PosterURL, VenueID, TicketPrice, ArtistIDs
-- Returns: If success, add to database and Returns the EventID otherwise error message
+- Returns: If successful, add to the database and Returns the EventID; otherwise error message
 - List of tests for verifying each access method:
   1. Insert Valid Event
      - Description: Ensure an event is correctly inserted with all valid data.
      - Steps: Insert an event with all required fields.
      - Expected Results: Event is successfully inserted and retrievable.
   2. Insert Event with Missing Data
-      - Description: 
-      - Steps:
-      - Expected Results: 
+      - Description: If non-nullable attributes are missing, it should return an error. 
+      - Steps: Insert an event with missing name
+      - Expected Results: Return error, event name is missing
   3. Invalid VenueID Handling
-      - Description: 
-      - Steps: 
-      - Expected Results:
+      - Description: If VenueID doesn't exist, returns an error. 
+      - Steps: Add an event with VenueID that does not exist
+      - Expected Results: Return error VenueID does not exist.
 
 
 ### GetEventDetails
@@ -187,35 +187,27 @@ The Event table stores information about music events, including their name, dat
 - Return: Name, DateTime, Description, PosterURL, VenueName, Location, TicketPrice, ArtistIDs
 - List of tests for verifying each access method:
   1. Valid Event ID
-     - Description: 
-     - Steps: 
-     - Expected Results: 
-  2. TBD
-      - Description: 
-      - Steps:
-      - Expected Results: 
-  3. TBD
-      - Description: 
-      - Steps: 
-      - Expected Results:
+     - Description: Inserting valid EventID returns the correct information
+     - Steps: Use valid Event ID as input
+     - Expected Results: Returns correct event information
+  2. Not Valid Event ID
+      - Description: Using non valid Event ID return error
+      - Steps: Use non valid Event ID as input
+      - Expected Results: Return error event not found
         
 ### AddArtist
 - Description: Inserts a new artist into the database with relevant information,
 - Parameters: Name, Bio, ImageURL, SocialLinks, Genre
-- Returns: If success, add to database and Returns the ArtistID otherwise error message
+- Returns: If successful, add to the database and Returns the ArtistID; otherwise error message
 - List of tests for verifying each access method:
   1. Insert Valid Artist
-     - Description: 
-     - Steps: 
-     - Expected Results: 
-  2. Handle Missing Optional Fields
-      - Description: 
-      - Steps:
-      - Expected Results: 
-  3. Enforce Unique Artist Name
-      - Description: 
-      - Steps: 
-      - Expected Results:
+     - Description: Ensure an event is correctly inserted with all valid data.
+     - Steps: Insert an artist with all required fields.
+     - Expected Results: The artist is successfully inserted and retrievable.
+  2. Insert Event with Missing Data
+      - Description: If non-nullable attributes are missing, it should return an error. 
+      - Steps: Insert an artist with missing name
+      - Expected Results: Return error, artist name is missing
 
 
 ### GetArtistDetails
@@ -224,16 +216,12 @@ The Event table stores information about music events, including their name, dat
 - Return: Name, Bio, ImageURL, SocialLinks
 - List of tests for verifying each access method:
   1. Valid Artist ID
-     - Description: 
-     - Steps: 
-     - Expected Results: 
-  2. TBD
-      - Description: 
-      - Steps:
-      - Expected Results: 
-  3. TBD
-      - Description: 
-      - Steps: 
-      - Expected Results:
+     - Description: Inserting Artist EventID returns the correct information
+     - Steps: Use valid Artist ID as input
+     - Expected Results: Returns correct Artist information
+  2. Not Valid Artist ID
+      - Description: Using non valid Artist ID return error
+      - Steps: Use non valid Artist ID as input
+      - Expected Results: Return error Artist not found
 
 
