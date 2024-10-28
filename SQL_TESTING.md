@@ -46,6 +46,7 @@ The artist table stores information about all artists in the system.
 ### Table: Venue
 
 #### Table Description
+The Venue table stores information about all concert venues in the system including name, physical location, and a description of the space.
 
 #### Attributes and Description
 - VenueID (INT, Primary Key, Auto Increment)
