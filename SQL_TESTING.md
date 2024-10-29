@@ -37,7 +37,8 @@ The artist table stores information about all artists in the system.
 3. Test: Check all not null attributes are available
    - Description: Verify that the all non-null attributes are inserted
    - Test steps:
-     1. Insert a artist with missing Name
+     1. Insert an artist with missing Name
+     2. Insert an artist with missing ArtistUserName
    - Expected result: Artist will not be added
    - Actual result: An error message is printed, and the artist is not added.
    - Status: Pass/Fail
@@ -101,7 +102,7 @@ The Event table stores information about music events, including their name, dat
 - Name (String, Not Null): The name of the event
 - DateTime (DateTime, Not Null): The date and time when the event takes place
 - Description (Text, Nullable): A detailed description of the event
-- ArtistID (String, Foreign Key to Artist.ArtistID): The artist performing at the event
+- ArtistID (String, Foreign Key to Artist.ArtistID, Not Null): The artist performing at the event
 - PosterURL	(VARCHAR(255), Nullable)
 - VenueID (Integer, Foreign Key to Venue.VenueID, Not Null): The venue where the event takes place
 - TicketPrice (DECIMAL(8,2), Nullable )
@@ -142,6 +143,7 @@ The Event table stores information about music events, including their name, dat
    - Expected result: Insert operations fail due to DateTime constraints
    - Actual result: Database returns errors
    - Status: Pass/Fail
+
 
 
 ## Use Cases for Data Access Methods
