@@ -9,11 +9,14 @@ The artist table stores information about all artists in the system.
 
 #### Attributes and Description
 - ArtistID(INT, Primary Key, Auto Increment)
-- ArtistUserName (String, Not Null, Unique): User's chosen username for login
+- ArtistUserName (String, Not Null, Unique)
 - Name (String, Not Null): Artist full name
 - Bio (TEXT, Nullable)
 - ImageURL (VARCHAR(255), Nullable)
-- Location (String, Nullable): User's location
+- Location (String, Nullable)
+- FacebookURL (VARCHAR(255), Nullable)
+- InstagramURL (VARCHAR(255), Nullable)
+- SoundCloudURL (VARCHAR(255), Nullable)
 
 #### Tests
 1. Test: Insert Valid Artist
