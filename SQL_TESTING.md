@@ -8,11 +8,11 @@ The User table stores information about all users of the system, including fans,
 
 
 #### Attributes and Description
-- idUser (Integer, Primary Key, Auto Increment): Unique identifier for each user
-- UserName (String, Not Null, Unique): User's chosen username for login
-- Name (String, Not Null): User's full name
-- Role (String, Not Null): Must be one of the predefined roles ('Fan', 'Artist', 'Planner').
-- Location (String, Nullable): User's location
+- idUser (Integer, Primary Key, Auto Increment)
+- UserName (String, Not Null, Unique)
+- Name (String, Not Null)
+- Role (String, Not Null)
+- Location (String, Nullable)
 
 #### Tests
 1. Test: Insert Valid User
@@ -61,13 +61,13 @@ The Event table stores information about music events, including their name, dat
 
 
 #### Attributes and Description
-- idEvent (Integer, Primary Key, Auto Increment): Unique identifier for each event
-- Name (String, Not Null): The name of the event
-- DateTime (DateTime, Not Null): The date and time when the event takes place
-- Description (Text, Nullable): A detailed description of the event
-- Artist (String or Foreign Key): The artist performing at the event
-- VenueID (Integer, Foreign Key to Venue.idVenue, Not Null): The venue where the event takes place
-- Planner (Integer, Foreign Key to User.idUser, Not Null): The user who planned the event
+- idEvent (Integer, Primary Key, Auto Increment)
+- Name (String, Not Null)
+- DateTime (DateTime, Not Null).
+- Description (Text, Nullable).
+- Artist (String or Foreign Key).
+- VenueID (Integer, Foreign Key to Venue.idVenue, Not Null). 
+- Planner (Integer, Foreign Key to User.idUser, Not Null).
 
 #### Tests
 1. Test: Insert Valid Event
