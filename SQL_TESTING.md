@@ -2,7 +2,7 @@
 
 ## ERD Diagram:
 
-![ERD Diagram](https://github.com/leonorae/HereItIs/blob/updated-SQL_Testing-with-tests-and-descriptions/Media/Database/HereItIs%20databases.png)
+![ERD Diagram](https://github.com/leonorae/HereItIs/blob/main/Media/Database/HereItIs%20databases.png)
 
 
 ## Tables:
