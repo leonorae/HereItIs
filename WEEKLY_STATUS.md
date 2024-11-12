@@ -8,6 +8,7 @@ It will be updated every week after the conclusion of the team's weekly meeting 
 The database design (SQL_TESTING.md) is in the final review stages before submission. 
 The team discussed the best way to move forward with implementing event filtering code through Flask route parameters that alter database queries for the data passed to Jinga templates.
 Actual implementation of the database will begin this week, as well as writing code for the queries/templates that will display the data.
+Reviewing and finalizing the overall file structure for the project was also discussed and planned to be done this week. 
 
 ## Status of Web Pages
 - See PAGE_TESTING.md document for completed specification of web page design with images.
