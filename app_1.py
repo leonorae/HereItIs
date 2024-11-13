@@ -2,7 +2,6 @@
 from flask import Flask, jsonify, request, render_template
 from config import Config
 import psycopg2
-from database import get_db_connection
 
 # Initialize Flask application
 app = Flask(__name__)
@@ -16,7 +15,7 @@ def test_db():
     """
     try:
         # Attempt to establish database connection
-        conn = get_db_connection()
+        conn = psycopg2.connect("postgresql://mohammed_db_user:UmSc7JQQWVM3IqL8sbwxtGBI8I4cINRV@dpg-csj5d6btq21c73d9b840-a.oregon-postgres.render.com/mohammed_db"
         if conn:
             # Create cursor for executing queries
             cur = conn.cursor()
@@ -54,7 +53,7 @@ def get_events():
     """
     try:
         # Establish database connection
-        conn = get_db_connection()
+        conn = psycopg2.connect("postgresql://mohammed_db_user:UmSc7JQQWVM3IqL8sbwxtGBI8I4cINRV@dpg-csj5d6btq21c73d9b840-a.oregon-postgres.render.com/mohammed_db"
         cur = conn.cursor()
         
         # Execute query to get all future events with related data
