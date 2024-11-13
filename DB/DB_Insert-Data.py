@@ -24,13 +24,22 @@ try:
     ''')
     venue_id = cur.fetchone()[0]
 
-    # Insert into Event
+    # Insert into Event 1
     cur.execute('''
         INSERT INTO Event (Name, DateTime, Description, ArtistID, VenueID, TicketPrice)
         VALUES ('Concert One', '2025-01-01 19:00:00', 'New Year concert', %s, %s, 49.99)
         RETURNING idEvent;
     ''', (artist_id, venue_id))
-    event_id = cur.fetchone()[0]
+    event_id1 = cur.fetchone()[0]
+
+     # Insert into Event 2
+    cur.execute('''
+        INSERT INTO Event (Name, DateTime, Description, ArtistID, VenueID, TicketPrice)
+        VALUES ('Concert Two', '2025-01-01 19:00:00', 'New Year concert 2', %s, %s, 49.99)
+        RETURNING idEvent;
+    ''', (artist_id, venue_id))
+    event_id2 = cur.fetchone()[0]
+
 
     # Commit sample data insertion
     conn.commit()
@@ -43,8 +52,12 @@ try:
     cur.execute('SELECT * FROM Venue WHERE VenueID = %s;', (venue_id,))
     print("Venue Record:", cur.fetchone())
 
-    cur.execute('SELECT * FROM Event WHERE idEvent = %s;', (event_id,))
-    print("Event Record:", cur.fetchone())
+    cur.execute('SELECT * FROM Event WHERE idEvent = %s;', (event_id1,))
+    print("Event Record 1:", cur.fetchone())
+
+    cur.execute('SELECT * FROM Event WHERE idEvent = %s;', (event_id2,))
+    print("Event Record 2:", cur.fetchone())
+
 
 
 except Exception as e:
