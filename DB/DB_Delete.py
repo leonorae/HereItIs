@@ -1,3 +1,12 @@
+#!/usr/bin/python3
+"""
+This module deletes the tables in the database.
+
+Author: HereItIs Group
+Date: 2024-11-12
+
+"""
+
 import psycopg2
 
 # Connect to the PostgreSQL database

@@ -1,3 +1,12 @@
+#!/usr/bin/python3
+"""
+This module deletes all data inside the tables but keep the tables.
+
+Author: HereItIs Group
+Date: 2024-11-12
+
+"""
+
 import psycopg2
 
 # Database connection setup

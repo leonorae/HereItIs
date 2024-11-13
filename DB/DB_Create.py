@@ -1,3 +1,17 @@
+#!/usr/bin/python3
+"""
+This module create database needed for the project.
+
+Author: HereItIs Group
+Date: 2024-11-12
+
+Details:
+- Create the following tables: (1) Artist, (2) Venue, (3) Event
+- Verify tables exist
+- Insert sample data for verification and delte the data
+
+"""
+
 import psycopg2
 
 # Connect to the PostgreSQL database
