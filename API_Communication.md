@@ -5,7 +5,7 @@ This document provides instructions for interacting with the `HereItIs` API to m
 
 ## Adding Data
 
-The API allows adding new entries to each table (Artist, Venue, and Event) via `POST` requests.
+The API allows new entries (Artist, Venue, and Event) to be added to each table via `POST` requests.
 
 ### 1. Add a New Artist
 
@@ -45,7 +45,7 @@ curl -X POST https://hereitis-aomy.onrender.com/api/event -H "Content-Type: appl
 
 ## Retrieving Data
 
-Use `GET` requests to retrieve all entries in each category.
+Use `GET` requests to retrieve all entries in each table.
 
 ### 1. Get All Artists
 ```bash
