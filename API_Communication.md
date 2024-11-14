@@ -51,7 +51,7 @@ Use `GET` requests to retrieve all entries in each category.
 ```bash
 curl https://hereitis-aomy.onrender.com/api/artists
 ```
-### 2. Get All Artists
+### 2. Get All Venues
 ```bash
 curl  https://hereitis-aomy.onrender.com/api/venues
 ```
