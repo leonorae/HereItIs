@@ -45,7 +45,7 @@ curl -X POST https://hereitis-aomy.onrender.com/api/event -H "Content-Type: appl
 
 ## Adding Data
 
-Use GET requests to retrieve all entries in each category.
+Use `GET` requests to retrieve all entries in each category.
 
 ### 1. Get All Artists
 ```bash
