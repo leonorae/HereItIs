@@ -43,7 +43,7 @@ curl -X POST https://hereitis-aomy.onrender.com/api/event -H "Content-Type: appl
 }'
 ```
 
-## Adding Data
+## Retrieving Data
 
 Use `GET` requests to retrieve all entries in each category.
 
