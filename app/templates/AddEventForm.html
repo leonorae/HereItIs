@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Ensures proper rendering on mobile devices and correct viewport size -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HereItIs</title>
+    <!-- External CSS files -->
+    <link rel="stylesheet" href="../static/AddFormsStyle.css">
+    <link rel="stylesheet" href="../static/base_style.css">
+</head>
+<body>
+<!-- Main container that wraps the entire layout -->
+<div class="container">
+    <!-- Left sidebar containing navigation and featured artist -->
+    <aside>
+        <!-- Website logo/title -->
+        <h1>HereItIs</h1>
+
+        <!-- Main navigation menu -->
+        <nav>
+            <ul>
+                <!-- Navigation links - currently using hashtags as placeholders -->
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#artists">ARTIST</a></li>
+                <!-- this needs to be differentiated to show it is selected -->
+                <li><a href="#get-listed">GET LISTED</a></li>
+                <li><a href="#about">ABOUT</a></li>
+            </ul>
+        </nav>
+
+        <!-- Selection between listing an artist or an event -->
+        <div class="listing-container">
+            <h2>Select One</h2>
+            <!-- Placeholder for artist image - currently a colored rectangle -->
+            <div class="listing-selection">
+                <button class="selection-button artist-selection">Artist</button>
+                <button class="selection-button event-selection">Event</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+        <!-- Top header bar -->
+        <header>
+            <div class="header-content">
+                <!-- Location, date, and filter options -->
+                <span>List Event</span>
+            </div>
+        </header>
+
+        <!-- Container for add event form-->
+        <div class="form-container">
+            <form>
+                <div class="form-group">
+                    <div class="form-category">
+                        <label for="event-name">Event Name</label>
+                        <input type="text" id="event-name" name="event-name" required />
+                    </div>
+                    <div class="form-category">
+                        <label for="venue">Venue</label>
+                        <input type="text" id="venue" name="venue" required />
+                    </div>
+                    <div class="form-category">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location" required />
+                    </div>
+                    <div class="form-category">
+                        <label for="date">Date</label>
+                        <input type="text" id="date" name="date" required />
+                    </div>
+                    <div class="form-category">
+                        <label for="time">Time</label>
+                        <input type="text" id="time" name="time" required />
+                    </div>
+                    <div class="form-category">
+                        <label for="genre">Genre</label>
+                        <input type="text" id="genre" name="genre" required />
+                    </div>
+                    <div class="form-category">
+                        <label for="artist">Artist</label>
+                        <input type="text" id="artist" name="artist" required />
+                    </div>
+                    <div class="form-category">
+                        <label for="description">Description</label>
+                        <input type="text" id="description" name="description" />
+                    </div>
+                    
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
+
+<!-- Links to external JavaScript file that handles dynamic content -->
+<script src="app.js"></script>
+</body>
+</html>

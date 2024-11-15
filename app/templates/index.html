@@ -5,7 +5,7 @@
     <!-- Ensures proper rendering on mobile devices and correct viewport size -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HereItIs</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../static/base_style.css">
 </head>
 <body>
 <!-- Main container that wraps the entire layout -->
@@ -33,6 +33,12 @@
             <div class="artist-image"></div>
             <p>Artist B</p>
         </div>
+        <div class="filter-view">
+            <h2>Filter Results</h2>
+            <!-- Here is where the user can filter events -->
+            <div class="filter-field"></div>
+            <p>Filter Goes Here</p>
+        </div>
     </aside>
 
     <!-- Main content area -->
@@ -44,7 +50,7 @@
                 <span>City, State</span>
                 <!-- Date is dynamically updated via JavaScript -->
                 <span class="date">MM/DD/YYYY</span>
-                <span class="filter">Filter</span>
+                <span class="filter" onclick="toggleFilter()">Filter</span>
             </div>
         </header>
 
@@ -56,6 +62,6 @@
 </div>
 
 <!-- Links to external JavaScript file that handles dynamic content -->
-<script src="app.js"></script>
+<script src="../script/app.js"></script>
 </body>
 </html>

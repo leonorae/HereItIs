@@ -90,6 +90,11 @@ nav ul li a
     background-color: #ff4444;
 }
 
+.filter-view
+{
+    display: none;
+}
+
 /* Main content area containing header and event grid */
 main
 {

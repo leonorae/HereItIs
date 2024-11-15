@@ -90,6 +90,17 @@ function updateCurrentDate()
     });
 }
 
+/**
+ * Toggles the filter field to appear and disappear
+ * @returns {void}
+ */
+function toggleFilter()
+{
+    const filter = document.querySelector('.filter');
+    filter.classList.toggle('hidden');
+    alert('Filter button clicked');
+}
+
 /** init() --->
  * Initializes the page
  * Sets current date and displays event cards
