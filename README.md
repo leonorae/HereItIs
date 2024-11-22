@@ -4,11 +4,11 @@ Music event planning software for local music scenes.
 ## Team # 2 (Wizard Team)
 | Team member | GitHub Username | Email |
 |-|-|-|
-| Leonora Goble | leonorae | leonora.goble@colorado.edu
-Matthew Presti | matt-presti | mapresti3@gmail.com
-William Booth| WGBooth | wibo1972@colorado.edu
-Alexander Gonzalez-Torres | alexanderxgt | alexanderxgt@gmail.com
 Mohammed Alsailani | Alsailani | moal5633@colorado.edu
+William Booth| WGBooth | wibo1972@colorado.edu
+Leonora Goble | leonorae | leonora.goble@colorado.edu
+Alexander Gonzalez-Torres | alexanderxgt | alexanderxgt@gmail.com
+Matthew Presti | matt-presti | mapresti3@gmail.com
 
 Weekly meeting for project: 
 Fridays @ 2PM MST
