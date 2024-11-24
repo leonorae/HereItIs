@@ -9,12 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(events => {
             console.log(events); // This should log the events data
-
+            
             generateEventList(events); // This function renders the list of events
 
             // Example: Render the events in the HTML
             // Can I move this to another function to be called?
-            const eventsContainer = document.getElementById('events-container');
+            
             
         })
         .catch(error => console.error('Error:', error));
@@ -40,11 +40,14 @@ document.addEventListener('DOMContentLoaded', () => {
  * @returns {HTMLElement} eventsContainer
  */
 const generateEventList = (events) => {
+    const eventsContainer = document.getElementById('events-container');
     // Loop over the events from the API call
     events.forEach(event => {
         // Create HTML elements for event data
         const eventDiv = document.createElement('div');
+        // Create a link to the individual event page
         const eventName = document.createElement('h2');
+        const eventLink = document.createElement('a');
         const eventWeekday = document.createElement('p');
         const eventDay = document.createElement('p');
         const eventMonth = document.createElement('p');
@@ -53,7 +56,10 @@ const generateEventList = (events) => {
         const eventPoster = document.createElement('img');
         const eventTicketPrice = document.createElement('p');       
 
-        eventName.textContent = event.name; // Adjust according to your event object structure
+        eventName.textContent = event.name;
+        // gets the url of the current page (index) and appends
+        eventLink.href = `${window.location.href}events/${event.idevent}`;
+        eventLink.textContent = event.name;
 
         // Split the datetime into array of strings to be used in HTML
         splitDateTime = event.datetime.split(" ");
@@ -69,10 +75,12 @@ const generateEventList = (events) => {
         eventPoster.src = event.posterurl;
         eventTicketPrice.textContent = "$" + event.ticketprice;
 
+        // Testing the datetime and obtaining proper formatting
         console.log(event.datetime);
 
+        // Append elements to their respective parent elements
         eventsContainer.appendChild(eventDiv);
-        eventDiv.appendChild(eventName);
+        eventDiv.appendChild(eventLink);
         eventDiv.appendChild(eventWeekday);
         eventDiv.appendChild(eventMonth);
         eventDiv.appendChild(eventDay);

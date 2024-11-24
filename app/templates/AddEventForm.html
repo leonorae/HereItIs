@@ -52,42 +52,39 @@
 
         <!-- Container for add event form-->
         <div class="form-container">
-            <form>
+            <form action="{{ url_for('submit_form') }}" method="POST">
                 <div class="form-group">
                     <div class="form-category">
                         <label for="event-name">Event Name</label>
                         <input type="text" id="event-name" name="event-name" required />
                     </div>
                     <div class="form-category">
-                        <label for="venue">Venue</label>
-                        <input type="text" id="venue" name="venue" required />
-                    </div>
-                    <div class="form-category">
-                        <label for="location">Location</label>
-                        <input type="text" id="location" name="location" required />
-                    </div>
-                    <div class="form-category">
-                        <label for="date">Date</label>
-                        <input type="text" id="date" name="date" required />
-                    </div>
-                    <div class="form-category">
-                        <label for="time">Time</label>
-                        <input type="text" id="time" name="time" required />
-                    </div>
-                    <div class="form-category">
-                        <label for="genre">Genre</label>
-                        <input type="text" id="genre" name="genre" required />
-                    </div>
-                    <div class="form-category">
-                        <label for="artist">Artist</label>
-                        <input type="text" id="artist" name="artist" required />
+                        <label for="event-date">Date</label>
+                        <input type="text" id="event-date" name="event-date" required />
                     </div>
                     <div class="form-category">
                         <label for="description">Description</label>
                         <input type="text" id="description" name="description" />
                     </div>
+                    <div class="form-category">
+                        <label for="artist-id">Artist ID</label>
+                        <input type="text" id="artist-id" name="artist-id" required />
+                    </div>
+                    <div class="form-category">
+                        <label for="venue-id">Venue ID</label>
+                        <input type="text" id="venue-id" name="venue-id" required />
+                    </div>
+                    <div class="form-category">
+                        <label for="ticket-price">Ticket Price</label>
+                        <input type="text" id="ticket-price" name="ticket-price" required />
+                    </div>
+                    <div class="form-category">
+                        <label for="poster-url">Poster</label>
+                        <input type="text" id="poster-url" name="poster-url" required />
+                    </div>
                     
-                    <button type="submit">Submit</button>
+                    
+                    <input type="submit" value="Submit"/>
                 </div>
             </form>
         </div>
@@ -95,6 +92,17 @@
 </div>
 
 <!-- Links to external JavaScript file that handles dynamic content -->
-<script src="app.js"></script>
+<!-- <script src="app.js"></script> -->
 </body>
 </html>
+
+<!-- API POST to DB -->
+<!-- curl -X POST https://hereitis-aomy.onrender.com/api/event -H "Content-Type: application/json" -d '{
+    "Name": "Concert One",
+    "DateTime": "2025-01-01 19:00:00",
+    "Description": "New Year concert",
+    "ArtistID": 1,   // replace with actual ArtistID
+    "VenueID": 1,    // replace with actual VenueID
+    "TicketPrice": 49.99,
+    "PosterURL": "http://poster.url"
+}' -->

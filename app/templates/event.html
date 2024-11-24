@@ -1,17 +1,15 @@
-<!-- This page will be populated with data from the database using Flask -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>{{ event_name }} @ {{ venue_name }}</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="">
-  <link rel="icon" href="favicon.png">
-  <link rel="stylesheet" href="../static/base_style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event: {{ event_id }}</title>
 </head>
 <body>
-  <h1>{{ event_name }} @ {{ venue_name }}</h1>
-  <p>{{ description }}</p>
+    <div id="event-container"></div>
+    <script>
+        const eventID = "{{ event_id }}";
+    </script>
+    <script src="{{ url_for('static', filename='script/event-page.js') }}"></script>
 </body>
 </html>
