@@ -14,8 +14,6 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 from psycopg2 import DatabaseError
 
-
-
 # create app to use in this Flask application
 app = Flask(__name__)
 
@@ -270,6 +268,146 @@ def get_all_events():
         # Ensure the cursor and connection are closed
         cur.close()
         conn.close()
+
+# Endpoint to get event details by event ID
+@app.route('/api/events/<int:event_id>', methods=['GET'])
+def get_event_by_id(event_id):
+    """
+    Fetches and returns event details for a specific event ID.
+    Returns:
+        JSON: Event details including associated artist and venue information
+    """
+    # Establish database connection with error handling
+    conn = get_db_connection()
+    if conn is None:
+        return jsonify({"error": "Database connection failed."}), 500
+
+    try:
+        cur = conn.cursor()
+        
+        # JOIN query, single query
+        cur.execute('''
+            SELECT 
+                e.*,
+                a.Name as ArtistName,
+                a.ArtistUserName,
+                a.ImageURL as ArtistImageURL,
+                v.Name as VenueName,
+                v.Location as VenueLocation,
+                v.Description as VenueDescription
+            FROM Event e
+            LEFT JOIN Artist a ON e.ArtistID = a.ArtistID
+            LEFT JOIN Venue v ON e.VenueID = v.VenueID
+            WHERE e.idEvent = %s;
+        ''', (event_id,))
+        
+        event = cur.fetchone()
+        
+        # Return event if found, otherwise 404
+        if event:
+            return jsonify(event), 200
+        else:
+            return jsonify({"error": f"Event with ID {event_id} not found"}), 404
+            
+    except Exception as e:
+        # Log error and return generic error message
+        print("Error fetching event:", str(e))
+        return jsonify({"error": "Failed to retrieve event details"}), 500
+        
+    finally:
+        # Ensure database resources are released
+        cur.close()
+        conn.close()
+
+# Endpoint to get artist details by username        
+@app.route('/api/artists/username/<string:username>', methods=['GET'])
+def get_artist_by_username(username):
+    """
+    Fetches and returns artist details for a specific username.
+    Returns:
+        JSON: Artist details (id, username, name, bio, image, location, social media URLs)
+    """
+    conn = get_db_connection()
+    if conn is None:
+        return jsonify({"error": "Database connection failed."}), 500
+
+    try:
+        cur = conn.cursor()
+        
+        # SQL query
+        cur.execute('''
+            SELECT ArtistID, 
+                   ArtistUserName, 
+                   Name, 
+                   Bio, 
+                   ImageURL, 
+                   Location,
+                   FacebookURL,
+                   InstagramURL,
+                   SoundCloudURL 
+            FROM Artist 
+            WHERE ArtistUserName = %s;
+        ''', (username,))
+        artist = cur.fetchone()
+        
+        # Return artist if found, otherwise 404
+        if not artist:
+            return jsonify({"error": f"Artist with username '{username}' not found"}), 404
+            
+        return jsonify(artist), 200
+            
+    except Exception as e:
+        print("Error fetching artist:", str(e))
+        return jsonify({"error": "Failed to retrieve artist details"}), 500
+        
+    finally:
+        cur.close()
+        conn.close()
+
+# Endpoint to get upcoming events for artist by artistID 
+@app.route('/api/artists/<int:artist_id>/events', methods=['GET'])
+def get_artist_upcoming_events(artist_id):
+    """
+    Fetches and returns all upcoming events for a specific artist ID.
+    Returns:
+        JSON: List of upcoming events with venue details
+    """
+    conn = get_db_connection()
+    if conn is None:
+        return jsonify({"error": "Database connection failed."}), 500
+
+    try:
+        cur = conn.cursor()
+
+        #SQL Query    
+        # Get future events only, joined with venue details, sorted by date
+        cur.execute('''
+            SELECT e.*, v.* 
+            FROM Event e
+            JOIN Venue v ON e.VenueID = v.VenueID
+            WHERE e.ArtistID = %s
+            AND e.DateTime >= CURRENT_TIMESTAMP
+            ORDER BY e.DateTime ASC;
+        ''', (artist_id,))
+        
+        upcoming_events = cur.fetchall()
+        
+        # Format response with events list and count
+        response = {
+            "events": upcoming_events,
+            "event_count": len(upcoming_events)
+        }
+        
+        return jsonify(response), 200
+            
+    except Exception as e:
+        print("Error fetching artist events:", str(e))
+        return jsonify({"error": "Failed to retrieve artist events"}), 500
+        
+    finally:
+        cur.close()
+        conn.close()
+
 
 ###############################################################################
 # main driver function
