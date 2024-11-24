@@ -1,60 +1,27 @@
-## HereItIs Flask Routes
-from flask import Flask, url_for, render_template, request
+from flask import Flask, url_for, render_template, request, jsonify
 from markupsafe import escape
+import requests
 
 app = Flask(__name__)
 
+# Index Route
 @app.route('/')
 def home():
-    # display all future events
-    return render_template('home.html')
-# unsure if filtering should be done with additional routes or JS
-@app.route('/events/filter/<string:genre>')
-def events_filter_genre(genre):
-    # display all future events of given genre
-    pass
+    return render_template('index.html')
 
-@app.route('/event/<int:event_id>')
-def event(event_id):
-    # blablabla event_table = api.get_event(event_id)
-    
-    # placeholder
-    event_name = 'test event'
-    venue_name = 'cool zone'
-    event_description = 'there is music'
-    
-    return render_template('event.html',
-                           event_name=event_name,
-                           venue_name=venue_name,
-                           # venue address
-                           # date/time
-                           # artists
-                           # ticket pricing
-                           # image
-                           # media url
-                           event_description=event_description)
+# API Route for Index Page
+@app.route('/api/events')
+def get_events():
+    print('Fetching events...')
+    try:
+        response = requests.get('https://hereitis-aomy.onrender.com/api/events')
+        response.raise_for_status()  # Raise an exception for HTTP errors
+        events = response.json()
+        print('Events fetched successfully:', events)
+    except requests.exceptions.RequestException as e:
+        print('Error fetching events:', e)
+        events = []
+    return jsonify(events)
 
-@app.route('/artists')
-def artists():
-    # get all artists from database, display them all
-    pass
-# again unsure if filtering should be done with additional routes or JS
-@app.route('/artists/filter/<string:genre>')
-def artists_filter_genre(genre):
-    # get all artists
-    pass
-
-@app.route('/artist/<int:artist_id>') # this would be neater to have as artist_name but id is probably easier to implement
-def artist(artist_id):
-    # get artist details from database
-
-    # pass values to template
-    pass
-
-@app.route('/list/artist')
-def list_artist():
-    pass
-
-@app.route('/list/event')
-def list_event():
-    pass
+if __name__ == '__main__':
+    app.run(debug=True)

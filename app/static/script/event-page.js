@@ -1,0 +1,10 @@
+///////////////////////////
+// Event Page Javascript
+// Handles the data for an invidual event page
+//
+//
+// Functions Used:
+//
+//
+///////////////////////////
+
