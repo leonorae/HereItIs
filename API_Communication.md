@@ -41,7 +41,9 @@ curl -X POST https://hereitis-aomy.onrender.com/api/event -H "Content-Type: appl
     "TicketPrice": 49.99,
     "PosterURL": "http://poster.url"
 }'
+```
 
+## Retrieving Data in a Table
 
 ### 1. Get All Artists
 ```bash
