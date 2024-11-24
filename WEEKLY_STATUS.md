@@ -2,7 +2,7 @@
 This file contains the weekly status of the Team #2 (Wizard Team) "HereItIs" project. 
 It will be updated every week after the conclusion of the team's weekly meeting On Fridays at 2:00 PM MST, so the file should be updated by around 3:00 PM MST.
 
-# Week 11 (11/24/2024)
+# Week 13 (11/24/2024)
 ## Snapshot of [Trello](https://trello.com/b/EVZ16txS/wizardteam)
 ![image](https://github.com/user-attachments/assets/cdcb2d89-6fcc-4c97-8633-fe1cb7a720a4)
 
