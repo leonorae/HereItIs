@@ -42,9 +42,6 @@ curl -X POST https://hereitis-aomy.onrender.com/api/event -H "Content-Type: appl
     "PosterURL": "http://poster.url"
 }'
 
-## Retrieving Data
-
-Use `GET` requests to retrieve all entries in each table.
 
 ### 1. Get All Artists
 ```bash
