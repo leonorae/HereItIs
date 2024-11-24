@@ -3,9 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ Artist Name }}</title>
+    <title>HereItIs</title>
+    <link rel="stylesheet" href="../static/base_style.css">
+    <link rel="stylesheet" href="../static/artist_style.css">
 </head>
 <body>
-    
+<!-- Main container for the entire layout -->
+<div class="container">
+    <!-- Left sidebar containing navigation and social media links -->
+    <aside>
+        <!-- Website logo/title -->
+        <h1>HereItIs</h1>
+
+        <!-- Main navigation menu -->
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#artists">Artists</a></li>
+                <li><a href="#get-listed">Get Listed</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+
+        <!-- Social media links section -->
+        <div class="social-links">
+            <h2>Social Media</h2>
+            <ul>
+                <!-- These links will need to be updated with actual artist social media -->
+                <li><a href="#">Website</a></li>
+                <li><a href="#">Music Streamer</a></li>
+                <li><a href="#">Social Media 1</a></li>
+                <li><a href="#">Video Hosting Site</a></li>
+                <li><a href="#">Social Media 2</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+        <!-- Header containing artist name and date -->
+        <header>
+            <div class="header-content">
+                <span>Artist A</span>
+                <span class="date">MM/DD/YYYY</span>
+            </div>
+        </header>
+
+        <!-- Grid container for main content -->
+        <div class="content-wrapper">
+            <!-- Left column - contains artist image, media player, and info -->
+            <div class="left-column">
+                <!-- Artist image placeholder -->
+                <div class="artist-image">
+                    Picture of Artist A
+                </div>
+
+                <!-- Media player placeholder -->
+                <div class="media-player">
+                    Media Player
+                </div>
+
+                <!-- Artist information section -->
+                <div class="info-section">
+                    <h3>Artist Info</h3>
+                    <!-- Placeholder text -->
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+
+            <!-- Right column - contains upcoming and past events -->
+            <div class="right-column">
+                <!-- Upcoming events section -->
+                <div class="upcoming-events">
+                    <h3>Upcoming Events</h3>
+                    <!-- Event box template - will be populated dynamically -->
+                    <div class="event-box">
+                        <p class="artists">Artist A, Artist B</p>
+                        <p class="details">Event A @ Venue 1 - MM/DD/YYYY</p>
+                    </div>
+                </div>
+
+                <!-- Past events section -->
+                <div class="past-events">
+                    <h3>Past Events</h3>
+                    <!-- Event boxes template - will be populated dynamically -->
+                    <div class="event-box">
+                        <p class="artists">Artist A</p>
+                        <p class="details">Event X @ Venue 32 - MM/DD/YYYY</p>
+                    </div>
+                    <div class="event-box">
+                        <p class="artists">Artist A</p>
+                        <p class="details">Event Y @ Venue 54 - MM/DD/YYYY</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
 </body>
 </html>
