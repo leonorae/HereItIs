@@ -1,4 +1,6 @@
-
+/**
+ * Fetches all the events from the API and calls the generateEventList function
+ */
 document.addEventListener('DOMContentLoaded', () => {
     fetch('http://127.0.0.1:5000/api/events')
         .then(response => {
@@ -35,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 
 /**
- * generateEventList -->
+ * generateEventList --> Generates the list of events from the API call to HTML
  * @param {Array} events
  * @returns {HTMLElement} eventsContainer
  */

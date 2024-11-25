@@ -79,10 +79,6 @@ curl -X POST https://hereitis-aomy.onrender.com/api/event -H "Content-Type: appl
 }'
 """
 
-# @app.route('/addeventform')
-# def add_event_form():
-#     return render_template('addeventform.html')
-
 @app.route('/addeventform', methods=['GET', 'POST'])
 def submit_form():
     # Determine if the form is a get or post request
@@ -119,12 +115,67 @@ def submit_form():
             print(f"Event added successfully: {response.text}")
             return f"Event added successfully: {response.text}"
 
-"""
-curl -X POST \
-  http://localhost:5000/api/endpoint \
-  -H 'Content-Type: application/json' \
-  -d '{"key": "value", "another_key": "another_value"}'
-"""
+# Artist List Page
+@app.route('/artists')
+def artists():
+    return render_template('artistlist.html')
+
+# API Route for Artist List
+@app.route('/api/artists')
+def get_artists():
+    """
+    " Get artists from the API
+    " @return: JSON response with artists
+    """
+    print('Fetching artists...')
+    try:
+        response = requests.get('https://hereitis-aomy.onrender.com/api/artists')
+        response.raise_for_status()  # Raise an exception for HTTP errors
+        artists = response.json()
+        print('Artists fetched successfully:', artists)
+    except requests.exceptions.RequestException as e:
+        print('Error fetching artists:', e)
+        artists = []
+    return jsonify(artists)
+
+# Artist Page
+@app.route('/artists/<int:artist_id>')
+def artist(artist_id):
+    return render_template('artist.html', artist_id=artist_id)
+
+# API Route for Artist Page
+@app.route('/api/artists/<int:artist_id>')
+def get_artist(artist_id):
+    """
+    " Get artist details from the API
+    " @param artist_id: ID of the artist
+    " @return: JSON response with artist details
+    """
+    print('Fetching artist...')
+    try:
+        response = requests.get('https://hereitis-aomy.onrender.com/api/artists')
+        if response.status_code == 200:
+            print('Artists fetched succssfully')
+            print(f'Fetching artist details for {artist_id}...')
+
+            # Should I loop though the JSON to find the matching artist ID? 
+            for artist in response.json():
+                print(f"An artist: {artist}")
+                for key in artist:
+                    print(f"Key: {key}, Value: {artist[key]}")
+                if artist['artistid'] == artist_id:
+                    print('Artist found:', artist)
+                    return artist
+
+            # Looped through and didn't find the artist_id 
+            print(f'Artist with ID {artist_id} not found.')
+            return jsonify({})
+
+    except requests.exceptions.RequestException as e:
+        print('Error fetching artist:', e)
+        return f'Error fetching artist: {e}'
+    finally:
+        pass
 
 
 
