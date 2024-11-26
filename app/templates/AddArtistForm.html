@@ -52,29 +52,29 @@
 
         <!-- Container for add artist form-->
         <div class="form-container">
-            <form>
+            <form action="{{ url_for('submit_artist_form') }}" method="POST">
+                <!-- check your form inputs to match DB-->
                 <div class="form-group">
+                    <div class="form-category">
+                        <label for="artist-username">Artist Username</label>
+                        <input type="text" id="artist-username" name="artist-username" required />
+                    </div>
                     <div class="form-category">
                         <label for="artist-name">Artist Name</label>
                         <input type="text" id="artist-name" name="artist-name" required />
                     </div>
                     <div class="form-category">
-                        <label for="artist-genre">Genre</label>
-                        <input type="text" id="artist-genre" name="artist-genre" required />
+                        <label for="artist-bio">Bio</label>
+                        <input type="text" id="artist-bio" name="artist-bio" required />
+                    </div>
+                    <div class="form-category">
+                        <label for="profile-url">Profile Picture</label>
+                        <input type="text" id="profile-url" name="profile-url" />
                     </div>
                     <div class="form-category">
                         <label for="artist-location">Location</label>
-                        <input type="text" id="artist-location" name="artist-location" required />
+                        <input type="text" id="artist-location" name="artist-location" />
                     </div>
-                    <div class="form-category">
-                        <label for="artist-link">Link</label>
-                        <input type="text" id="artist-link" name="artist-link" />
-                    </div>
-                    <div class="form-category">
-                        <label type="artist-info">Artist Info</label>
-                        <input type="text" id="artist-info" name="artist-info" />
-                    </div>
-                    
                     <button type="submit">Submit</button>
                 </div>
             </form>
@@ -83,6 +83,6 @@
 </div>
 
 <!-- Links to external JavaScript file that handles dynamic content -->
-<script src="app.js"></script>
+<!-- <script src="app.js"></script> -->
 </body>
 </html>

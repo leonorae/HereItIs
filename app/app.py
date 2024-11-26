@@ -1,3 +1,14 @@
+############################################
+#
+# HereItIs - Flask App
+#
+# This file uses routes to render HTML templates and to fetch data from the API, 
+# which is passed to JavaScript.
+# 
+############################################
+
+
+
 from flask import Flask, url_for, render_template, request, jsonify
 from markupsafe import escape
 import requests
@@ -80,7 +91,7 @@ curl -X POST https://hereitis-aomy.onrender.com/api/event -H "Content-Type: appl
 """
 
 @app.route('/addeventform', methods=['GET', 'POST'])
-def submit_form():
+def submit_event_form():
     # Determine if the form is a get or post request
     if request.method == 'GET':
         return render_template('addeventform.html')
@@ -107,8 +118,8 @@ def submit_form():
             'TicketPrice': ticket_price,
             'PosterURL': poster_url
         })
-
-        if response.status_code != 200:
+        # TODO: check the error handling, it throws an error despite successful post to DB
+        if response.status_code != 201:
             print(f"Error adding event: {response.text}")
             return f"Error adding event: {response.text}"
         else:
@@ -171,11 +182,47 @@ def get_artist(artist_id):
             print(f'Artist with ID {artist_id} not found.')
             return jsonify({})
 
+    # TODO: check the error handling here I think it isn't working properly
     except requests.exceptions.RequestException as e:
         print('Error fetching artist:', e)
         return f'Error fetching artist: {e}'
     finally:
         pass
+
+
+# Add Artist Form
+@app.route('/addartistform', methods=['GET', 'POST'])
+def submit_artist_form():
+    # TODO: Check the parameters and the form fields to make sure they match and include all data
+    if request.method == 'GET':
+        return render_template('addartistform.html')
+    if request.method == 'POST':
+        username = request.form['artist-username']
+        name = request.form['artist-name']
+        bio = request.form['artist-bio']
+        profile_url = request.form['profile-url']
+        location = request.form['artist-location']
+
+        print(f'Username: {username}, Name: {name}, Bio: {bio}, ProfileURL: {profile_url}, Location: {location}')
+
+        # Add new artist to DB
+        response = requests.post('https://hereitis-aomy.onrender.com/api/artist', json={
+            'ArtistUserName': username,
+            'Name': name,
+            'Bio': bio,
+            'ImageURL': profile_url,
+            'Location': location
+        })
+
+        #TODO: verify the correct status
+        if response.status_code != 201:
+            print(f"Error adding artist: {response.text}")
+            print(f"Response Code: {response.status_code}")
+            return f"Error adding artist: {response.text}... Response Code: {response.status_code}"
+        else:
+            print(f"Artist added successfully: {response.text}")
+            return f"Artist added successfully: {response.text}"
+        
 
 
 
