@@ -8,6 +8,7 @@
 <body>
     <div id="artist-container"></div>
     <script>
+        // Passes from Flask to external JavaScript file
         const artistID = "{{ artist_id }}";
     </script>
     <script src="{{ url_for('static', filename='script/artist-page.js') }}"></script>

@@ -6,6 +6,21 @@
 # which is passed to JavaScript.
 # 
 ############################################
+#
+# Routes Included:
+#
+# '/' - Index Route
+# '/api/events' - API Route for Index Page
+# '/events/<int:event_id>' - Event Page
+# '/api/events/<int:event_id>' - API Route for Event Page
+# '/addeventform' - Add Event Form
+# '/artists' - Artist List Page
+# '/api/artists' - API Route for Artist List
+# '/artists/<int:artist_id>' - Artist Page
+# '/api/artists/<int:artist_id>' - API Route for Artist Page
+# '/addartistform' - Add Artist Form
+#
+############################################
 
 
 
@@ -119,6 +134,7 @@ def submit_event_form():
             'PosterURL': poster_url
         })
         # TODO: check the error handling, it throws an error despite successful post to DB
+        # resolved: this check was not indented under the post method
         if response.status_code != 201:
             print(f"Error adding event: {response.text}")
             return f"Error adding event: {response.text}"
@@ -222,9 +238,6 @@ def submit_artist_form():
         else:
             print(f"Artist added successfully: {response.text}")
             return f"Artist added successfully: {response.text}"
-        
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)

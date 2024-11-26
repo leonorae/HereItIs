@@ -4,7 +4,7 @@
 //
 //
 // Functions Used:
-//
+// - generateEvent(event): Renders the event data by creating HTML elements
 //
 ///////////////////////////
 
@@ -52,7 +52,7 @@ const generateEvent = (event) => {
   eventDescription.textContent = event.description;
   eventPoster.src = event.posterurl;
   // TODO: get the venue name from the venue ID
-  venueName.textContent = 'Venue Name key is... ???';
+  venueName.textContent = event.VenueName;
 
 
   console.log(event);
@@ -66,3 +66,6 @@ const generateEvent = (event) => {
   eventDiv.append(venueName);
   
 }
+
+
+// TODO: Incorporate this into an init function (as Alexander had done previously)

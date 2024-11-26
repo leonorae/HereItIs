@@ -93,3 +93,5 @@ const generateEventList = (events) => {
         
     });
 }
+
+// TODO: INIT function to call everything
