@@ -38,10 +38,31 @@ const generateEvent = (event) => {
   // Create HTML elements for event data
   const eventDiv = document.createElement('div');
   const eventName = document.createElement('h2');
+  const artistName = document.createElement('h3');
+  const dateTime = document.createElement('p');
+  const eventDescription = document.createElement('p');
+  const eventPoster = document.createElement('img');
+  const venueName = document.createElement('p');
+
+  // pass the event data into HTML element
   eventName.textContent = event.name;
+  artistName.textContent = event.artist;
+  // TODO: break up the date time into separate elements for display
+  dateTime.textContent = event.datetime;
+  eventDescription.textContent = event.description;
+  eventPoster.src = event.posterurl;
+  // TODO: get the venue name from the venue ID
+  venueName.textContent = 'Venue Name key is... ???';
+
+
   console.log(event);
 
   eventContainer.append(eventDiv);
   eventDiv.append(eventName);
+  eventDiv.append(artistName);
+  eventDiv.append(dateTime);
+  eventDiv.append(eventDescription);
+  eventDiv.append(eventPoster);
+  eventDiv.append(venueName);
   
 }
