@@ -68,29 +68,16 @@ def get_event(event_id):
     """
     print('Fetching event...')
     try:
-        response = requests.get('https://hereitis-aomy.onrender.com/api/events')
+        response = requests.get(f'https://hereitis-v3.onrender.com/api/events/{event_id}')
+        print(f"Response is a type: {type(response)}")
         if response.status_code == 200:
             print('Events fetched succssfully')
             print(f'Fetching event details for {event_id}...')
-
-            # Should I loop though the JSON to find the matching event ID? 
-            for event in response.json():
-                print(f"An event: {event}")
-                for key in event:
-                    print(f"Key: {key}, Value: {event[key]}")
-                if event['idevent'] == event_id:
-                    print('Event found:', event)
-                    return event
-
-            # Looped through and didn't find the event_id 
-            print(f'Event with ID {event_id} not found.')
-            return jsonify({})
-
-    except requests.exceptions.RequestException as e:
-        print('Error fetching event:', e)
-        return f'Error fetching event: {e}'
-    finally:
-        pass
+            event = response.json()
+            print(type(event))
+            return jsonify(event)
+    except:
+        print(f'Error fetching event: {response.status_code}')
 
 
 """
@@ -202,8 +189,6 @@ def get_artist(artist_id):
     except requests.exceptions.RequestException as e:
         print('Error fetching artist:', e)
         return f'Error fetching artist: {e}'
-    finally:
-        pass
 
 
 # Add Artist Form
