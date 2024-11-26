@@ -46,7 +46,7 @@ const generateArtistList = (artists) => {
         artistDescription.textContent = artist.description;
 
         // Set the href attribute of the link
-        artistLink.href = `/artists/${artist.artistid}`;
+        artistLink.href = `/artists/username/${artist.artistusername}`;
 
         // Append the elements to the container
         artistsContainer.append(artistDiv);

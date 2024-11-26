@@ -153,13 +153,13 @@ def get_artists():
     return jsonify(artists)
 
 # Artist Page
-@app.route('/artists/<int:artist_id>')
-def artist(artist_id):
-    return render_template('artist.html', artist_id=artist_id)
+@app.route('/artists/username/<string:artist_username>')
+def artist(artist_username):
+    return render_template('artist.html', artist_username=artist_username)
 
 # API Route for Artist Page
-@app.route('/api/artists/<int:artist_id>')
-def get_artist(artist_id):
+@app.route('/api/artists/username/<string:artist_username>')
+def get_artist(artist_username):
     """
     " Get artist details from the API
     " @param artist_id: ID of the artist
@@ -167,23 +167,15 @@ def get_artist(artist_id):
     """
     print('Fetching artist...')
     try:
-        response = requests.get('https://hereitis-aomy.onrender.com/api/artists')
+        response = requests.get(f'https://hereitis-v3.onrender.com/api/artists/username/{artist_username}')
         if response.status_code == 200:
             print('Artists fetched succssfully')
-            print(f'Fetching artist details for {artist_id}...')
+            print(f'Fetching artist details for {artist_username}...')
 
-            # Should I loop though the JSON to find the matching artist ID? 
-            for artist in response.json():
-                print(f"An artist: {artist}")
-                for key in artist:
-                    print(f"Key: {key}, Value: {artist[key]}")
-                if artist['artistid'] == artist_id:
-                    print('Artist found:', artist)
-                    return artist
+            artist = response.json()
 
-            # Looped through and didn't find the artist_id 
-            print(f'Artist with ID {artist_id} not found.')
-            return jsonify({})
+            # Looped through and didn't find the artist_id
+            return jsonify(artist)
 
     # TODO: check the error handling here I think it isn't working properly
     except requests.exceptions.RequestException as e:
