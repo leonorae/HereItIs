@@ -10,7 +10,9 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // Get the artist ID from the URL
-    fetch(`http://127.0.0.1:5000/api/artists/username/${artistUsername}`)
+    // update the URL for launching the page currently just local
+    const rootURL = window.location.origin;
+    fetch(`${rootURL}/api/artists/username/${artistUsername}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok ' + response.statusText);
@@ -62,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     artist.events.forEach(event => {
       const eventName = document.createElement('h3');
       futureEventsDiv.append(eventName);
-      
+
 
   
       // pass the event data into HTML element

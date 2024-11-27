@@ -22,7 +22,9 @@
 #
 ############################################
 
-
+# TODO: Standardize the error handling: I disassmebled some for error handling, ironically but it was indention errors that caused issues
+# TODO: Comments for each route (docstrings, inline comments, etc.) / Sorry for lack of comments :( I got focused on getting it up and running
+# TODO: Add routes for: About Page, (any others?)
 
 from flask import Flask, url_for, render_template, request, jsonify
 from markupsafe import escape
@@ -242,6 +244,14 @@ def submit_artist_form():
         else:
             print(f"Artist added successfully: {response.text}")
             return f"Artist added successfully: {response.text}"
+        
 
+# About Page
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+# Run the app
+# Debug mode is on for development but needs to be changed to False for production
 if __name__ == '__main__':
     app.run(debug=True)

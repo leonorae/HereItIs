@@ -10,7 +10,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // Get the event ID from the URL
-  fetch(`http://127.0.0.1:5000/api/events/${eventID}`)
+  const rootURL = window.location.origin;
+  fetch(`${rootURL}/api/events/${eventID}`)
       .then(response => {
           if (!response.ok) {
               throw new Error('Network response was not ok ' + response.statusText);
