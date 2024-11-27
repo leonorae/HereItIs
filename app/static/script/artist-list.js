@@ -53,5 +53,9 @@ const generateArtistList = (artists) => {
         artistDiv.append(artistLink);
         artistLink.append(artistName);
         artistDiv.append(artistDescription);
+
+
+        // test future artist events
+        
     });
 }

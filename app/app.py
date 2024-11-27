@@ -27,6 +27,7 @@
 from flask import Flask, url_for, render_template, request, jsonify
 from markupsafe import escape
 import requests
+import json
 
 app = Flask(__name__)
 
@@ -168,19 +169,45 @@ def get_artist(artist_username):
     print('Fetching artist...')
     try:
         response = requests.get(f'https://hereitis-v3.onrender.com/api/artists/username/{artist_username}')
+        # get the artist_id from the respnse and pass it in
+        artist_id = response.json()['artistid']
+        print(f'Artist ID: {artist_id}')
+        response2 = requests.get(f'https://hereitis-v3.onrender.com/api/artists/{artist_id}/events')
         if response.status_code == 200:
             print('Artists fetched succssfully')
             print(f'Fetching artist details for {artist_username}...')
 
+            # get the artist info and future events
             artist = response.json()
+            artist_events = response2.json()
 
-            # Looped through and didn't find the artist_id
-            return jsonify(artist)
+            merged_dict = {**artist, **artist_events}
+
+            return jsonify(merged_dict)
 
     # TODO: check the error handling here I think it isn't working properly
     except requests.exceptions.RequestException as e:
         print('Error fetching artist:', e)
         return f'Error fetching artist: {e}'
+    
+
+#API Route for Artist Page to get future events
+@app.route('/api/artists/<string:artist_id>/events')
+def get_artist_events(artist_id):
+    """
+    " Get artist events from the API
+    " @return: JSON response with artist events
+    """
+    print('Fetching artist events...')
+    try:
+        response = requests.get(f'https://hereitis-aomy.onrender.com/api/artists/{artist_id}/events')
+        response.raise_for_status()  # Raise an exception for HTTP errors
+        artist_events = response.json()
+        print('Artist events fetched successfully:', artist_events)
+    except requests.exceptions.RequestException as e:
+        print('Error fetching artist events:', e)
+        artist_events = []
+    return jsonify(artist_events)
 
 
 # Add Artist Form

@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(`${artist}`); // This should log the events data
           // loop throuh the events
           generateArtist(artist); // This function renders the list of events
+          generateFutureEvents(artist);
             
   
           // Example: Render the events in the HTML
@@ -41,9 +42,31 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(artist.name);
     artistName.textContent = artist.name;
     console.log(artist.bio);
-  
+
     artistContainer.append(artistDiv);
     artistDiv.append(artistName);
     
+  }
+
+  const generateFutureEvents = (artist) => {
+    const artistContainer = document.getElementById('artist-container');
+    // Create HTML elements for event data
+    const futureEventsDiv = document.createElement('div');
+    const futureEventsHeader = document.createElement('h2');
+    futureEventsHeader.textContent = "Upcoming Events";
+    artistContainer.append(futureEventsDiv);
+    futureEventsDiv.append(futureEventsHeader);
+    console.log(artist.events);
+
+    // Loop through the events and render to HTML
+    artist.events.forEach(event => {
+      const eventName = document.createElement('h3');
+      futureEventsDiv.append(eventName);
+      
+
+  
+      // pass the event data into HTML element
+      eventName.textContent = event.name;
+    }); 
   }
   
