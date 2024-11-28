@@ -3,10 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events</title>
+    <!-- CSS Files -->
+     <link rel="stylesheet" type="text/css" href="../static/style/base_style.css"
+    <title>HereItIs</title>
 </head>
 <body>
-    <div id="events-container"></div>
+    <div class="container">
+        <aside>
+            <h1>HereItIs</h1>
+            <nav>
+                <ul>
+                    <!-- Need to Link these -->
+                    <li>Home</li>
+                    <li>Artists</li>
+                    <li>Get Listed</li>
+                    <li>About</li>
+                </ul>
+            </nav>
+        </aside>
+        <div id="events-grid"></div>
+    </div>
+    
 
     <!-- Include external JavaScript file -->
     <script src="{{ url_for('static', filename='script/event-list.js') }}"></script>

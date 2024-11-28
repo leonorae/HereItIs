@@ -1,5 +1,5 @@
 /**
- * Fetches all the events from the API and calls the generateEventList function
+ * Fetches all the events from the API and calls the generateEventsGrid function
  */
 document.addEventListener('DOMContentLoaded', () => {
     const rootURL = window.location.origin;
@@ -13,11 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(events => {
             console.log(events); // This should log the events data
             
-            generateEventList(events); // This function renders the list of events
-
-            // Example: Render the events in the HTML
-            // Can I move this to another function to be called?
-            
+            generateEventsGrid(events); // This function renders the list of events
             
         })
         .catch(error => console.error('Error:', error));
@@ -38,19 +34,33 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 
 /**
- * generateEventList --> Generates the list of events from the API call to HTML
+ * generateEventsGrid --> Generates the list of events from the API call to HTML
  * @param {Array} events
- * @returns {HTMLElement} eventsContainer
+ * @returns {HTMLElement} eventsGrid
  */
-const generateEventList = (events) => {
-    const eventsContainer = document.getElementById('events-container');
+const generateEventsGrid = (events) => {
+    // TODO: Organize the HTML elements and their class assignments
+
+    // Create the events grid container
+    const eventsGrid = document.getElementById('events-grid');
+    eventsGrid.classList.add('events-grid');
+
     // Loop over the events from the API call
     events.forEach(event => {
         // Create HTML elements for event data
         const eventDiv = document.createElement('div');
+        eventDiv.classList.add('event-card');
+        eventsGrid.appendChild(eventDiv);
+
         // Create a link to the individual event page
+
+        // Event Name
         const eventName = document.createElement('h2');
+        eventName.classList.add('event-name');
         const eventLink = document.createElement('a');
+        eventDiv.appendChild(eventLink);
+
+
         const eventWeekday = document.createElement('p');
         const eventDay = document.createElement('p');
         const eventMonth = document.createElement('p');
@@ -82,8 +92,8 @@ const generateEventList = (events) => {
         console.log(event.datetime);
 
         // Append elements to their respective parent elements
-        eventsContainer.appendChild(eventDiv);
-        eventDiv.appendChild(eventLink);
+        
+        
         eventDiv.appendChild(eventWeekday);
         eventDiv.appendChild(eventMonth);
         eventDiv.appendChild(eventDay);

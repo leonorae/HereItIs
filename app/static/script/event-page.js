@@ -11,6 +11,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Get the event ID from the URL
   const rootURL = window.location.origin;
+  // fetch the event from API
   fetch(`${rootURL}/api/events/${eventID}`)
       .then(response => {
           if (!response.ok) {
@@ -19,21 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
           return response.json();
       })
       .then(event => {
-          
         console.log(`${event}`); // This should log the events data
-        // loop throuh the events
         generateEvent(event); // This function renders the list of events
-          
-
-        // Example: Render the events in the HTML
-        // Can I move this to another function to be called?
-          
-          
       })
       .catch(error => console.error('Error:', error));
 });
 
-// Make the event page
+// Make the event page: create the HTML elements, provide data, and append to the container
 const generateEvent = (event) => {
   const eventContainer = document.getElementById('event-container');
   // Create HTML elements for event data
@@ -57,7 +50,6 @@ const generateEvent = (event) => {
   // TODO: get the venue name from the venue ID
   venueName.textContent = event.venuename;
 
-
   console.log(event);
 
   eventContainer.append(eventDiv);
@@ -68,8 +60,6 @@ const generateEvent = (event) => {
   eventDiv.append(venueDescription);
   eventDiv.append(dateTime);
   eventDiv.append(eventPoster);
-  
-  
 }
 
 
