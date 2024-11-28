@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Use Flask's route instead of calling API directly
+    // TODO: I'm calling Flask route here which feels hacky, that's not how it's done in event-page.js
     fetch(`/api/artists/username/${artistUsername}`)
         .then(response => {
             if (!response.ok) {
@@ -57,7 +57,7 @@ const generateArtistPage = (artist) => {
         ${artist.location ? `<p>Location: ${artist.location}</p>` : ''}
     `;
 
-    // Social links
+    // TODO: These are not being generated
     const socialLinks = document.querySelector('.social-links ul');
     const socialPlatforms = [
         { key: 'facebookurl', label: 'Facebook' },
@@ -75,6 +75,7 @@ const generateArtistPage = (artist) => {
         .join('');
 };
 
+// TODO: Look at this with William
 const generateEvents = (events) => {
     if (!events || events.length === 0) {
         const upcomingEventsContainer = document.querySelector('.upcoming-events');
