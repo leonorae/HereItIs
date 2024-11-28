@@ -47,7 +47,7 @@ def get_events():
     """
     print('Fetching events...')
     try:
-        response = requests.get('https://hereitis-aomy.onrender.com/api/events')
+        response = requests.get('https://hereitis-v3.onrender.com/api/events')
         response.raise_for_status()  # Raise an exception for HTTP errors
         events = response.json()
         print('Events fetched successfully:', events)
@@ -84,7 +84,7 @@ def get_event(event_id):
 
 
 """
-curl -X POST https://hereitis-aomy.onrender.com/api/event -H "Content-Type: application/json" -d '{
+curl -X POST https://hereitis-v3.onrender.com/api/event -H "Content-Type: application/json" -d '{
     "Name": "Concert One",
     "DateTime": "2025-01-01 19:00:00",
     "Description": "New Year concert",
@@ -114,7 +114,7 @@ def submit_event_form():
         print(f'Name: {name}, Date: {date}, Description: {description}, ArtistID: {artist_id}, VenueID: {venue_id}, TicketPrice: {ticket_price}, PosterURL: {poster_url}')
 
         # Add the event to the database
-        response = requests.post('https://hereitis-aomy.onrender.com/api/event', json={
+        response = requests.post('https://hereitis-v3.onrender.com/api/event', json={
             'Name': name,
             'DateTime': date,
             'Description': description,
@@ -146,7 +146,7 @@ def get_artists():
     """
     print('Fetching artists...')
     try:
-        response = requests.get('https://hereitis-aomy.onrender.com/api/artists')
+        response = requests.get('https://hereitis-v3.onrender.com/api/artists')
         response.raise_for_status()  # Raise an exception for HTTP errors
         artists = response.json()
         print('Artists fetched successfully:', artists)
@@ -202,7 +202,7 @@ def get_artist_events(artist_id):
     """
     print('Fetching artist events...')
     try:
-        response = requests.get(f'https://hereitis-aomy.onrender.com/api/artists/{artist_id}/events')
+        response = requests.get(f'https://hereitis-v3.onrender.com/api/artists/{artist_id}/events')
         response.raise_for_status()  # Raise an exception for HTTP errors
         artist_events = response.json()
         print('Artist events fetched successfully:', artist_events)
@@ -228,7 +228,7 @@ def submit_artist_form():
         print(f'Username: {username}, Name: {name}, Bio: {bio}, ProfileURL: {profile_url}, Location: {location}')
 
         # Add new artist to DB
-        response = requests.post('https://hereitis-aomy.onrender.com/api/artist', json={
+        response = requests.post('https://hereitis-v3.onrender.com/api/artist', json={
             'ArtistUserName': username,
             'Name': name,
             'Bio': bio,
