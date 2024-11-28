@@ -1,0 +1,131 @@
+/* artist_style.css */
+
+/* Content layout */
+.content-wrapper {
+    background-color: #1a1a1a;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+}
+
+/* Left column layout */
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Artist image */
+.artist-image {
+    width: 300px;
+    height: 300px;
+    background-color: #ffff00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+}
+
+/* Media player */
+.media-player {
+    width: 300px;
+    height: 150px;
+    background-color: #ff00ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+}
+
+/* Info section */
+.info-section {
+    background-color: #d2d3d3;
+    padding: 20px;
+}
+
+.info-section h3 {
+    margin: 0 0 10px 0;
+    font-family: "Courier New", monospace;
+}
+
+/* Right column layout */
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Events sections */
+.upcoming-events,
+.past-events {
+    background-color: #d2d3d3;
+    padding: 20px;
+}
+
+.upcoming-events h3,
+.past-events h3 {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    font-family: "Courier New", monospace;
+}
+
+.event-box {
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+}
+
+.event-box p {
+    margin: 0;
+    font-family: "Courier New", monospace;
+}
+
+/* Social links section */
+.social-links {
+    margin-top: 100px;
+}
+
+.social-links h2 {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    font-family: "Courier New", monospace;
+}
+
+.social-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-links li {
+    background-color: black;
+    margin: 10px 0;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    text-align: center;
+    font-family: "Courier New", monospace;
+}
+
+/* Header content */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a1a;
+    color: white;
+    padding: 10px 20px;
+}
+
+.header-content span {
+    font-family: "Courier New", monospace;
+}
