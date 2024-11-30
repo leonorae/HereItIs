@@ -75,10 +75,10 @@ def insert_artist():
         
         # Insert artist data and request ArtistID to be returned
         cur.execute('''
-            INSERT INTO Artist (ArtistUserName, Name, Bio, ImageURL, Location)
-            VALUES (%s, %s, %s, %s, %s)
+            INSERT INTO Artist (ArtistUserName, Name, Bio, ImageURL, Location, FacebookURL, InstagramURL, SoundCloudURL)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
             RETURNING ArtistID;
-        ''', (data['ArtistUserName'], data['Name'], data.get('Bio'), data.get('ImageURL'), data.get('Location')))
+        ''', (data['ArtistUserName'], data['Name'], data.get('Bio'), data.get('ImageURL'), data.get('Location'), data.get('FacebookURL'), data.get('InstagramURL'), data.get('SoundCloudURL')))
         
         # Fetch the result and retrieve ArtistID
         result = cur.fetchone()
