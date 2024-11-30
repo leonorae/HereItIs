@@ -128,7 +128,7 @@ const generateEvents = (events) => {
 
 const generateEventBox = (event) => {
     const eventDate = new Date(event.datetime).toLocaleDateString();
-    const ticketPrice = event.ticketprice ? `$${event.ticketprice.toFixed(2)}` : 'Price TBA';
+    const ticketPrice = event.ticketprice ? `$${event.ticketprice}` : 'Price TBA';
 
     return `
         <div class="event-box">
