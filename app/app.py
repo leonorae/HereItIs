@@ -336,8 +336,8 @@ def get_artist(artist_username):
             "event_count": len(upcoming_events)
         }
         
-        artist_response = jsonify(artist)
-        artist_events_response = jsonify(artist_events)
+        artist_response = jsonify(artist), 200
+        artist_events_response = jsonify(artist_events), 200
         
         # get the artist info and future events
         artist_json = artist_response.json()
