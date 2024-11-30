@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Get the artist ID from the URL
     // update the URL for launching the page currently just local
     const rootURL = window.location.origin;
-    fetch(`${rootURL}/api/artists/username/${artistUsername}`)
+    fetch(`${rootURL}/api/artists/username/${artistUsername}/info-and-events`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok ' + response.statusText);
