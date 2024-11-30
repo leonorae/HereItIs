@@ -310,7 +310,7 @@ def get_artist(artist_username):
         if not artist:
             return jsonify({"error": f"Artist with username '{username}' not found"}), 404
     
-        artist = jsonify(artist), 200
+        artist = jsonify(artist)
 
         print('Artist fetched succssfully')
 
@@ -340,13 +340,13 @@ def get_artist(artist_username):
         
         artist_events = jsonify(artist_events)
         
-        
-        
         # get the artist info and future events
         #artist = response.json()
         #artist_events = response2.json()
             
         merged_dict = {**artist, **artist_events}
+
+        return jsonify(merged_dict)
         
     except Exception as e:
         print("Error fetching artist:", str(e))
@@ -356,7 +356,7 @@ def get_artist(artist_username):
         cur.close()
         conn.close()
 
-        return jsonify(merged_dict)
+        
 
 # Endpoint to get artist details by username        
 @app.route('/api/artists/username/<string:username>', methods=['GET'])
