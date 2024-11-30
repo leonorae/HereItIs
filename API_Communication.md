@@ -17,10 +17,10 @@ curl -X POST https://hereitis-v3.onrender.com/api/artist -H "Content-Type: appli
     "Name": "Artist Three",
     "Bio": "Bio for artist three",
     "ImageURL": "http://image.url",
-    "Location": "New York"
-    "FacebookURL": "http://facebook.com"
-    "InstagramURL": "http://instagram.com"
-    "SoundCloudURL": "http://soundcloud.com"
+    "Location": "New York",
+    "FacebookURL": "http://facebook.com",
+    "InstagramURL": "http://instagram.com",
+    "SoundCloudURL": "http://soundcloud.com",
 }'
 ```
 
