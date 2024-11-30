@@ -227,7 +227,6 @@ def get_all_venues():
         # Establish database connection
         conn = get_db_connection()
         cur = conn.cursor()
-t -> frontend_api_alex. I don't think the other branches really need to be merged(?)
         # Execute SQL query to fetch all venues
         cur.execute('SELECT * FROM Venue;')
         venues = cur.fetchall()  # Fetch all results
