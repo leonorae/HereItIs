@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Get event data from the API and render it to the HTML
 
+// Need to get the artist name and venue name from their IDs
+
 
 /**
  * artistid
@@ -52,13 +54,59 @@ const generateEventsGrid = (events) => {
         eventDiv.classList.add('event-card');
         eventsGrid.appendChild(eventDiv);
 
-        // Create a link to the individual event page
+        // Creates the event poster card
+        const eventPosterCard = document.createElement('div');
+        eventPosterCard.classList.add('cyan-card');
+        eventDiv.appendChild(eventPosterCard);
+
+        // Creates the event poster image
+        const eventPosterImg = document.createElement('img');
+        eventPosterImg.src = event.posterurl;
+        eventPosterCard.appendChild(eventPosterImg);
+
+        // Creates the event info card
+        const eventContent = document.createElement('div');
+        eventContent.classList.add('event-content');
+        eventDiv.appendChild(eventContent);
+
+        // Artist Div
+        const artistDiv = document.createElement('div');
+        artistDiv.classList.add('artists');
+        eventContent.appendChild(artistDiv);
+
+        let artistNameFromID = "Artist Name";
+        let venueNameFromID = "Venue Name";
+
+        // Artist Name
+        const artistName = document.createElement('h3');
+        artistName.classList.add('artist-name');
+        // Replace artist ID with artist name
+        artistName.textContent = artistNameFromID;
+        artistDiv.appendChild(artistName);
+
+        // Event Details
+        const eventDetails = document.createElement('div');
+        eventDetails.classList.add('event-details');
+        eventContent.appendChild(eventDetails);
+        
 
         // Event Name
         const eventName = document.createElement('h2');
         eventName.classList.add('event-name');
+
+
         const eventLink = document.createElement('a');
-        eventDiv.appendChild(eventLink);
+        eventName.textContent = event.name;
+        eventLink.href = `${window.location.href}events/${event.idevent}`;
+        eventLink.textContent = venueNameFromID;
+        eventDetails.appendChild(eventLink);
+
+        // Event Venue
+        // TODO: Replace venue ID with venue name
+        const eventVenue = document.createElement('p');
+        eventVenue.classList.add('event-venue');
+        eventVenue.textContent = event.venueid;
+        eventDetails.appendChild(eventVenue);
 
 
         const eventWeekday = document.createElement('p');
@@ -69,10 +117,9 @@ const generateEventsGrid = (events) => {
         const eventPoster = document.createElement('img');
         const eventTicketPrice = document.createElement('p');       
 
-        eventName.textContent = event.name;
+        
         // gets the url of the current page (index) and appends
-        eventLink.href = `${window.location.href}events/${event.idevent}`;
-        eventLink.textContent = event.name;
+        
 
         // Split the datetime into array of strings to be used in HTML
         splitDateTime = event.datetime.split(" ");
@@ -94,15 +141,17 @@ const generateEventsGrid = (events) => {
         // Append elements to their respective parent elements
         
         
-        eventDiv.appendChild(eventWeekday);
-        eventDiv.appendChild(eventMonth);
-        eventDiv.appendChild(eventDay);
-        eventDiv.appendChild(eventTime);
-        eventDiv.appendChild(eventDescription);
-        eventDiv.appendChild(eventPoster);
-        eventDiv.appendChild(eventTicketPrice);
+        // eventInfoCard.appendChild(eventWeekday);
+        // eventInfoCard.appendChild(eventMonth);
+        // eventInfoCard.appendChild(eventDay);
+        // eventInfoCard.appendChild(eventTime);
+        // eventInfoCard.appendChild(eventDescription);
+        // eventInfoCard.appendChild(eventPoster);
+        // eventInfoCard.appendChild(eventTicketPrice);
         
     });
 }
+
+
 
 // TODO: INIT function to call everything
