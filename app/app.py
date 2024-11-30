@@ -155,7 +155,7 @@ curl -X POST https://hereitis-v3.onrender.com/api/event -H "Content-Type: applic
 def submit_event_form():
     # Determine if the form is a get or post request
     if request.method == 'GET':
-        return render_template('addeventform.html')
+        return render_template('AddEventForm.html')
     
     # If the form is a post request
     if request.method == 'POST':
@@ -402,7 +402,7 @@ def get_artist_upcoming_events(artist_id):
 def submit_artist_form():
     # TODO: Check the parameters and the form fields to make sure they match and include all data
     if request.method == 'GET':
-        return render_template('addartistform.html')
+        return render_template('AddArtistForm.html')
     if request.method == 'POST':
         username = request.form['artist-username']
         name = request.form['artist-name']
