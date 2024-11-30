@@ -12,7 +12,7 @@ The API allows new entries (Artist, Venue, and Event) to be added to each table 
 To add a new artist, use the following command:
 
 ```bash
-curl -X POST SoundCloudURL-aomy.onrender.com/api/artist -H "Content-Type: application/json" -d '{
+curl -X POST https://hereitis-v3.onrender.com/api/artist -H "Content-Type: application/json" -d '{
     "ArtistUserName": "artist3",
     "Name": "Artist Three",
     "Bio": "Bio for artist three",
@@ -26,7 +26,7 @@ curl -X POST SoundCloudURL-aomy.onrender.com/api/artist -H "Content-Type: applic
 
 ### 2. Add a New Venue
 ```bash
-curl -X POST https://hereitis-aomy.onrender.com/api/venue -H "Content-Type: application/json" -d '{
+curl -X POST https://hereitis-v3.onrender.com/api/venue -H "Content-Type: application/json" -d '{
     "Name": "Venue One",
     "Location": "Los Angeles",
     "Description": "A popular concert venue"
