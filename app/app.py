@@ -283,28 +283,80 @@ def get_artist(artist_username):
     " @return: JSON response with artist details
     """
     print('Fetching artist...')
+    # GET ARTIST INFO
+    conn = get_db_connection()
+    if conn is None:
+        return jsonify({"error": "Database connection failed."}), 500
     try:
-        response = requests.get(f'https://hereitis-v3.onrender.com/api/artists/username/{artist_username}')
-        # get the artist_id from the respnse and pass it in
-        artist_id = response.json()['artistid']
+        cur = conn.cursor()
+        
+        # SQL query
+        cur.execute('''
+            SELECT ArtistID, 
+                   ArtistUserName, 
+                   Name, 
+                   Bio, 
+                   ImageURL, 
+                   Location,
+                   FacebookURL,
+                   InstagramURL,
+                   SoundCloudURL 
+            FROM Artist 
+            WHERE ArtistUserName = %s;
+        ''', (username,))
+        artist = cur.fetchone()
+        
+        # Return artist if found, otherwise 404
+        if not artist:
+            return jsonify({"error": f"Artist with username '{username}' not found"}), 404
+    
+        artist = jsonify(artist), 200
+
+        print('Artist fetched succssfully')
+
+        print(f'Fetching event details for {artist_username}...')
+        # get the artist_id and pass it in
+        artist_id = artist['artistid']
         print(f'Artist ID: {artist_id}')
-        response2 = requests.get(f'https://hereitis-v3.onrender.com/api/artists/{artist_id}/events')
-        if response.status_code == 200:
-            print('Artists fetched succssfully')
-            print(f'Fetching artist details for {artist_username}...')
+        
+        # SQL Query for events
+        # Get future events only, joined with venue details, sorted by date
+        cur.execute('''
+            SELECT e.*, v.* 
+            FROM Event e
+            JOIN Venue v ON e.VenueID = v.VenueID
+            WHERE e.ArtistID = %s
+            AND e.DateTime >= CURRENT_TIMESTAMP
+            ORDER BY e.DateTime ASC;
+        ''', (artist_id,))
+        
+        upcoming_events = cur.fetchall()
+        
+        # Format response with events list and count
+        artist_events = {
+            "events": upcoming_events,
+            "event_count": len(upcoming_events)
+        }
+        
+        artist_events = jsonify(artist_events)
+        
+        
+        
+        # get the artist info and future events
+        #artist = response.json()
+        #artist_events = response2.json()
+            
+        merged_dict = {**artist, **artist_events}
+        
+    except Exception as e:
+        print("Error fetching artist:", str(e))
+        return jsonify({"error": "Failed to retrieve artist details"}), 500
+    
+    finally:
+        cur.close()
+        conn.close()
 
-            # get the artist info and future events
-            artist = response.json()
-            artist_events = response2.json()
-
-            merged_dict = {**artist, **artist_events}
-
-            return jsonify(merged_dict)
-
-    # TODO: check the error handling here I think it isn't working properly
-    except requests.exceptions.RequestException as e:
-        print('Error fetching artist:', e)
-        return f'Error fetching artist: {e}'
+        return jsonify(merged_dict)
 
 # Endpoint to get artist details by username        
 @app.route('/api/artists/username/<string:username>', methods=['GET'])
