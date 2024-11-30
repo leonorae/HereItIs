@@ -303,7 +303,7 @@ def get_artist(artist_username):
                    SoundCloudURL 
             FROM Artist 
             WHERE ArtistUserName = %s;
-        ''', (artist_username))
+        ''', (artist_username,))
         artist = cur.fetchone()
         
         # Return artist if found, otherwise 404
@@ -313,7 +313,7 @@ def get_artist(artist_username):
         print('Artist fetched succssfully')
         print(f'Fetching event details for {artist_username}...')
         # get the artist_id and pass it in
-        artist_id = artist["artistID"]
+        artist_id = artist['artistid']
         print(f'Artist ID: {artist_id}')
         
         # SQL Query for events
