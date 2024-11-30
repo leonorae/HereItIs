@@ -303,7 +303,7 @@ def get_artist(artist_username):
                    SoundCloudURL 
             FROM Artist 
             WHERE ArtistUserName = %s;
-        ''', (username,))
+        ''', (artist_username,))
         artist = cur.fetchone()
         
         # Return artist if found, otherwise 404
