@@ -224,6 +224,9 @@ def submit_artist_form():
         bio = request.form['artist-bio']
         profile_url = request.form['profile-url']
         location = request.form['artist-location']
+        facebook_url = request.form['facebook-url']
+        instagram_url = request.form['instagram-url']
+        soundcloud_url = request.form['soundcloud-url']
 
         print(f'Username: {username}, Name: {name}, Bio: {bio}, ProfileURL: {profile_url}, Location: {location}')
 
@@ -233,7 +236,10 @@ def submit_artist_form():
             'Name': name,
             'Bio': bio,
             'ImageURL': profile_url,
-            'Location': location
+            'Location': location,
+            'FacebookURL': facebook_url,
+            'instagramURL': instagram_url,
+            'SoundCloudURL': soundcloud_url,
         })
 
         #TODO: verify the correct status
