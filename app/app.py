@@ -309,14 +309,11 @@ def get_artist(artist_username):
         # Return artist if found, otherwise 404
         if not artist:
             return jsonify({"error": f"Artist with username '{username}' not found"}), 404
-    
-        artist = jsonify(artist), 200
-
+        
         print('Artist fetched succssfully')
-
         print(f'Fetching event details for {artist_username}...')
         # get the artist_id and pass it in
-        artist_id = artist.json()['artistid']
+        artist_id = artist[0]
         print(f'Artist ID: {artist_id}')
         
         # SQL Query for events
@@ -338,6 +335,7 @@ def get_artist(artist_username):
             "event_count": len(upcoming_events)
         }
         
+        artist_json = jsonify(artist)
         artist_events = jsonify(artist_events)
         
         # get the artist info and future events
