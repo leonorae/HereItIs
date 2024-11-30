@@ -1,0 +1,97 @@
+/*****************************************************
+*
+*
+* added to the artist form page 
+*
+*
+*****************************************************/
+
+/* Form Container holding the entire form */
+.form-container
+{
+    background-color: #1a1a1a;
+    padding: 50px;
+}
+
+/* Organize Form into a column */
+.form-group
+{
+    display:flex;
+    flex-direction: column;
+}
+
+/* Contains each field and label */
+.form-category
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 5px;
+}
+
+/* Sets the width of the text input fields */
+.form-group input
+{
+    width: 60%;
+}
+
+/* Submit Button style */
+.form-group button
+{
+    margin-top: 25px;
+    width: 100px;
+    align-self: center;
+}
+
+/* Styles the label for the form */
+.form-category > label
+{
+    background-color: #999;
+    text-align: center;
+    border-bottom:#1a1a1a 1px solid;
+    border-left:#1a1a1a 1px solid;
+    border-top:#1a1a1a 1px solid;
+    width: 150px;
+}
+
+/* Styles the selection container for either artist or event */
+.listing-container
+{
+    display: flexbox;
+    height: 200px;
+    background-color: #999;
+    margin-top: auto;  /* Pushes section to bottom of sidebar */
+    overflow: auto;
+}
+
+.listing-container > h2
+{
+    text-align: center;
+    margin: 0px;
+    background-color: #1a1a1a;
+}
+
+.listing-selection
+{
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+}
+
+/* Style Buttons for Listing Selection */
+.selection-button
+{
+    margin: 5px;
+    width: 100px;
+    align-self: center;
+    background-color: #1a1a1a;
+    color: #fff;
+    border: none;
+}
+
+.event-selection
+{
+    color: #1a1a1a;
+    background-color: #eeeeee;
+    box-shadow: 0px 0px 2px 2px #1a1a1a;
+}

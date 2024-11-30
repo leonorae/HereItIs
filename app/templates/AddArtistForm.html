@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Ensures proper rendering on mobile devices and correct viewport size -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HereItIs</title>
+    <!-- External CSS files -->
+    <link rel="stylesheet" href="../static/style/AddFormsStyle.css">
+    <link rel="stylesheet" href="../static/style/base_style.css">
+</head>
+<body>
+<!-- Main container that wraps the entire layout -->
+<div class="container">
+    <!-- Left sidebar containing navigation and featured artist -->
+    <aside>
+        <!-- Website logo/title -->
+        <h1>HereItIs</h1>
+
+        <!-- Main navigation menu -->
+        <nav>
+            <ul>
+                <!-- Navigation links - currently using hashtags as placeholders -->
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#artists">ARTIST</a></li>
+                <!-- this needs to be differentiated to show it is selected -->
+                <li><a href="#get-listed">GET LISTED</a></li>
+                <li><a href="#about">ABOUT</a></li>
+            </ul>
+        </nav>
+
+        <!-- Selection between listing an artist or an event -->
+        <div class="listing-container">
+            <h2>Select One</h2>
+            <!-- Placeholder for artist image - currently a colored rectangle -->
+            <div class="listing-selection">
+                <button class="selection-button artist-selection">Artist</button>
+                <button class="selection-button event-selection">Event</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+        <!-- Top header bar -->
+        <header>
+            <div class="header-content">
+                <!-- Location, date, and filter options -->
+                <span>List Artist</span>
+            </div>
+        </header>
+
+        <!-- Container for add artist form-->
+        <div class="form-container">
+            <form action="{{ url_for('submit_artist_form') }}" method="POST">
+                <!-- check your form inputs to match DB-->
+                <div class="form-group">
+                    <div class="form-category">
+                        <label for="artist-username">Artist Username</label>
+                        <input type="text" id="artist-username" name="artist-username" required />
+                    </div>
+                    <div class="form-category">
+                        <label for="artist-name">Artist Name</label>
+                        <input type="text" id="artist-name" name="artist-name" required />
+                    </div>
+                    <div class="form-category">
+                        <label for="artist-bio">Bio</label>
+                        <input type="text" id="artist-bio" name="artist-bio" required />
+                    </div>
+                    <div class="form-category">
+                        <label for="profile-url">Profile Picture</label>
+                        <input type="text" id="profile-url" name="profile-url" />
+                    </div>
+                    <div class="form-category">
+                        <label for="artist-location">Location</label>
+                        <input type="text" id="artist-location" name="artist-location" />
+                    </div>
+                    <div class="form-category">
+                        <label for="facebook-url">Facebook Link</label>
+                        <input type="text" id="facebook-url" name="facebook-url" />
+                    </div>
+                    <div class="form-category">
+                        <label for="instagram-url">Instagram Link</label>
+                        <input type="text" id="instagram-url" name="instagram-url" />
+                    </div>
+                    <div class="form-category">
+                        <label for="soundcloud-url">Soundcloud Link</label>
+                        <input type="text" id="soundcloud-url" name="soundcloud-url" />
+                    </div>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
+
+<!-- Links to external JavaScript file that handles dynamic content -->
+<!-- <script src="app.js"></script> -->
+</body>
+</html>
