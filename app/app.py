@@ -316,7 +316,7 @@ def get_artist(artist_username):
 
         print(f'Fetching event details for {artist_username}...')
         # get the artist_id and pass it in
-        artist_id = artist['artistid']
+        artist_id = artist.json()['artistid']
         print(f'Artist ID: {artist_id}')
         
         # SQL Query for events
@@ -341,8 +341,8 @@ def get_artist(artist_username):
         artist_events = jsonify(artist_events)
         
         # get the artist info and future events
-        #artist = response.json()
-        #artist_events = response2.json()
+        artist = artist.json()
+        artist_events = artist_events.json()
             
         merged_dict = {**artist, **artist_events}
 
