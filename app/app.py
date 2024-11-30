@@ -326,8 +326,9 @@ def get_artist(artist_username):
             AND e.DateTime >= CURRENT_TIMESTAMP
             ORDER BY e.DateTime ASC;
         ''', (artist_id,))
-        
         upcoming_events = cur.fetchall()
+
+        print("got events")
         
         # Format response with events list and count
         artist_events = {
@@ -336,13 +337,13 @@ def get_artist(artist_username):
         }
         
         artist_json = jsonify(artist)
-        artist_events = jsonify(artist_events)
+        artist_events_json = jsonify(artist_events)
         
         # get the artist info and future events
-        artist = artist.json()
-        artist_events = artist_events.json()
+        #artist = artist.json()
+        #artist_events = artist_events.json()
             
-        merged_dict = {**artist, **artist_events}
+        merged_dict = {**artist_json, **artist_events_json}
 
         return jsonify(merged_dict)
         
