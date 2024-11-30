@@ -310,7 +310,7 @@ def get_artist(artist_username):
         if not artist:
             return jsonify({"error": f"Artist with username '{username}' not found"}), 404
     
-        artist = jsonify(artist)
+        artist = jsonify(artist), 200
 
         print('Artist fetched succssfully')
 
