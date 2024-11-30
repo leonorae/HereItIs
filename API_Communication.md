@@ -35,7 +35,7 @@ curl -X POST https://hereitis-v3.onrender.com/api/venue -H "Content-Type: applic
 
 ### 3. Add a New Event
 ```bash
-curl -X POST https://hereitis-aomy.onrender.com/api/event -H "Content-Type: application/json" -d '{
+curl -X POST https://hereitis-v3.onrender.com/api/event -H "Content-Type: application/json" -d '{
     "Name": "Concert One",
     "DateTime": "2025-01-01 19:00:00",
     "Description": "New Year concert",
@@ -50,16 +50,16 @@ curl -X POST https://hereitis-aomy.onrender.com/api/event -H "Content-Type: appl
 
 ### 1. Get All Artists
 ```bash
-curl https://hereitis-aomy.onrender.com/api/artists
+curl https://hereitis-v3.onrender.com/api/artists
 ```
 ### 2. Get All Venues
 ```bash
-curl  https://hereitis-aomy.onrender.com/api/venues
+curl  https://hereitis-v3.onrender.com/api/venues
 ```
 
 ### 3. Get All Events
 ```bash
-curl https://hereitis-aomy.onrender.com/api/events
+curl https://hereitis-v3.onrender.com/api/events
 ```
 
 ## Retrieving Specific Data
@@ -68,7 +68,7 @@ curl https://hereitis-aomy.onrender.com/api/events
 Retrieves detailed information about a specific event, including associated artist and venue details.
 
 ```bash
-curl https://hereitis-aomy.onrender.com/api/events/<event_id>
+curl https://hereitis-v3.onrender.com/api/events/<event_id>
 ```
 
 Example response:
@@ -91,7 +91,7 @@ Example response:
 Retrieves detailed information about a specific artist, including their social media links.
 
 ```bash
-curl https://hereitis-aomy.onrender.com/api/artists/username/<username>
+curl https://hereitis-v3.onrender.com/api/artists/username/<username>
 ```
 
 Example response:
@@ -113,7 +113,7 @@ Example response:
 Retrieves all future events for a specific artist, including venue details.
 
 ```bash
-curl https://hereitis-aomy.onrender.com/api/artists/<artist_id>/events
+curl https://hereitis-v3.onrender.com/api/artists/<artist_id>/events
 ```
 
 Example response:
