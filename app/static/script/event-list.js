@@ -61,6 +61,7 @@ const generateEventsGrid = (events) => {
 
         // Creates the event poster image
         const eventPosterImg = document.createElement('img');
+        eventPosterImg.classList.add('event-poster');
         eventPosterImg.src = event.posterurl;
         eventPosterCard.appendChild(eventPosterImg);
 

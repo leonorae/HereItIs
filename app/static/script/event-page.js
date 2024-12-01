@@ -49,7 +49,12 @@ const generateEvent = (event) => {
   const artistName = document.createElement('h3');
   const dateTime = document.createElement('p');
   const eventDescription = document.createElement('p');
+
+  // Create event poster
   const eventPoster = document.createElement('img');
+  eventPoster.classList.add('event-poster');
+
+  // Venue Information
   const venueName = document.createElement('h3');
   const venueDescription = document.createElement('p');
 

@@ -177,3 +177,9 @@ header
 {
     cursor: pointer;
 }
+
+.event-poster 
+{
+    width: 200px;
+    height: 200px;
+}
