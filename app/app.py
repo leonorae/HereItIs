@@ -14,11 +14,19 @@
 # '/events/<int:event_id>' - Event Page
 # '/api/events/<int:event_id>' - API Route for Event Page
 # '/addeventform' - Add Event Form
+# '/api/event/' - API Endpoint to add an event
 # '/artists' - Artist List Page
 # '/api/artists' - API Route for Artist List
-# '/artists/<int:artist_id>' - Artist Page
-# '/api/artists/<int:artist_id>' - API Route for Artist Page
-# '/addartistform' - Add Artist Form
+# '/artists/username/<string:artist_username>' - Artist Page
+# '/api/artists/username/<string:artist_username>/info-and-events' - (deprecated) API Endpoint for artist info and upcoming events
+# '/api/artists/username/<string:username>' - API Endpoint to get artist details by username
+# '/api/artists/<int:artist_id>' - API Endpoint to get artist details by username
+# '/api/artists/<int:artist_id>/events' - API Endpoint to get upcoming events for artist by artistID
+# '/addartistform' - Site route for the form to add an artist
+# '/api/artist' - API Endpoint to insert an Artist
+# '/api/venue' - API Endpoint to insert a Venue
+# '/api/venues' - API Endpoint to retrieve all venues from the Venue table
+# '/about' - Site route for the about Page
 #
 ############################################
 
@@ -38,9 +46,9 @@ import json
 # create app to use in this Flask application
 app = Flask(__name__)
 
+### Database
 # Database connection details
 db_url = "postgresql://mohammed_db_user:UmSc7JQQWVM3IqL8sbwxtGBI8I4cINRV@dpg-csj5d6btq21c73d9b840-a.oregon-postgres.render.com/mohammed_db"
-
 # Database connection function
 def get_db_connection():
     try:
@@ -49,13 +57,14 @@ def get_db_connection():
     except Exception as e:
         print("Database connection error:", e)
         return None
-
-# Index Route
+    
+### Routes
+# Site route for homepage (list of all events)
 @app.route('/')
 def home():
     return render_template('index.html')
 
-# API Route for Index Page
+# API Endpoint for getting all events (called by index page)
 @app.route('/api/events')
 def get_events():
     """
@@ -63,8 +72,6 @@ def get_events():
     Returns:
         JSON: A list of event records or an error message if an exception occurs.
     """
-    # LG: I just put the old backend code here, because i'm pretty sure the new code was just a request wrapper.
-    # TODO: remove this comment if it works
     try:
         # Establish database connection
         conn = get_db_connection()
@@ -84,12 +91,12 @@ def get_events():
         cur.close()
         conn.close()
 
-# Event Page
+# Site route for individual event page (by ID)
 @app.route('/events/<int:event_id>')
 def event(event_id):
     return render_template('event.html', event_id=event_id)
 
-# Endpoint to get event details by event ID
+# API Endpoint to get event details by event ID
 @app.route('/api/events/<int:event_id>')
 def get_event(event_id):
     """
@@ -97,8 +104,6 @@ def get_event(event_id):
     Returns:
         JSON: Event details including associated artist and venue information
     """
-    # LG: Same as above, just replaced, TODO: remove this if it works.
-    # Establish database connection with error handling
     conn = get_db_connection()
     if conn is None:
         return jsonify({"error": "Database connection failed."}), 500
@@ -139,18 +144,7 @@ def get_event(event_id):
         cur.close()
         conn.close()
 
-"""
-curl -X POST https://hereitis-v3.onrender.com/api/event -H "Content-Type: application/json" -d '{
-    "Name": "Concert One",
-    "DateTime": "2025-01-01 19:00:00",
-    "Description": "New Year concert",
-    "ArtistID": 1,   // replace with actual ArtistID
-    "VenueID": 1,    // replace with actual VenueID
-    "TicketPrice": 49.99,
-    "PosterURL": "http://poster.url"
-}'
-"""
-
+# Site route for the form to add an event
 @app.route('/addeventform', methods=['GET', 'POST'])
 def submit_event_form():
     # Determine if the form is a get or post request
@@ -231,12 +225,12 @@ def insert_event():
         cur.close()
         conn.close()
 
-# Artist List Page
+# Site route for the artists page, a list of all artists 
 @app.route('/artists')
 def artists():
     return render_template('artistlist.html')
 
-# API Route for Artist List
+# API Endpoint for the list of all artists
 @app.route('/api/artists')
 def get_artists():
     """
@@ -265,14 +259,15 @@ def get_artists():
         cur.close()
         conn.close()
 
-# Artist Page
+# Site route for individual artist pages, by artist username
 @app.route('/artists/username/<string:artist_username>')
 def artist(artist_username):
     return render_template('artist.html', artist_username=artist_username)
 
-# API Route for Artist Page
-# LG: This works, but has duplicate code copy/pasted/mangled/taped-and-glued from the API routes in it.
-#     This should all be refactored.
+# LG: This works, but has duplicate code copy/pasted/mangled/taped-and-glued from the API routes in it
+#     This should all be refactored
+#     UPDATE: this is also basically deprecated and should probably just be removed, but I will leave it for now
+# API Endpoint for Artist info, their upcoming events, and the count of their upcoming events
 @app.route('/api/artists/username/<string:artist_username>/info-and-events')
 def get_artist(artist_username):
     """
@@ -344,7 +339,7 @@ def get_artist(artist_username):
         cur.close()
         conn.close()
 
-# Endpoint to get artist details by username        
+# API Endpoint to get artist details by username
 @app.route('/api/artists/username/<string:username>', methods=['GET'])
 def get_artist_by_username(username):
     """
@@ -389,7 +384,7 @@ def get_artist_by_username(username):
         cur.close()
         conn.close()
 
-# Endpoint to get upcoming events for artist by artistID 
+# API Endpoint to get upcoming events for artist by artistID 
 @app.route('/api/artists/<int:artist_id>/events', methods=['GET'])
 def get_artist_upcoming_events(artist_id):
     """
@@ -435,7 +430,7 @@ def get_artist_upcoming_events(artist_id):
         cur.close()
         conn.close()
 
-# Add Artist Form
+# Site route for the form to add an artist
 @app.route('/addartistform', methods=['GET', 'POST'])
 def submit_artist_form():
     # TODO: Check the parameters and the form fields to make sure they match and include all data
@@ -478,7 +473,7 @@ def submit_artist_form():
 #     Once again, pretty sure this code should really just be in the above route,
 #     having it post to this other route is silly, but the fastest way to merge.
 # TODO: properly merge this hack, see above comment
-# Endpoint to insert an Artist
+# API Endpoint to insert an Artist
 @app.route('/api/artist', methods=['POST'])
 def insert_artist():
     data = request.json
@@ -518,7 +513,7 @@ def insert_artist():
         conn.close()
 
 # LG: do we need this venue code? leaving it just in case
-# Endpoint to insert a Venue
+# API Endpoint to insert a Venue
 @app.route('/api/venue', methods=['POST'])
 def insert_venue():
     """
@@ -562,7 +557,7 @@ def insert_venue():
         cur.close()
         conn.close()
 
-# Endpoint to retrieve all venues from the Venue table
+# API Endpoint to retrieve all venues from the Venue table
 @app.route('/api/venues', methods=['GET'])
 def get_all_venues():
     """
@@ -589,7 +584,7 @@ def get_all_venues():
         conn.close()
 
         
-# About Page
+# Site route for the about Page
 @app.route('/about')
 def about():
     return render_template('about.html')
