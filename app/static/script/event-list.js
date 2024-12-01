@@ -80,32 +80,35 @@ const generateEventsGrid = (events) => {
         const artistName = document.createElement('h3');
         artistName.classList.add('artist-name');
         // Replace artist ID with artist name
-        artistName.textContent = event.artistname;
-        artistDiv.appendChild(artistName);
+        artistLink = document.createElement('a');
+        artistLink.href = `${window.location.href}artists/username/${event.artistusername}`;
+        artistLink.textContent = event.artistname;
+        artistDiv.appendChild(artistLink);
 
         // Event Details
         const eventDetails = document.createElement('div');
         eventDetails.classList.add('event-details');
         eventContent.appendChild(eventDetails);
         
-
         // Event Name
         const eventName = document.createElement('h2');
         eventName.classList.add('event-name');
 
 
         const eventLink = document.createElement('a');
-        eventName.textContent = event.name;
+        // eventName.textContent = event.name;
         eventLink.href = `${window.location.href}events/${event.idevent}`;
-        eventLink.textContent = event.name;
-        eventDetails.appendChild(eventLink);
+        eventLink.textContent = event.name + " @ " + event.venuename + " - " + event.datetime;
+
+        eventName.appendChild(eventLink);
+        eventDetails.appendChild(eventName);
 
         // Event Venue
         // TODO: Replace venue ID with venue name
-        const eventVenue = document.createElement('p');
-        eventVenue.classList.add('event-venue');
-        eventVenue.textContent = event.venuename;
-        eventDetails.appendChild(eventVenue);
+        // const eventVenue = document.createElement('p');
+        // eventVenue.classList.add('event-venue');
+        // eventVenue.textContent = event.venuename;
+        // eventDetails.appendChild(eventVenue);
 
 
         const eventWeekday = document.createElement('p');
