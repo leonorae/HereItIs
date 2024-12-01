@@ -177,10 +177,14 @@ def submit_event_form():
         # resolved: this check was not indented under the post method
         if response.status_code != 201:
             print(f"Error adding event: {response.text}")
-            return f"Error adding event: {response.text}"
+            print(f"Response Code: {response.status_code}")
+            #return f"Error adding event: {response.text}"
+            return render_template('failure-form.html')
         else:
             print(f"Event added successfully: {response.text}")
-            return f"Event added successfully: {response.text}"
+            print(f"Response Code: {response.status_code}")
+            #return f"Event added successfully: {response.text}"
+            return render_template('successful-form.html')
 
 # LG: Pretty sure this code should really just be in the above route
 #     having it post to this other route is silly, but the fastest way to merge.
@@ -464,10 +468,12 @@ def submit_artist_form():
         if response.status_code != 201:
             print(f"Error adding artist: {response.text}")
             print(f"Response Code: {response.status_code}")
-            return f"Error adding artist: {response.text}... Response Code: {response.status_code}"
+            # return f"Error adding artist: {response.text}... Response Code: {response.status_code}"
+            return render_template('failure-form.html')
         else:
             print(f"Artist added successfully: {response.text}")
-            return f"Artist added successfully: {response.text}"
+            # return f"Artist added successfully: {response.text}"
+            return render_template('successful-form.html')
 
 # LG: I did the same thing as with addevent.
 #     Once again, pretty sure this code should really just be in the above route,
