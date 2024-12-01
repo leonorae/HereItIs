@@ -271,10 +271,8 @@ def artist(artist_username):
     return render_template('artist.html', artist_username=artist_username)
 
 # API Route for Artist Page
-# LG: I just renamed this route for now, and will change the url requested from in the js file
-#     The other routes were just copied.
-#     this should probably be done entirely differently, but idk
-# TODO: change the name in the js file, make sure this works
+# LG: This works, but has duplicate code copy/pasted/mangled/taped-and-glued from the API routes in it.
+#     This should all be refactored.
 @app.route('/api/artists/username/<string:artist_username>/info-and-events')
 def get_artist(artist_username):
     """
@@ -327,8 +325,6 @@ def get_artist(artist_username):
             ORDER BY e.DateTime ASC;
         ''', (artist_id,))
         upcoming_events = cur.fetchall()
-
-        print("got events")
         
         # Format response with events list and count
         artist_events = {
@@ -336,13 +332,6 @@ def get_artist(artist_username):
             "event_count": len(upcoming_events)
         }
         
-        #artist_response = jsonify(artist)
-        #artist_events_response = jsonify(artist_events)
-        
-        # get the artist info and future events
-        #artist_json = artist_response.json()
-        #artist_events_json = artist_events_response.json()
-            
         merged_dict = {**artist, **artist_events}
 
         return jsonify(merged_dict)
@@ -354,8 +343,6 @@ def get_artist(artist_username):
     finally:
         cur.close()
         conn.close()
-
-        
 
 # Endpoint to get artist details by username        
 @app.route('/api/artists/username/<string:username>', methods=['GET'])
