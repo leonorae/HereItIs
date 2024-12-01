@@ -72,6 +72,13 @@ def get_events():
 
         # Execute SQL query to fetch all events
         cur.execute('SELECT * FROM Event;')
+        # Need to also fetch Arist Name and Venue Name from Event ID
+        cur.execute('''
+            SELECT e.*, a.Name as ArtistName, v.Name as VenueName
+            FROM Event e
+            LEFT JOIN Artist a ON e.ArtistID = a.ArtistID
+            LEFT JOIN Venue v ON e.VenueID = v.VenueID;
+                    ''')
         events = cur.fetchall()  # Fetch all results
         
         # Return the list of events as a JSON response
