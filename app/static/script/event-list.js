@@ -74,14 +74,13 @@ const generateEventsGrid = (events) => {
         artistDiv.classList.add('artists');
         eventContent.appendChild(artistDiv);
 
-        let artistNameFromID = "Artist Name";
-        let venueNameFromID = "Venue Name";
+        
 
         // Artist Name
         const artistName = document.createElement('h3');
         artistName.classList.add('artist-name');
         // Replace artist ID with artist name
-        artistName.textContent = artistNameFromID;
+        artistName.textContent = event.artistname;
         artistDiv.appendChild(artistName);
 
         // Event Details
@@ -98,14 +97,14 @@ const generateEventsGrid = (events) => {
         const eventLink = document.createElement('a');
         eventName.textContent = event.name;
         eventLink.href = `${window.location.href}events/${event.idevent}`;
-        eventLink.textContent = venueNameFromID;
+        eventLink.textContent = event.name;
         eventDetails.appendChild(eventLink);
 
         // Event Venue
         // TODO: Replace venue ID with venue name
         const eventVenue = document.createElement('p');
         eventVenue.classList.add('event-venue');
-        eventVenue.textContent = event.venueid;
+        eventVenue.textContent = event.venuename;
         eventDetails.appendChild(eventVenue);
 
 
