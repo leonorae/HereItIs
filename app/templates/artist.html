@@ -3,15 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artist Page</title>
+    <title>Artist Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/base_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/artist_style.css') }}">
 </head>
 <body>
-    <div id="artist-container"></div>
-    <script>
-        // Passes from Flask to external JavaScript file
-        const artistUsername = "{{ artist_username }}";
-    </script>
-    <script src="{{ url_for('static', filename='script/artist-page.js') }}"></script>
-    
+<div class="container">
+    <aside>
+        <h1>HereItIs</h1>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/artists">Artists</a></li>
+                <li><a href="/get-listed">Get Listed</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+
+        <div class="social-links">
+            <h2>Social Media</h2>
+            <ul>
+                <!-- Will be populated by JS -->
+            </ul>
+        </div>
+    </aside>
+
+    <main role="main">
+        <div class="header-content">
+            <!-- Will be populated by JS -->
+        </div>
+
+        <div class="content-wrapper">
+            <div class="left-column">
+                <div class="artist-image">
+                    <!-- Will be populated by JS -->
+                </div>
+
+                <div class="media-player">
+                    <!-- Will be populated by JS -->
+                </div>
+
+                <div class="info-section">
+                    <!-- Will be populated by JS -->
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="upcoming-events">
+                    <!-- Will be populated by JS -->
+                </div>
+
+                <div class="past-events">
+                    <!-- Will be populated by JS -->
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+    const artistUsername = "{{ artist_username }}";
+</script>
+<script src="{{ url_for('static', filename='script/artist-page.js') }}"></script>
 </body>
 </html>

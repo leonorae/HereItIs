@@ -1,18 +1,6 @@
-///////////////////////////
-// Artist Page Javascript
-// Handles the data for an invidual artist page
-//
-//
-// Functions Used:
-//
-//
-///////////////////////////
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Get the artist ID from the URL
-    // update the URL for launching the page currently just local
-    const rootURL = window.location.origin;
-    fetch(`${rootURL}/api/artists/username/${artistUsername}/info-and-events`)
+    // TODO: I'm calling Flask route here which feels hacky, that's not how it's done in event-page.js
+    fetch(`/api/artists/username/${artistUsername}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok ' + response.statusText);
@@ -20,55 +8,135 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(artist => {
-            
-          console.log(`${artist}`); // This should log the events data
-          // loop throuh the events
-          generateArtist(artist); // This function renders the list of events
-          generateFutureEvents(artist);
-            
-  
-          // Example: Render the events in the HTML
-          // Can I move this to another function to be called?
-            
-            
+            // Generate the main artist content
+            generateArtistPage(artist);
+
+            // Then fetch their events using the ArtistID
+            return fetch(`/api/artists/${artist.artistid}/events`);
         })
-        .catch(error => console.error('Error:', error));
-  });
-  
-  // Make the artist page
-  const generateArtist = (artist) => {
-    const artistContainer = document.getElementById('artist-container');
-    // Create HTML elements for event data
-    const artistDiv = document.createElement('div');
-    const artistName = document.createElement('h2');
-    console.log(artist.name);
-    artistName.textContent = artist.name;
-    console.log(artist.bio);
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(eventsData => {
+            // API returns {events: [...], event_count: number}
+            if (eventsData.events) {
+                generateEvents(eventsData.events);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // TODO: Add error state handling
+        });
+});
 
-    artistContainer.append(artistDiv);
-    artistDiv.append(artistName);
-    
-  }
+const generateArtistPage = (artist) => {
+    // Update page title
+    document.title = `Artist Profile: ${artist.name}`;
 
-  const generateFutureEvents = (artist) => {
-    const artistContainer = document.getElementById('artist-container');
-    // Create HTML elements for event data
-    const futureEventsDiv = document.createElement('div');
-    const futureEventsHeader = document.createElement('h2');
-    futureEventsHeader.textContent = "Upcoming Events";
-    artistContainer.append(futureEventsDiv);
-    futureEventsDiv.append(futureEventsHeader);
-    console.log(artist.events);
+    // Header content
+    const headerContent = document.querySelector('.header-content');
+    headerContent.innerHTML = `
+        ${artist.name} 
+        <span class="date">${new Date().toLocaleDateString()}</span>
+    `;
 
-    // Loop through the events and render to HTML
-    artist.events.forEach(event => {
-      const eventName = document.createElement('h3');
-      futureEventsDiv.append(eventName);
+    // Artist image
+    const artistImage = document.querySelector('.artist-image');
+    if (artist.imageurl) {
+        artistImage.innerHTML = `<img src="${artist.imageurl}" alt="${artist.name}">`;
+    }
 
+    // Artist info/bio
+    const infoSection = document.querySelector('.info-section');
+    infoSection.innerHTML = `
+        <h3>Artist Info</h3>
+        <p>${artist.bio || 'Biography coming soon...'}</p>
+        ${artist.location ? `<p>Location: ${artist.location}</p>` : ''}
+    `;
 
-  
-      // pass the event data into HTML element
-      eventName.textContent = event.name;
-    }); 
-  }
-  
+    // TODO: These are not being generated
+    const socialLinks = document.querySelector('.social-links ul');
+    const socialPlatforms = [
+        { key: 'facebookurl', label: 'Facebook' },
+        { key: 'instagramurl', label: 'Instagram' },
+        { key: 'soundcloudurl', label: 'SoundCloud' }
+    ];
+
+    socialLinks.innerHTML = socialPlatforms
+        .map(({ key, label }) => {
+            if (artist[key]) {
+                return `<li><a href="${artist[key]}" target="_blank">${label}</a></li>`;
+            }
+            return '';
+        })
+        .join('');
+};
+
+// TODO: Look at this with William
+const generateEvents = (events) => {
+    if (!events || events.length === 0) {
+        const upcomingEventsContainer = document.querySelector('.upcoming-events');
+        const pastEventsContainer = document.querySelector('.past-events');
+
+        upcomingEventsContainer.innerHTML = `
+            <h3>Upcoming Events</h3>
+            <div class="event-box">No upcoming events</div>
+        `;
+
+        pastEventsContainer.innerHTML = `
+            <h3>Past Events</h3>
+            <div class="event-box">No past events</div>
+        `;
+        return;
+    }
+
+    const currentDate = new Date();
+    const upcomingEvents = [];
+    const pastEvents = [];
+
+    // Sort events into upcoming and past
+    events.forEach(event => {
+        const eventDate = new Date(event.datetime);
+        if (eventDate >= currentDate) {
+            upcomingEvents.push(event);
+        } else {
+            pastEvents.push(event);
+        }
+    });
+
+    // Sort events by date
+    upcomingEvents.sort((a, b) => new Date(a.datetime) - new Date(b.datetime));
+    pastEvents.sort((a, b) => new Date(b.datetime) - new Date(a.datetime));
+
+    // Generate upcoming events (limit to 3)
+    const upcomingEventsContainer = document.querySelector('.upcoming-events');
+    upcomingEventsContainer.innerHTML = `
+        <h3>Upcoming Events</h3>
+        ${upcomingEvents.slice(0, 3).map(event => generateEventBox(event)).join('')}
+    `;
+
+    // Generate past events (limit to 3)
+    const pastEventsContainer = document.querySelector('.past-events');
+    pastEventsContainer.innerHTML = `
+        <h3>Past Events</h3>
+        ${pastEvents.slice(0, 3).map(event => generateEventBox(event)).join('')}
+    `;
+};
+
+const generateEventBox = (event) => {
+    const eventDate = new Date(event.datetime).toLocaleDateString();
+    const ticketPrice = event.ticketprice ? `$${event.ticketprice}` : 'Price TBA';
+
+    return `
+        <div class="event-box">
+            <p>${event.name}</p>
+            <p>@ ${event.venuename} - ${eventDate}</p>
+            <p>${event.location}</p>
+            ${event.description ? `<p>${event.description}</p>` : ''}
+            <p>Tickets: ${ticketPrice}</p>
+        </div>
+    `;
+};
