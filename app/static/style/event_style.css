@@ -10,7 +10,7 @@
 
 .event-card-left
 {
-    display: flex;
+    display: flexbox;
     flex-direction: column;
     flex: 1;
     padding: 10px;
@@ -19,9 +19,18 @@
 
 .event-card-right
 {
-    display: flex;
+    display: flexbox;
     flex-direction: column;
     flex: 1;
     padding: 10px;
-    color:orange;
+    color:red;
+}
+
+.event-card-bottom
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    color:blue;
 }

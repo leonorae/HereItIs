@@ -29,8 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
 // Make the event page: create the HTML elements, provide data, and append to the container
 const generateEvent = (event) => {
   const eventContainer = document.getElementById('event-container');
+
+  // Create the 3 containers for the event page
+  const eventCardLeft = document.createElement('div');
+  const eventCardRight = document.createElement('div');
+  const eventCardBottom = document.createElement('div');
+
+  eventCardLeft.classList.add('event-card-left');
+  eventCardRight.classList.add('event-card-right');
+  eventCardBottom.classList.add('event-card-bottom');
+
+  eventContainer.append(eventCardLeft);
+  eventContainer.append(eventCardRight);
+  eventContainer.append(eventCardBottom);
+
+
   // Create HTML elements for event data
-  const eventDiv = document.createElement('div');
   const eventName = document.createElement('h2');
   const artistName = document.createElement('h3');
   const dateTime = document.createElement('p');
@@ -52,14 +66,16 @@ const generateEvent = (event) => {
 
   console.log(event);
 
-  eventContainer.append(eventDiv);
-  eventDiv.append(eventName);
-  eventDiv.append(eventDescription);
-  eventDiv.append(artistName);
-  eventDiv.append(venueName);
-  eventDiv.append(venueDescription);
-  eventDiv.append(dateTime);
-  eventDiv.append(eventPoster);
+  eventCardLeft.append(eventName);
+  eventCardLeft.append(artistName);
+  
+  eventCardLeft.append(eventPoster);
+  eventCardLeft.append(eventDescription);
+  
+  eventCardRight.append(venueName);
+  eventCardRight.append(venueDescription);
+  eventCardBottom.append(dateTime);
+  
 }
 
 
