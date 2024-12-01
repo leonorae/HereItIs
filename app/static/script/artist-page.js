@@ -140,5 +140,3 @@ const generateEventBox = (event) => {
         </div>
     `;
 };
-  
-  

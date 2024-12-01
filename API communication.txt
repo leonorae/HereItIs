@@ -1,0 +1,32 @@
+API communication:
+
+curl -X POST http://127.0.0.1:3308/api/artist -H "Content-Type: application/json" -d '{
+    "ArtistUserName": "artist3",
+    "Name": "Artist Three",
+    "Bio": "Bio for artist three",
+    "ImageURL": "http://image.url",
+    "Location": "New York"
+}'
+
+
+curl -X POST http://127.0.0.1:3308/api/venue -H "Content-Type: application/json" -d '{
+    "Name": "Venue One",
+    "Location": "Los Angeles",
+    "Description": "A popular concert venue"
+}'
+
+
+curl -X POST http://127.0.0.1:3308/api/event -H "Content-Type: application/json" -d '{
+    "Name": "Concert One",
+    "DateTime": "2025-01-01 19:00:00",
+    "Description": "New Year concert",
+    "ArtistID": 1,             // replace with your actual ArtistID
+    "VenueID": 1,              // replace with your actual VenueID
+    "TicketPrice": 49.99,
+    "PosterURL": "http://poster.url"
+}'
+
+
+curl http://127.0.0.1:3308/api/artists
+curl http://127.0.0.1:3308/api/venues
+curl http://127.0.0.1:3308/api/events

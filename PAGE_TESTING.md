@@ -8,9 +8,6 @@ HereItIs (Upcoming Events)
 ### Page Description
 The Home page serves as the main landing page for the application, displaying upcoming events and allowing users to navigate to other sections of the site. It shows links to the upcoming events in chronological order, each with a poster image, name, and list of artists performing (further details are included in the event's details page). Also contains a mechanism for filtering events by a genre.
 
-![HereItIs-Desktop-v3-Home](https://github.com/leonorae/HereItIs/blob/main/Media/mockup/v3/HereItIs-Desktop-v3-Home.jpg?raw=true)
-![HereItIs-Desktop-v3-Home-Filtered](https://github.com/user-attachments/assets/7c9440db-17bc-435a-9ba3-0fd5fa7407c9)
-
 ### Parameters needed for the page
 - Current date (for filtering upcoming events)
 
@@ -20,7 +17,7 @@ The Home page serves as the main landing page for the application, displaying up
 - Dates and times of upcoming events
 - Images for upcoming events
 - Featured artists (if any)
-
+- 
 ### Link destinations for the page
 - Event details pages (per displayed event)
 - Artist profile pages (per displayed event)
@@ -136,13 +133,12 @@ This page showcases information about a specific artist, including their image, 
 ## 4. Add Event:
 
 ### Page Title
-Add Event: 
+Add Event 
 
 ### Page Description
 This page allows the user to create a new event page and will prompt for event details. Will have relevant text-boxes and selectors for adding values to each required field. Will link to the newly created event when user inputs correct data into all fields and confirms input.
 
 ![HereItIs-Desktop-v3-List-Event](https://github.com/user-attachments/assets/b123ff25-aabd-472d-9917-d7cf169d14ba)
-
 
 ### Data needed to render the page
 - Current date/time (for checking that the new event will be after the current date)
@@ -177,9 +173,15 @@ Similarly to the Add Event page, this page allows the user to create a new artis
 
 ![HereItIs-Desktop-v3-List-Artist](https://github.com/user-attachments/assets/d99fd776-c93a-468d-a200-f9c2817900b1)
 
+### Parameters Needed for the Page
+- None
 
+  
 ### Data needed to render the page
-- User details (username, name, email, location)
+- Form field for the event details:
+   - Name 
+   - Genre
+   - Location
 
 ### Link destinations for the page
 - link to add event page

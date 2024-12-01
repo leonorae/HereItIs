@@ -4,11 +4,11 @@ Music event planning software for local music scenes.
 ## Team # 2 (Wizard Team)
 | Team member | GitHub Username | Email |
 |-|-|-|
-| Leonora Goble | leonorae | leonora.goble@colorado.edu
-Matthew Presti | matt-presti | mapresti3@gmail.com
-William Booth| WGBooth | wibo1972@colorado.edu
-Alexander Gonzalez-Torres | alexanderxgt | alexanderxgt@gmail.com
 Mohammed Alsailani | Alsailani | moal5633@colorado.edu
+William Booth| WGBooth | wibo1972@colorado.edu
+Leonora Goble | leonorae | leonora.goble@colorado.edu
+Alexander Gonzalez-Torres | alexanderxgt | alexanderxgt@gmail.com
+Matthew Presti | matt-presti | mapresti3@gmail.com
 
 Weekly meeting for project: 
 Fridays @ 2PM MST
@@ -23,15 +23,14 @@ HereItIs is the goto place _online_ to connect with your local music scene _offl
 - You've got taste! Filter search results to find exactly what you're looking for. It could be an artist's genre or a venue's vibe, subscribe to what you're interested in so you're always in the loop.
 - Show your support! Show other fans which events you'll be attending and see what your friends are up to.
 - Soundcheck! Preview artists before you step out the door so you get an idea of what to expect.
-- Make your voice heard! Provide ratings and commentary on bands/events.
 
 #### Potential benefits for artists:
-- Encore! See moments captured by your fans at the show to engage with your loyal fans and grow your audience.
+- Promote! Let fans see what events you have coming up next so they never miss a performance. Let them know where they can follow you on social media!
 - Get support from your fans! Display your preferred methods for receiving tips and selling merch.
+- Get discovered! Find new fans looking for artists in your genre.
 
 #### Potential benefits for event planners:
 - Pump Up the Jam! Build hype for upcoming concerts, shows, and more.
-- Be prepared! See who has indicated interest in your events before they happen.
 
 ## Motivation:
 Many of us are involved in local music scenes, which often have events organized on various social media websites. These are spread out across platforms and disorganized, relying on communication between individuals. Present solutions like Resident Advisor or Dice only capture a small slice of local scenes, and in the case of Resident Advisor, do not allow users to filter by music genre. Furthermore, Resident Advisor offers limited features to assist in organizing and managing events. We want to fill-in the gaps where we can to help our local scenes grow! 
@@ -52,7 +51,6 @@ Many of us are involved in local music scenes, which often have events organized
 - Weekly Scrum meetings and assigning scrum master
 - User Stories
 - kanban via [Trello](https://trello.com/invite/b/66ee14f2ebb2bed462a868ac/ATTI55abcb1be45640ce0b7573874bbff32f36463F4F/wizardteam)
-- Burnup/burndown chart
 - Ad-hoc tasks discussed via Discord 
 
 
