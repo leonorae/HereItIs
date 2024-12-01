@@ -30,10 +30,8 @@
 #
 ############################################
 
-# TODO: update comment above after merge
 # TODO: Standardize the error handling: I disassmebled some for error handling, ironically but it was indention errors that caused issues
 # TODO: Comments for each route (docstrings, inline comments, etc.) / Sorry for lack of comments :( I got focused on getting it up and running
-# TODO: Add routes for: About Page, (any others?)
 
 from flask import Flask, url_for, render_template, request, jsonify
 from markupsafe import escape
