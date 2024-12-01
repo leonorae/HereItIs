@@ -336,14 +336,14 @@ def get_artist(artist_username):
             "event_count": len(upcoming_events)
         }
         
-        artist_response = jsonify(artist), 200
-        artist_events_response = jsonify(artist_events), 200
+        #artist_response = jsonify(artist)
+        #artist_events_response = jsonify(artist_events)
         
         # get the artist info and future events
-        artist_json = artist_response.json()
-        artist_events_json = artist_events_response.json()
+        #artist_json = artist_response.json()
+        #artist_events_json = artist_events_response.json()
             
-        merged_dict = {**artist_json, **artist_events_json}
+        merged_dict = {**artist, **artist_events}
 
         return jsonify(merged_dict)
         
