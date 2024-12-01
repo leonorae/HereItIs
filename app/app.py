@@ -79,7 +79,7 @@ def get_events():
         cur.execute('SELECT * FROM Event;')
         # Need to also fetch Arist Name and Venue Name from Event ID
         cur.execute('''
-            SELECT e.*, a.Name as ArtistName, v.Name as VenueName
+            SELECT e.*, a.Name as ArtistName, v.Name as VenueName, a.ArtistUserName
             FROM Event e
             LEFT JOIN Artist a ON e.ArtistID = a.ArtistID
             LEFT JOIN Venue v ON e.VenueID = v.VenueID;
