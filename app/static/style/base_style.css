@@ -139,6 +139,24 @@ header
     flex-direction: column;
 }
 
+/* Grid container for event cards - creates 3-column layout */
+.artists-grid
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0 10px;
+}
+
+/* Base styles for each event card */
+.artist-card
+{
+    aspect-ratio: 16/9;  /* Maintains consistent card proportions */
+    border: 1px solid #999;
+    display: flex;
+    flex-direction: column;
+}
+
 /* Cyan background for alternating cards */
 .cyan-card
 {
@@ -179,6 +197,12 @@ header
 }
 
 .event-poster 
+{
+    width: 200px;
+    height: 200px;
+}
+
+.artist-poster 
 {
     width: 200px;
     height: 200px;

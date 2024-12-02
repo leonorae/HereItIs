@@ -26,15 +26,23 @@ document.addEventListener('DOMContentLoaded', () => {
 /**
  * generateArtistList --> Generates the list of events from the API call to HTML
  * @param {Array} artists
- * @returns {HTMLElement} eventsContainer
+ * @returns {HTMLElement} artistsGrid
  */
 const generateArtistList = (artists) => {
-    const artistsContainer = document.getElementById('artists-container');
+    const artistsgrid = document.getElementById('artists-grid');
 
     // Loop over the artists from the API call
     artists.forEach(artist => {
         // Create HTML elements for artist data
-        const artistDiv = document.createElement('div');
+        const artistCard = document.createElement('div');
+        artistCard.classList.add('artist-card');
+
+        // Add Artist Poster
+        const artistPoster = document.createElement('img');
+        artistPoster.src = artist.imageurl;
+        artistPoster.classList.add('artist-poster');
+        artistCard.append(artistPoster);
+
         // Create a link to the individual artist page
         const artistName = document.createElement('h2');
         const artistLink = document.createElement('a');
@@ -50,10 +58,10 @@ const generateArtistList = (artists) => {
         artistLink.href = `/artists/username/${artist.artistusername}`;
 
         // Append the elements to the container
-        artistsContainer.append(artistDiv);
-        artistDiv.append(artistLink);
+        artistsgrid.append(artistCard);
+        artistCard.append(artistLink);
         artistLink.append(artistName);
-        artistDiv.append(artistDescription);
+        artistCard.append(artistDescription);
 
 
         // test future artist events
