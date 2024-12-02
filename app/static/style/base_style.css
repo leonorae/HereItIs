@@ -140,7 +140,7 @@ header
 }
 
 /* Grid container for event cards - creates 3-column layout */
-.artists-grid
+#artists-grid
 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -216,6 +216,7 @@ header
 /* Image for the Artist */
 .artist-poster 
 {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

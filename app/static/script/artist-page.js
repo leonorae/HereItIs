@@ -46,7 +46,13 @@ const generateArtistPage = (artist) => {
     // Artist image
     const artistImage = document.querySelector('.artist-image');
     if (artist.imageurl) {
-        artistImage.innerHTML = `<img src="${artist.imageurl}" alt="${artist.name}">`;
+        // replace the placeholder box with artist's image if it exists
+        artistImage.style.backgroundImage = `url(${artist.imageurl})`;
+
+        // artistImage.innerHTML = `<img src="${artist.imageurl}" alt="${artist.name}">`;
+    } else {
+        // no artist image, display artist's name
+        artistImage.innerHTML = `<h1>${artist.name}</h1>`;
     }
 
     // Artist info/bio

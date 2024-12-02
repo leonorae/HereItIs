@@ -37,11 +37,16 @@ const generateArtistList = (artists) => {
         const artistCard = document.createElement('div');
         artistCard.classList.add('artist-card');
 
+        // Add Poster Container
+        const posterContainer = document.createElement('div');
+        posterContainer.classList.add('poster-container');
+        artistCard.append(posterContainer);
+
         // Add Artist Poster
         const artistPoster = document.createElement('img');
         artistPoster.src = artist.imageurl;
         artistPoster.classList.add('artist-poster');
-        artistCard.append(artistPoster);
+        posterContainer.append(artistPoster);
 
         // Create a link to the individual artist page
         const artistName = document.createElement('h2');
