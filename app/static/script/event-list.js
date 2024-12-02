@@ -56,7 +56,7 @@ const generateEventsGrid = (events) => {
 
         // Creates the event poster card
         const eventPosterCard = document.createElement('div');
-        eventPosterCard.classList.add('cyan-card');
+        eventPosterCard.classList.add('poster-container');
         eventDiv.appendChild(eventPosterCard);
 
         // Creates the event poster image

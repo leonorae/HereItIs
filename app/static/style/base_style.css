@@ -20,7 +20,7 @@ body, html
 .container
 {
     display: flex;
-    height: 100%;
+    /* height: 100%; */
     background-color: #d2d3d3;
 }
 
@@ -133,7 +133,7 @@ header
 /* Base styles for each event card */
 .event-card
 {
-    aspect-ratio: 16/9;  /* Maintains consistent card proportions */
+    /* aspect-ratio: 16/9;  Maintains consistent card proportions */
     border: 1px solid #999;
     display: flex;
     flex-direction: column;
@@ -196,12 +196,24 @@ header
     cursor: pointer;
 }
 
-.event-poster 
+/* Container for the Event Poster */
+.poster-container
 {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: 60%;
 }
 
+/* Image for the event */
+.event-poster 
+{
+    /* fill container */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+
+/* Image for the Artist */
 .artist-poster 
 {
     width: 200px;
