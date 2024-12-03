@@ -5,26 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artist List</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style/base_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/artist_style.css') }}">
 </head>
 <body>
-    <div class="container">
-        <aside>
-            <h1>HereItIs</h1>
-            <nav>
-                <ul>
-                    <!-- Need to Link these -->
-                    <a href="/"><li>Home</li></a>
-                    <a href="/artists"><li>Artists</li></a>
-                    <!-- Which Form do we link to artist or event? Or different landing?-->
-                    <a href="/addartistform"><li>Get Listed</li></a>
-                    <a href="/about"><li>About</li></a>
-                </ul>
-            </nav>
-        </aside>
-        <div id="artists-grid"></div>
-    </div>
+<div class="container">
+    <!-- Sidebar -->
+    <aside>
+        <h1>HereItIs</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/artists">Artists</a></li>
+                <li><a href="/addartistform">Get Listed</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+    </aside>
 
-    <!-- Include external JavaScript file -->
-    <script src="{{ url_for('static', filename='script/artist-list.js') }}"></script>
+    <!-- Main Content -->
+    <main>
+        <div id="artists-grid"></div>
+    </main>
+</div>
+
+<!-- Include external JavaScript file -->
+<script src="{{ url_for('static', filename='script/artist-list.js') }}"></script>
 </body>
 </html>

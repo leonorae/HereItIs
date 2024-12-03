@@ -1,6 +1,6 @@
-/**
- * Fetches all the events from the API and calls the generateEventList function
- */
+/*****
+ ***** Fetches all the events from the API and calls the generateEventList function
+ *****/
 document.addEventListener('DOMContentLoaded', () => {
     const rootURL = window.location.origin;
     fetch(`${rootURL}/api/artists`)
@@ -12,13 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(artists => {
             console.log(artists); // This should log the events data
-            
-            generateArtistList(artists); // This function renders the list of events
 
-            // Example: Render the events in the HTML
-            // Can I move this to another function to be called?
-            
-            
+            generateArtistList(artists); // This function renders the list of events
         })
         .catch(error => console.error('Error:', error));
 });
@@ -48,12 +43,15 @@ const generateArtistList = (artists) => {
         artistPoster.classList.add('artist-poster');
         posterContainer.append(artistPoster);
 
+        // Create content container for text elements. Fixes issue where text appears over pictures.
+        const contentContainer = document.createElement('div');
+        contentContainer.classList.add('artist-card-content');
+        artistCard.append(contentContainer);
+
         // Create a link to the individual artist page
         const artistName = document.createElement('h2');
         const artistLink = document.createElement('a');
         const artistDescription = document.createElement('p');
-
-        // what other things do we need to display?
 
         // Set the inner text of the elements
         artistName.textContent = artist.name;
@@ -62,14 +60,10 @@ const generateArtistList = (artists) => {
         // Set the href attribute of the link
         artistLink.href = `/artists/username/${artist.artistusername}`;
 
-        // Append the elements to the container
+        // Append the elements to the content container
         artistsgrid.append(artistCard);
-        artistCard.append(artistLink);
+        contentContainer.append(artistLink);
         artistLink.append(artistName);
-        artistCard.append(artistDescription);
-
-
-        // test future artist events
-        
+        contentContainer.append(artistDescription);
     });
 }

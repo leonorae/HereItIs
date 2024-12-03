@@ -20,7 +20,6 @@ body, html
 .container
 {
     display: flex;
-    /* height: 100%; */
     background-color: #d2d3d3;
 }
 
@@ -35,14 +34,14 @@ aside
     flex-direction: column;
 }
 
-/* "HereItIs" logo text in sidebar */
+/* "HereItIs" text in sidebar */
 aside h1
 {
     margin-top: 0;
     font-size: 2em;
 }
 
-/* Navigation menu list container - removes default bullet points */
+/* Navigation menu list container */
 nav ul
 {
     border: 2px solid black;
@@ -57,8 +56,7 @@ nav ul li
     margin-bottom: 10px;
 }
 
-/* Navigation menu links (Home, Artists, Get Listed, About) */
-/* needs help, get listed is centered weirdly */
+/* Navigation menu links */
 nav ul li a
 {
     margin: 0 10px;
@@ -70,7 +68,7 @@ nav ul li a
 /* Featured artist section at bottom of sidebar */
 .featured-artist
 {
-    margin-top: auto;  /* Pushes section to bottom of sidebar */
+    margin-top: auto;
 }
 
 /* "Featured Artist" title bar */
@@ -133,7 +131,6 @@ header
 /* Base styles for each event card */
 .event-card
 {
-    /* aspect-ratio: 16/9;  Maintains consistent card proportions */
     border: 1px solid #999;
     display: flex;
     flex-direction: column;
@@ -151,7 +148,7 @@ header
 /* Base styles for each event card */
 .artist-card
 {
-    aspect-ratio: 16/9;  /* Maintains consistent card proportions */
+    aspect-ratio: 16/9;
     border: 1px solid #999;
     display: flex;
     flex-direction: column;
@@ -173,7 +170,7 @@ header
 .event-content
 {
     padding: 10px;
-    margin-top: auto;  /* Pushes content to bottom of card */
+    margin-top: auto;
 }
 
 /* Artist names in event cards */
@@ -204,17 +201,16 @@ header
 }
 
 /* Image for the event */
-.event-poster 
+.event-poster
 {
-    /* fill container */
     width: 100%;
     height: 100%;
     object-fit: cover;
-    
+
 }
 
 /* Image for the Artist */
-.artist-poster 
+.artist-poster
 {
     width: 100%;
     height: 100%;
