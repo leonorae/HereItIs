@@ -139,7 +139,7 @@ const generateEventBox = (event) => {
     return `
         <div class="event-box">
             <p>${event.name}</p>
-            <p>@ ${event.venuename} - ${eventDate}</p>
+            <p>@ ${event.name} - ${eventDate}</p>
             <p>${event.location}</p>
             ${event.description ? `<p>${event.description}</p>` : ''}
             <p>Tickets: ${ticketPrice}</p>

@@ -43,6 +43,8 @@ const generateEvent = (event) => {
   eventContainer.append(eventCardRight);
   eventContainer.append(eventCardBottom);
 
+  console.log(event);
+
 
   // Create HTML elements for event data
   const eventName = document.createElement('h2');
@@ -50,9 +52,16 @@ const generateEvent = (event) => {
   const dateTime = document.createElement('p');
   const eventDescription = document.createElement('p');
 
+  // Event Poster Container
+  const eventPosterContainer = document.createElement('div');
+  eventPosterContainer.classList.add('event-poster-container');
+  eventCardLeft.append(eventPosterContainer);
+
   // Create event poster
   const eventPoster = document.createElement('img');
   eventPoster.classList.add('event-poster');
+  eventPoster.src = event.posterurl;
+  eventPosterContainer.append(eventPoster);
 
   // Venue Information
   const venueName = document.createElement('h3');
@@ -65,7 +74,7 @@ const generateEvent = (event) => {
   dateTime.textContent = event.datetime;
   eventDescription.textContent = event.description;
   venueDescription.textContent = event.venuedescription;
-  eventPoster.src = event.posterurl;
+  
   // TODO: get the venue name from the venue ID
   venueName.textContent = event.venuename;
 
@@ -74,7 +83,7 @@ const generateEvent = (event) => {
   eventCardLeft.append(eventName);
   eventCardLeft.append(artistName);
   
-  eventCardLeft.append(eventPoster);
+  
   eventCardLeft.append(eventDescription);
   
   eventCardRight.append(venueName);
