@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(events => {
-            console.log(events); // This should log the events data
             
             generateEventsGrid(events); // This function renders the list of events
-            
+            createFilterEventsOptions(events);
+            filterButtonFunction(events);
         })
         .catch(error => console.error('Error:', error));
 });
@@ -155,6 +155,128 @@ const generateEventsGrid = (events) => {
     });
 }
 
+// TODO: Build Filter Function
+// const filterEvents = (events) => {
+//   // Filter events by venue name
+
+// }
+
+
+/**
+ * Creates the filter options for the events
+ * @returns {HTMLElement} venueFilter
+ * @returns {HTMLElement} artistFilter
+ */
+const createFilterEventsOptions = (events) => {
+    const filterBox = document.getElementsByClassName('filter-box-container')[0];
+
+    const filterOptions = document.createElement('div');
+    const venueFilter = document.createElement('select');
+    const artistFilter = document.createElement('select');
+
+    // add venues to filter
+    const venueTracker = {};
+    venueTracker[0] = "All Venues";
+
+    const option = document.createElement('option');
+    option.value = 0;
+    option.textContent = "All Venues";
+    venueFilter.appendChild(option);
+
+    events.forEach(event => {
+        if (!(event.venueid in venueTracker)) {
+            const option = document.createElement('option');
+            venueTracker[event.venueid] = event.venuename;
+            option.value = event.venueid;
+            option.textContent = event.venuename;
+            venueFilter.appendChild(option);
+        }
+    });
+
+    // const artistTracker = {};
+
+    // Add options to artist filter
+    // events.forEach(event => {
+    //     if (!(event.artistid in artistTracker)) {
+    //         const option = document.createElement('option');
+    //         artistTracker[event.artistid] = event.artistname;
+    //         option.value = event.artistid;
+    //         option.textContent = event.artistname;
+    //         artistFilter.appendChild(option);
+    //     }
+    // });
+
+    filterOptions.classList.add('filter-options');
+    venueFilter.classList.add('venue-filter');
+    // artistFilter.classList.add('artist-filter');
+
+    filterBox.appendChild(filterOptions);
+    filterOptions.appendChild(venueFilter);
+    // filterOptions.appendChild(artistFilter);
+
+    // create a submit button to filter events
+    const submitButton = document.createElement('button');
+    submitButton.textContent = 'Submit';
+    submitButton.classList.add('submit-button');
+
+    filterOptions.appendChild(submitButton);
+
+
+    // initially hide the filter options on page load
+    filterOptions.style.display = 'none';
+}
+
+/**
+ * Select events based on filter results
+ */
+const filterEvents = (x) => {
+    // TODO: filter events based on venue and artist
+    const venueFilter = document.getElementsByClassName('venue-filter')[0];
+    // const artistFilter = document.getElementsByClassName('artist-filter')[0];
+
+    const selectedVenue = venueFilter.options[venueFilter.selectedIndex].value;
+    // const selectedArtist = artistFilter.options[artistFilter.selectedIndex].value;
+
+    const filteredEvents = [];
+
+    // Filter events based on selected venue and artist
+    x.forEach(event => {
+        if (parseInt(selectedVenue) === 0) {
+            filteredEvents.push(event);
+        }
+        // filteredEvents.push(event.venueid);
+        if (event.venueid === parseInt(selectedVenue)) {
+            filteredEvents.push(event);
+        }
+
+    // Clear the events grid
+    const eventsGrid = document.getElementById('events-grid');
+    eventsGrid.innerHTML = '';
+
+    // Generate the filtered events grid
+    generateEventsGrid(filteredEvents);
+
+    });
+}
+
+/**
+ * Hides and show the filter options when button is clicked
+ */
+const filterButtonFunction = (events) => {
+    filterButton = document.getElementById('filter-button');
+    filterButton.addEventListener('click', () => {
+    filterOptions = document.getElementsByClassName('filter-options')[0];
+    if (filterOptions.style.display === 'none') {
+        filterOptions.style.display = 'block';
+        const submitButton = document.getElementsByClassName('submit-button')[0];
+        submitButton.addEventListener('click', () => {
+        filterEvents(events);
+        });
+    } else {
+        filterOptions.style.display = 'none';
+    } 
+});
+}
 
 
 // TODO: INIT function to call everything

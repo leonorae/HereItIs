@@ -216,3 +216,11 @@ header
     height: 100%;
     object-fit: cover;
 }
+
+/* Filter Box */
+.filter-box
+{
+    background-color: var(--cyan-card);
+    width: 10px;
+    height: 10px;
+}
