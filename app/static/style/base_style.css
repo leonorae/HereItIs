@@ -41,6 +41,18 @@ aside h1
     font-size: 2em;
 }
 
+/* Logo box */
+.logo-box {
+    background-color: #d2d3d3;
+    padding: 20px;
+}
+
+.logo-box h1 {
+    margin: 0;
+    color: black;
+    font-family: "Courier New", monospace;
+}
+
 /* Navigation menu list container */
 nav ul
 {

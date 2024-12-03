@@ -15,41 +15,6 @@
     padding: 20px;
 }
 
-/* Logo box */
-.logo-box {
-    background-color: #d2d3d3;
-    padding: 20px;
-}
-
-.logo-box h1 {
-    margin: 0;
-    color: black;
-    font-family: "Courier New", monospace;
-}
-
-/* Navigation box */
-.nav-box {
-    background-color: #000;
-    padding: 20px;
-    margin: 20px 0;
-}
-
-.nav-box ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.nav-box li {
-    margin: 15px 0;
-}
-
-.nav-box a {
-    color: white;
-    text-decoration: none;
-    font-family: "Courier New", monospace;
-}
-
 /* Built By section */
 .built-by {
     margin-top: 40px;
