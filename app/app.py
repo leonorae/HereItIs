@@ -393,16 +393,14 @@ def get_artist_by_username(username):
         cur.close()
         conn.close()
 
-# API Endpoint to get upcoming events for artist by artistID 
+# API Endpoint to get all events for artist by artistID 
 @app.route('/api/artists/<int:artist_id>/events', methods=['GET'])
-def get_artist_upcoming_events(artist_id):
+def get_artist_events(artist_id):
     """
     Fetches and returns all upcoming events for a specific artist ID.
     Returns:
         JSON: List of upcoming events with venue details
     """
-    # LG: just replaced this one
-    # TODO: remove this comment if it works.
     conn = get_db_connection()
     if conn is None:
         return jsonify({"error": "Database connection failed."}), 500
@@ -411,22 +409,21 @@ def get_artist_upcoming_events(artist_id):
         cur = conn.cursor()
 
         #SQL Query    
-        # Get future events only, joined with venue details, sorted by date
+        # Get all events, joined with venue details, sorted by date
         cur.execute('''
             SELECT e.*, v.* 
             FROM Event e
             JOIN Venue v ON e.VenueID = v.VenueID
             WHERE e.ArtistID = %s
-            AND e.DateTime >= CURRENT_TIMESTAMP
             ORDER BY e.DateTime ASC;
         ''', (artist_id,))
         
-        upcoming_events = cur.fetchall()
+        events = cur.fetchall()
         
         # Format response with events list and count
         response = {
-            "events": upcoming_events,
-            "event_count": len(upcoming_events)
+            "events": events,
+            "event_count": len(events)
         }
         
         return jsonify(response), 200
