@@ -28,26 +28,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Make the event page: create the HTML elements, provide data, and append to the container
 const generateEvent = (event) => {
+  // Set title of page
+  document.getElementsByTagName('title')[0].textContent = event.name;
   const eventContainer = document.getElementById('event-container');
+
+  // Generate Event Name and Date for Header
+  const header = document.getElementsByTagName('header')[0];
+  const headerContent = document.createElement('h2');
+  headerContent.textContent = event.name + ' - ' + event.datetime;
+  header.append(headerContent);
 
   // Create the 3 containers for the event page
   const eventCardLeft = document.createElement('div');
+  const eventCardTop = document.createElement('div');
   const eventCardRight = document.createElement('div');
   const eventCardBottom = document.createElement('div');
 
+  eventCardTop.classList.add('event-card-top');
   eventCardLeft.classList.add('event-card-left');
   eventCardRight.classList.add('event-card-right');
   eventCardBottom.classList.add('event-card-bottom');
 
-  eventContainer.append(eventCardLeft);
-  eventContainer.append(eventCardRight);
+  eventContainer.append(eventCardTop);
+
+  eventCardTop.append(eventCardLeft);
+  eventCardTop.append(eventCardRight);
   eventContainer.append(eventCardBottom);
 
   console.log(event);
 
 
   // Create HTML elements for event data
-  const eventName = document.createElement('h2');
   const artistName = document.createElement('h3');
   const dateTime = document.createElement('p');
   const eventDescription = document.createElement('p');
@@ -68,7 +79,7 @@ const generateEvent = (event) => {
   const venueDescription = document.createElement('p');
 
   // pass the event data into HTML element
-  eventName.textContent = event.name;
+  
   artistName.textContent = event.artistname;
   // TODO: break up the date time into separate elements for display
   dateTime.textContent = event.datetime;
@@ -80,7 +91,7 @@ const generateEvent = (event) => {
 
   console.log(event);
 
-  eventCardLeft.append(eventName);
+  
   eventCardLeft.append(artistName);
   
   

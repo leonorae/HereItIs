@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event: {{ event_id }}</title>
+    <title></title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style/base_style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style/event_style.css') }}">
 </head>
@@ -16,15 +16,22 @@
             <nav>
                 <ul>
                     <!-- Need to Link these -->
-                    <a href="/"><li>Home</li></a>
-                    <a href="/artists"><li>Artists</li></a>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/artists">ARTISTS</a></li>
                     <!-- Which Form do we link to artist or event? Or different landing?-->
-                    <a href="/addartistform"><li>Get Listed</li></a>
-                    <a href="/about"><li>About</li></a>
+                    <li><a href="/addartistform">GET LISTED</a></li>
+                    <li><a href="/about">ABOUT</a></li>
                 </ul>
             </nav>
         </aside>
-        <div id="event-container"></div>
+        <main>
+            <header class="header-bar">
+                <div class="header-content">
+                    <div class="event-title"></div>
+                    <div class="event-date"></div>
+            </header>
+            <div id="event-container"></div>
+        </main>     
     </div>
     <script>
         const eventID = "{{ event_id }}";
