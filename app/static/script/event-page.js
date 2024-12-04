@@ -57,7 +57,6 @@ const generateEvent = (event) => {
 
   console.log(event);
 
-
   // Create HTML elements for event data
   const artistName = document.createElement('h3');
   const dateTime = document.createElement('p');

@@ -143,7 +143,7 @@ header
 /* Base styles for each event card */
 .event-card
 {
-    border: 1px solid #999;
+    border: 5px solid #999;
     display: flex;
     flex-direction: column;
 }
@@ -229,10 +229,31 @@ header
     object-fit: cover;
 }
 
-/* Filter Box */
-.filter-box
+/* Filter dropdown container */
+.filter-box-container
 {
-    background-color: var(--cyan-card);
-    width: 10px;
-    height: 10px;
+    background-color: #999;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.filter-box-container select
+{
+    padding: 2px;
+    margin: 5px 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.submit-button
+{
+    padding: 5px;
+    margin: 5px 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#filter-button
+{
+    cursor: pointer;
 }

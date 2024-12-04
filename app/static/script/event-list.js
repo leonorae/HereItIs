@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(events => {
-            
+            buildPage();
             generateEventsGrid(events); // This function renders the list of events
             createFilterEventsOptions(events);
             filterButtonFunction(events);
@@ -34,6 +34,18 @@ document.addEventListener('DOMContentLoaded', () => {
  * ticketprice
  * venueid
  */
+
+/**
+ * Build the static HTML elements for the page
+ * @returns {HTMLElement} header 
+ */
+const buildPage = () => {
+    // Generates header for the index page
+    const header = document.getElementsByClassName('header-content')[0];
+    const dateTime = document.createElement('h2');
+    dateTime.textContent = new Date().toDateString();
+    header.appendChild(dateTime);
+}
 
 /**
  * generateEventsGrid --> Generates the list of events from the API call to HTML
@@ -75,10 +87,8 @@ const generateEventsGrid = (events) => {
         artistDiv.classList.add('artists');
         eventContent.appendChild(artistDiv);
 
-        
-
         // Artist Name
-        const artistName = document.createElement('h3');
+        const artistName = document.createElement('h2');
         artistName.classList.add('artist-name');
         // Replace artist ID with artist name
         artistLink = document.createElement('a');
@@ -92,9 +102,8 @@ const generateEventsGrid = (events) => {
         eventContent.appendChild(eventDetails);
         
         // Event Name
-        const eventName = document.createElement('h2');
+        const eventName = document.createElement('h3');
         eventName.classList.add('event-name');
-
 
         const eventLink = document.createElement('a');
         // eventName.textContent = event.name;
@@ -264,9 +273,11 @@ const filterEvents = (x) => {
  */
 const filterButtonFunction = (events) => {
     filterButton = document.getElementById('filter-button');
+    filterButton.textContent = 'Filter Events';
     filterButton.addEventListener('click', () => {
     filterOptions = document.getElementsByClassName('filter-options')[0];
     if (filterOptions.style.display === 'none') {
+        filterButton.textContent = 'Hide Filter';
         filterOptions.style.display = 'block';
         const submitButton = document.getElementsByClassName('submit-button')[0];
         submitButton.addEventListener('click', () => {
@@ -274,6 +285,7 @@ const filterButtonFunction = (events) => {
         });
     } else {
         filterOptions.style.display = 'none';
+        filterButton.textContent = 'Filter Events';
     } 
 });
 }
