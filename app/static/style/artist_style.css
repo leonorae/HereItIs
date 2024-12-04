@@ -140,6 +140,11 @@
     padding: 10px;
 }
 
+.event-box > a {
+    text-decoration: none;
+    color: black;
+}
+
 .event-box p {
     margin: 0;
     font-family: "Courier New", monospace;

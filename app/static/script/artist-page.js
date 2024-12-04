@@ -135,14 +135,16 @@ const generateEvents = (events) => {
 const generateEventBox = (event) => {
     const eventDate = new Date(event.datetime).toLocaleDateString();
     const ticketPrice = event.ticketprice ? `$${event.ticketprice}` : 'Price TBA';
-
+    console.log(event);
     return `
         <div class="event-box">
-            <p>${event.name}</p>
-            <p>@ ${event.name} - ${eventDate}</p>
+            <a href="/events/${event.idevent}">
+            <p>${event.eventname}</p>
+            <p>@ ${event.venuename} - ${eventDate}</p>
             <p>${event.location}</p>
             ${event.description ? `<p>${event.description}</p>` : ''}
             <p>Tickets: ${ticketPrice}</p>
+            </a>
         </div>
     `;
 };

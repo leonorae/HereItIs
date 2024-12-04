@@ -411,7 +411,7 @@ def get_artist_events(artist_id):
         #SQL Query    
         # Get all events, joined with venue details, sorted by date
         cur.execute('''
-            SELECT e.*, v.* 
+            SELECT e.name as eventName, v.name as venueName, e.*, v.*
             FROM Event e
             JOIN Venue v ON e.VenueID = v.VenueID
             WHERE e.ArtistID = %s
