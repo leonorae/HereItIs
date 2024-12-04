@@ -591,6 +591,11 @@ def get_all_venues():
         cur.close()
         conn.close()
 
+
+@app.route('/get-listed')
+def get_listed():
+    return render_template('get-listed.html')
+
         
 # Site route for the about Page
 @app.route('/about')
