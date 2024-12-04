@@ -38,16 +38,36 @@
 {
     /* puts card on its own line  */
     align-self: normal;
-
+    background-color: black;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 10px;
-    color:blue;
+    color: white;
 }
 
 .event-poster-container
 {
-    width: 300px;
-    height: 200px;
+    height: 600px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-poster
+{
+    object-fit: cover;
+    border: #999 5px solid;
+
+}
+
+.ticket-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    padding: 10px;
 }

@@ -38,7 +38,7 @@ const generateEvent = (event) => {
   headerContent.textContent = event.name + ' - ' + event.datetime;
   header.append(headerContent);
 
-  // Create the 3 containers for the event page
+  // Create the 4 containers for the event page
   const eventCardLeft = document.createElement('div');
   const eventCardTop = document.createElement('div');
   const eventCardRight = document.createElement('div');
@@ -51,6 +51,7 @@ const generateEvent = (event) => {
 
   eventContainer.append(eventCardTop);
 
+  // left and right go into top container
   eventCardTop.append(eventCardLeft);
   eventCardTop.append(eventCardRight);
   eventContainer.append(eventCardBottom);
@@ -58,7 +59,7 @@ const generateEvent = (event) => {
   console.log(event);
 
   // Create HTML elements for event data
-  const artistName = document.createElement('h3');
+  
   const dateTime = document.createElement('p');
   const eventDescription = document.createElement('p');
 
@@ -74,31 +75,62 @@ const generateEvent = (event) => {
   eventPosterContainer.append(eventPoster);
 
   // Venue Information
-  const venueName = document.createElement('h3');
   const venueDescription = document.createElement('p');
+  
+  venueDescription.classList.add('venue-description');
 
   // pass the event data into HTML element
-  
-  artistName.textContent = event.artistname;
+  const artistName = event.artistname;
+
+  const venueName = event.venuename;
+  venueName.textContent = event.venuename;
   // TODO: break up the date time into separate elements for display
   dateTime.textContent = event.datetime;
-  eventDescription.textContent = event.description;
-  venueDescription.textContent = event.venuedescription;
+  eventDescription.textContent = `Event Description: ${event.description}`;
+  venueDescription.textContent = `Venue Description: ${event.venuedescription}`;
   
   // TODO: get the venue name from the venue ID
   venueName.textContent = event.venuename;
 
   console.log(event);
+  
+  
 
-  
-  eventCardLeft.append(artistName);
-  
+  const artistAndVenue = document.createElement('h2');
+  artistAndVenue.classList.add('artist-venue');
+  artistAndVenue.append(artistName + ' @ ' + venueName);
+  eventCardBottom.append(artistAndVenue);
+ 
+
   
   eventCardLeft.append(eventDescription);
   
   eventCardRight.append(venueName);
   eventCardRight.append(venueDescription);
-  eventCardBottom.append(dateTime);
+  // eventCardBottom.append(artistName);
+
+  // Add Artist Poster to the aside with description
+  const aside = document.getElementsByTagName('aside')[0];
+  const artistPoster = document.createElement('img');
+  artistPoster.classList.add('artist-poster');
+  artistPoster.src = event.artistimageurl;
+  aside.append(artistPoster);
+
+  // Add ticket info to the aside
+  const ticketContainer = document.createElement('div');
+  ticketContainer.classList.add('ticket-container');
+  aside.append(ticketContainer);
+
+  const ticketHeader = document.createElement('h3');
+  ticketHeader.textContent = 'Ticket Price';
+  ticketContainer.append(ticketHeader);
+
+  // Ticket Pricing
+  const ticketInfo = document.createElement('div');
+  ticketInfo.classList.add('ticket-info');
+  ticketInfo.textContent = `$${event.ticketprice}`;
+  ticketContainer.append(ticketInfo);
+
   
 }
 
