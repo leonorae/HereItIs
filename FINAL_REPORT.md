@@ -46,7 +46,8 @@ TBD
 ### What We Had Planned for the Future
 - Use AI to auto-gather details from artists' and venues' social media pages.
 - Security features such as personal accounts with admin privileges to some users.
-- TBD
+- Fans can follow each other and see what their friends are attending.
+- Artists/venues can sell tickets on our website.
 
 ### Known Problems (Bugs, Issues)
 - Users can insert images with links that are not working. 
