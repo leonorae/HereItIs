@@ -34,9 +34,9 @@ TBD
 
 ### What We Completed
 - PostgreSQL database with API to access the data.
-- Backend framework in Flask.
-- Deployment of the website.
-- Functional demo of website addressing the goals of the projects
+- The backend framework in Flask is deployed in Render.
+- Functional demo of the website addressing the goals of the project.
+- TBD
 
 ### What We Were in the Middle of Implementing
 - TBD
@@ -45,11 +45,11 @@ TBD
 
 ### What We Had Planned for the Future
 - Use AI to auto-gather details from artists' and venues' social media pages.
-- TBD
+- Security features such as personal accounts with admin privileges to some users.
 - TBD
 
 ### Known Problems (Bugs, Issues)
-- TBD
+- Users can insert images with links that are not working. 
 - TBD
 - TBD
 
