@@ -15,7 +15,7 @@ HereItIs
 ---
 
 ## Project Tracker Link
-[https://trello.com/b/EVZ16txS/wizardteam](https://trello.com/b/EVZ16txS/wizardteam)
+[Tracker Link in Trello](https://trello.com/b/EVZ16txS/wizardteam)
 
 
 ---
@@ -58,5 +58,5 @@ HereItIs
 ---
 
 ## Public Hosting Site
-[https://hereitis-v3.onrender.com/](https://hereitis-v3.onrender.com/)
+[Public Hosting Site](https://hereitis-v3.onrender.com/)
 
