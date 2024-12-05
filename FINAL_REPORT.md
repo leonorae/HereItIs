@@ -39,7 +39,7 @@ TBD
 - TBD
 
 ### What We Were in the Middle of Implementing
-- TBD
+- List a venue page from the website. Currently, you can only list artists and events.
 - TBD
 - TBD
 
