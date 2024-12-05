@@ -21,7 +21,7 @@ HereItIs
 ---
 
 ## 5-Minute Demo Video
-TBD
+[HereItIs Demo (on YouTube)](https://youtu.be/9bwlIBUpZKE)
 
 ---
 
@@ -40,7 +40,7 @@ TBD
 
 ### What We Were in the Middle of Implementing
 - List a venue page from the website. Currently, you can only list artists and events.
-- TBD
+- Incorporate more filtering parameters for event and artist selection.
 - TBD
 
 ### What We Had Planned for the Future
@@ -48,10 +48,11 @@ TBD
 - Security features such as personal accounts with admin privileges to some users.
 - Fans can follow each other and see what their friends are attending.
 - Artists/venues can sell tickets on our website.
+- Embed music in Artist pages.
 
 ### Known Problems (Bugs, Issues)
 - Users can insert images with links that are not working. 
-- TBD
+- Events must use ArtistID and EventID to be added (ideally use Artist Username and Venue Name).
 - TBD
 
 ---
