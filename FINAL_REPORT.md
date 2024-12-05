@@ -15,7 +15,7 @@ HereItIs
 ---
 
 ## Project Tracker Link
-[Tracker Link in Trello](https://trello.com/b/EVZ16txS/wizardteam)
+[Tracker in Trello](https://trello.com/b/EVZ16txS/wizardteam)
 
 
 ---
@@ -26,7 +26,7 @@ HereItIs
 ---
 
 ## Version Control Repository
-[https://github.com/leonorae/HereItIs](https://github.com/leonorae/HereItIs)
+[Version Control GitHub](https://github.com/leonorae/HereItIs)
 
 ---
 
