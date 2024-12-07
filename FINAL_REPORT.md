@@ -35,13 +35,12 @@ HereItIs
 ### What We Completed
 - PostgreSQL database with API to access the data.
 - The backend framework in Flask is deployed in Render.
+- HTML and JavaScript front-end layout and functionality that meets the project's objective.
 - Functional demo of the website addressing the goals of the project.
-- TBD
 
 ### What We Were in the Middle of Implementing
 - List a venue page from the website. Currently, you can only list artists and events.
 - Incorporate more filtering parameters for event and artist selection.
-- TBD
 
 ### What We Had Planned for the Future
 - Use AI to auto-gather details from artists' and venues' social media pages.
@@ -53,7 +52,7 @@ HereItIs
 ### Known Problems (Bugs, Issues)
 - Users can insert images with links that are not working. 
 - Events must use ArtistID and EventID to be added (ideally use Artist Username and Venue Name).
-- TBD
+- The get-listed page sidebar doesn't change the artist's color or an event when selected.
 
 ---
 
