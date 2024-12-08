@@ -41,6 +41,7 @@ HereItIs
 ### What We Were in the Middle of Implementing
 - List a venue page from the website. Currently, you can only list artists and events.
 - Incorporate more filtering parameters for event and artist selection.
+- Incorporate further internal linking amongst pages on site for smoother navigability.
 
 ### What We Had Planned for the Future
 - Use AI to auto-gather details from artists' and venues' social media pages.
@@ -48,11 +49,13 @@ HereItIs
 - Fans can follow each other and see what their friends are attending.
 - Artists/venues can sell tickets on our website.
 - Embed music in Artist pages.
+- Feature an artist at random on home page, as pulled from the list of artists.
 
 ### Known Problems (Bugs, Issues)
 - Users can insert images with links that are not working. 
 - Events must use ArtistID and EventID to be added (ideally use Artist Username and Venue Name).
 - The get-listed page sidebar doesn't change the artist's color or an event when selected.
+- Some HTML container elements render before content populates. Functionally fine, but could be more appealing.
 
 ---
 
